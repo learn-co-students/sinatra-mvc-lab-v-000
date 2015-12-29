@@ -22,4 +22,8 @@ def piglatinize (word)
   def to_pig_latin (sentence)
     sentence.split.map{|word| piglatinize(word)}.join(' ')
   end
+
+  p = PigLatinizer.new
+
+puts p.piglatinize("pork")
 end
