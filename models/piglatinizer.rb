@@ -9,10 +9,11 @@ class PigLatinizer
   def piglatinize(input_word)
     deleted_segment = ""
     while !input_word.start_with?("a","e","i","o","u","A","E","I","O","U")  
-      deleted_segment += input_word[0]
+      deleted_segment = input_word[0]
       input_word[0]=''
+      input_word += "#{deleted_segment}"
     end
-    input_word += "#{deleted_segment}" + "ay" if input_word.length >1
+    input_word += "ay" if input_word.length >1
     input_word
   end
 
