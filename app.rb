@@ -7,5 +7,7 @@ class App < Sinatra::Base
   end
 
   post '/piglatinize' do
+    @word = params[:word]
+    redirect "/piglatinize/#{@word}"
   end
 end
