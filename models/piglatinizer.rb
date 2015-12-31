@@ -2,17 +2,16 @@ class PigLatinizer
   VOWELS = %w[a e i o u]
 
   def piglatinize(word)
-    return word if ["i", "me", "to", "too", "a", "an", "in", "and", "on"].include?(word)
+    return word if %w[i to too a an and on in me].include?(word)
 
-    word = word.gsub(".", "")
     index = ""
-    word.split("").each_with_index do |c, i|
+    word = word.gsub(".", "")
+    word.split("").collect.with_index do |c, i|
       if VOWELS.include?(c)
         index = i
         break
       end
     end
-
     starts_with_vowel?(word) || "#{word[index..-1]}#{word[0..(index-1)]}ay"
   end
 
