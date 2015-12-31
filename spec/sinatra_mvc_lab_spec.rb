@@ -13,7 +13,7 @@ describe "Pig Latinizer App" do
     end
 
     it "renders a new form element on the page" do
-      expect(last_response.body).to include("<form>")
+      expect(last_response.body).to include("<form")
       expect(last_response.body).to include("</form>")
     end
 
@@ -39,7 +39,7 @@ describe "Pig Latinizer App" do
     end
 
     it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("eOncay uponay a imetay and a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray and isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
+      expect(last_response.body).to include("Onceay uponay a imetay and a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray and isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
     end
   end
 
