@@ -30,7 +30,7 @@ describe "Pig Latinizer App" do
   describe "POST '/piglatinize'" do
     before do
       post '/piglatinize', {
-        "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nicens little boy named baby tuckoo."
+        "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nicens little boy named baby tuckoo"
       }
     end
 
@@ -39,7 +39,7 @@ describe "Pig Latinizer App" do
     end
 
     it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("eOncay uponay a imetay and a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray and isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
+      expect(last_response.body).to include("Onceay uponay a imetay anday a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray anday isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
     end
   end
 
@@ -55,7 +55,7 @@ describe "Pig Latinizer App" do
     end
 
     it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("eHay asway an olday anmay owhay ishedfay aloneay in a iffskay in ethay ulfGay eamStray and ehay adhay onegay eightyay ourfay aysday ownay ithoutway akingtay a ishfay")
+      expect(last_response.body).to include("eHay asway anay olday anmay owhay ishedfay aloneay inay a iffskay inay ethay ulfGay eamStray anday ehay adhay onegay eightyay ourfay aysday ownay ithoutway akingtay a ishfay")
     end
   end
 end
