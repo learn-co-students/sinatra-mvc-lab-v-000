@@ -6,7 +6,7 @@ class PigLatinizer
 
     index = ""
     word = word.gsub(".", "")
-    word.split("").collect.with_index do |c, i|
+    word.split("").each_with_index do |c, i|
       if VOWELS.include?(c)
         index = i
         break
