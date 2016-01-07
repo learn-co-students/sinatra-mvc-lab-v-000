@@ -1,29 +1,29 @@
+require 'pry'
+
 class PigLatinizer
 
-def piglatinize (word)
-
-    exclude = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
-    vowels = ["a", "e", "i", "o", "u"]
-
-    if exclude.include?(word)
-      word
-    elsif vowels.include? word[0]
-      word << "ay"
-    else
-      consonants = ""
-      while !vowels.include?(word[0])
-        consonants << word[0]
-        word = word.split("")[1..-1].join
+  def piglatinize(word)
+    return word if %w[and an in].include?(word) #one syllable exceptions
+    letters = word.split("")
+    letters.keep_if {|letter| letter != "."}
+    if letters.size > 1
+      until vowel?(letters[0]) 
+        letters << letters.shift
       end
-      word + consonants + 'ay'
+      letters  << "ay"
     end
+    letters.join
   end
 
-  def to_pig_latin (sentence)
-    sentence.split.map{|word| piglatinize(word)}.join(' ')
+  def to_pig_latin(text)
+    words = text.split(" ")
+    words.map! {|word| piglatinize(word)}
+    words.join(" ")
   end
 
-  p = PigLatinizer.new
+  def vowel?(letter)
+    letter.downcase
+    letter == "o" || letter == "e" || letter == "a" || letter == "i" || letter == "u"
+  end
 
-puts p.piglatinize("pork")
 end
