@@ -18,13 +18,12 @@ class PigLatinizer
     piglatin = []
     vowel = ["a","e","i","o","u"]
     non_piglatin = ["in","an","on","and","me", "to", "too"]
-    phrase_words = self.splits
-    phrase_words.each do |pw|
+    self.splits.each do |pw|
       part1=[]
       part2 = []
       split = pw.to_s.split(//)
-      if pw.size > 1 && non_piglatin.include?(pw)==false
-        val = split.find_index{|s| vowel.include?(s)}
+      if pw.size > 1 && non_piglatin.include?(pw)==false #enters this loop only of word is more than 1 letter and is not a non_pig_latin word
+        val = split.find_index{|s| vowel.include?(s)} #finds index of the first vowel and splits word from that point
         split.each_with_index{|v, i| (i >= val) ? part1 << v : part2 << v }
         split_word = (part1+part2).join+"ay"
       else
@@ -36,8 +35,8 @@ class PigLatinizer
   end
   
   def splits
-    phrase_words = @phrase.split.collect{|word| word.gsub(".","")}
-    phrase_words
+    words = @phrase.split.collect{|word| word.gsub(".","")}
+    words
   end
     #binding.pry
 end
