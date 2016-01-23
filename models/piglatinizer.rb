@@ -10,7 +10,7 @@ class PigLatinizer
     val = letter.find_index{|s| vowel.include?(s)}
     letter.each_with_index{|v, i| (i >= val) ? part1 << v : part2 << v }
     piglatin_word = (part1+part2).join+"ay"
-    return piglatin_word
+    piglatin_word
   end
   
   def to_pig_latin(phrase)
@@ -22,7 +22,6 @@ class PigLatinizer
     phrase_words.each do |pw|
       part1=[]
       part2 = []
-      pw.gsub(/./,"")
       split = pw.to_s.split(//)
       if pw.size > 1 && non_piglatin.include?(pw)==false
         val = split.find_index{|s| vowel.include?(s)}
@@ -37,7 +36,8 @@ class PigLatinizer
   end
   
   def splits
-    phrase_words = @phrase.to_s.split(" ") 
+    phrase_words = @phrase.split.collect{|word| word.gsub(".","")}
+    phrase_words
   end
     #binding.pry
 end
