@@ -5,7 +5,7 @@ class PigLatinizer
   def piglatinize(word)
  
      vowels = %w[a e i o u]
-     exceptions = ['a', 'i', 'to', 'me', 'an', 'in']
+     exceptions = ['a', 'i', 'to', 'me', 'an', 'in', 'and']
 
      if exceptions.include?(word)
      word     
@@ -20,5 +20,5 @@ class PigLatinizer
    def to_pig_latin(sentence)
      sentence.split(" ").collect{|word| piglatinize(word)}.join(" ")
    end
-
+  
 end 

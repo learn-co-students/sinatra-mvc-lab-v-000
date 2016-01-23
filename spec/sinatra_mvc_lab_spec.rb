@@ -34,7 +34,7 @@ describe "Pig Latinizer App" do
       }
     end
 
-    it "returns a 200 status code" do
+   it "returns a 200 status code" do
       expect(last_response.status).to eq(200)
     end
 
