@@ -15,3 +15,6 @@ describe 'class PigLatinizer' do
   end
   
 end
+
+# "eHay asway anay olday anmay owhay ishedfay aloneay inay a iffskay inay ethay ulfGay eamStray anday ehay adhay onegay eightyay ourfay aysday ownay ithoutway akingtay a ishfay" to include 
+# "eHay asway an olday anmay owhay ishedfay aloneay in a iffskay in ethay ulfGay eamStray and ehay adhay onegay eightyay ourfay aysday ownay ithoutway akingtay a ishfay"
