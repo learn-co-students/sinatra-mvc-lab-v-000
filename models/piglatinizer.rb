@@ -21,7 +21,7 @@ class PigLatinizer
 	end
 
 	def to_pig_latin(phrase)
-		phrase.split(/\s|\./).collect do |word|
+		phrase.split(/\s|\W/).collect do |word|
 			case word.downcase
 			when 'a','and','an','i','am','in'
 				word
