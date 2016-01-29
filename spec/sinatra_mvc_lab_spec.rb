@@ -39,7 +39,7 @@ describe "Pig Latinizer App" do
     end
 
     it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("Onceyay uponyay ayay imetay andyay ayay eryvay oodgay imetay ityay asway erethay asway ayay oocowmay omingcay ownday alongyay ethay oadray andyay isthay oocowmay atthay asway omingcay ownday alongyay ethay oadray etmay ayay icensnay ittlelay oybay amednay abybay uckootay")
+      expect(last_response.body).to include("Onceay uponay a imetay and a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray and isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
     end
   end
 
@@ -55,7 +55,7 @@ describe "Pig Latinizer App" do
     end
 
     it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("eHay asway anyay oldyay anmay owhay ishedfay aloneyay inyay ayay iffskay inyay ethay ulfGay eamStray andyay ehay adhay onegay eightyyay ourfay aysday ownay ithoutway akingtay ayay ishfay")
+      expect(last_response.body).to include("eHay asway an olday anmay owhay ishedfay aloneay in a iffskay in ethay ulfGay eamStray and ehay adhay onegay eightyay ourfay aysday ownay ithoutway akingtay a ishfay")
     end
   end
 end

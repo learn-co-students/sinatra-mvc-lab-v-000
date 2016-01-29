@@ -16,15 +16,17 @@ class PigLatinizer
   end
 
   def piglatinize(word)
-    if word.scan(/\b[bcdfghjklmnpqrstvwxyz]{1,}/i) != []
+    non_pig_latin_words = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
+    if non_pig_latin_words.include?(word)
+      return word
+    elsif word.scan(/\b[bcdfghjklmnpqrstvwxyz]{1,}/i) != []
       new_word = drop_beginning_consonant(word)
       letters_array = new_word.split("")
       letters_array << @dropped_letters
-      letters_array << "ay"
     else
-      letters_array = word.split("")
-      letters_array << "yay"
+      letters_array = word.split("") 
     end
+    letters_array << "ay"
     @dropped_letters = ""
     piglatin_word = letters_array.join
   end
