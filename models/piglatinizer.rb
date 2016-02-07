@@ -1,7 +1,7 @@
 class PigLatinizer
   
   def piglatinize(word)
-    first_vowel = word.scan(/[aeiou]/).first
+    first_vowel = word.scan(/[aeiouAEIOU]/).first
     split_array = word.split(//)
     if split_array.count > 1
       # adds 'yay' to the end of the word if
