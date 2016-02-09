@@ -10,6 +10,7 @@ class PigLatinizer
   end
 
   def piglatinize(phrase)
+    phrase.gsub!(/\./,"")
     if phrase.split(' ').length > 1
       to_pig_latin(phrase)
       @phrase
@@ -17,14 +18,13 @@ class PigLatinizer
       alter_word(phrase)
       @phrase[0]
     end
-    binding.pry
   end
 
   def alter_word(word)
     word = word.split('')
     loop do
-      break if VOWELS.include?(word[0])
-      word.rotate! if CONSONANTS.include?(word[0])
+      break if VOWELS.include?(word[0].downcase)
+      word.rotate! if CONSONANTS.include?(word[0].downcase)
     end
     word << 'ay'
     @phrase << word.join('')
