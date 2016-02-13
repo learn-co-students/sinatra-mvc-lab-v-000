@@ -1,17 +1,23 @@
 class PigLatinizer
+  attr_accessor :words
 
-  def piglatinize(word)
-    return word if !word.match(/[^AEIOUaeiou]/)
-    mix = word.slice!(/^[^AEIOUaeiou]+/)
-    mix = "" if !mix
-    word + mix + 'ay'
+  def initialize
+    @words = words
   end
 
-  def to_pig_latin(sentence)
-    new_sentence = sentence.split(" ").map do |word|
-      piglatinize(word)
+  def piglatinize(words)
+    return words if !words.match(/[^AEIOUaeiou]/)
+    return words if words == "an" || words == "in" || words == "and"
+    mix = words.slice!(/^[^AEIOUaeiou]+/)
+    mix = "" if !mix
+    words + mix + 'ay'
+  end
+
+  def to_pig_latin(words)
+    new_words = words.split(" ").map do |words|
+      piglatinize(words)
     end
-    new_sentence.join(" ")
+    new_words.join(" ")
   end
 
 end
