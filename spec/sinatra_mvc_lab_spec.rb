@@ -30,7 +30,7 @@ describe "Pig Latinizer App" do
   describe "POST '/piglatinize'" do
     before do
       post '/piglatinize', {
-        "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nicens little boy named baby tuckoo."
+        "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nicens little boy named baby tuckoo"
       }
     end
 
@@ -39,7 +39,7 @@ describe "Pig Latinizer App" do
     end
 
     it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("eOncay uponay a imetay and a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray and isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
+      expect(last_response.body).to include("Onceay uponay a imetay and a eryvay oodgay imetay itay asway erethay asway a oocowmay omingcay ownday alongay ethay oadray and isthay oocowmay atthay asway omingcay ownday alongay ethay oadray etmay a icensnay ittlelay oybay amednay abybay uckootay")
     end
   end
 
