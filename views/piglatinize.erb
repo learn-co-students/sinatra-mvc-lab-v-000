@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pig Latinizer Results</title>
+  </head>
+  <body>
+    <h1>Pig Latinized:</h1>
+    <% if @user_phrase.split(" ").size > 1 %>
+      <h2><%=  "#{@pl.to_pig_latin(@user_phrase)}" %></h2>
+    <% else %>
+      <%= @pl.piglatinize(@user_phrase) %>
+    <% end %>
+    <h3>Try again?</h3>
+    <form method="get" action="/">
+      <input type="submit" value="try again!"></input>
+    </form>
+
+  </body>
+</html>
