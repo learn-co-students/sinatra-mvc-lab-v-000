@@ -2,7 +2,7 @@ class PigLatinizer
 	
 	
 	def piglatinize(word)
-		nogoes = ["an", "and", "in"]
+		nogoes = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
 		if word.length > 1 && !nogoes.include?(word)
 			if word[0].match(/[aeiou]/)
 					word + "ay"
@@ -17,8 +17,6 @@ class PigLatinizer
 	
 	def to_pig_latin(phrase)
 		words = phrase.gsub(/[^a-zA-z ]/, '').split(" ")
-		words.collect do |word|
-			piglatinize(word)
-		end.join(" ")
+		words.collect {|word| piglatinize(word)}.join(" ")
 	end
 end
