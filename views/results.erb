@@ -1,0 +1,5 @@
+    <% if  params[:user_phrase].include?(" ") %>
+      <h1><%= @text.to_pig_latin(params[:user_phrase]) %></h1>
+    <% else %>
+      <h1><%= @text.piglatinize(params[:user_phrase]) %></h1>
+    <% end %>
