@@ -4,13 +4,6 @@ class PigLatinizer
   end
 
   def piglatinize(word)
-    # index = word.index(/[aeiou]/, 1)
-    # if (word.length > 2 && index)
-    #   first_non_vowel = index
-    #   word[first_non_vowel..-1] + word[0...first_non_vowel] + 'ay'
-    # else
-    #   word
-    # end
     length = word.length
     unless word[0].match(/[aeiou]/) && length > 2
       index = word.index(/[aeiou]/, 1)
