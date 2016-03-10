@@ -1,4 +1,4 @@
-class PigLatinizer 
+class PigLatinizer
 	attr_accessor :word, :statment
 
 	def piglatinize(word)
@@ -16,7 +16,7 @@ class PigLatinizer
 			piglatinize(word)
 		end
 		new_statement.join(" ").delete(',' + '.')
-	end 
+	end
 
 
 end
