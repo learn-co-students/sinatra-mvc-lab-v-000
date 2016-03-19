@@ -49,16 +49,4 @@ class PigLatinizer
     vowels.include?(letter)
   end
 
-  def consonants
-    # returns an array
-    alphabet - vowels
-  end
-
-  def alphabet
-    ('a'..'z').to_a
-  end
-
-  def vowels
-    %w[a e i o u]
-  end
 end
