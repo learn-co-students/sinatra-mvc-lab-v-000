@@ -11,18 +11,15 @@ class PigLatinizer
 
   def translate(word)
     if word.length > 1
-      first_letter  = word[0].downcase
-      last_letter   = word[-1].downcase
-
       if word == 'and' || word == 'an' || word == 'in'
         word
       elsif word == 'Once'
         'eOncay'
       elsif capture = consonant_expression.match(word)
         capture.post_match.to_s + capture.to_s + 'ay'
-      elsif vowel?(first_letter)
+      elsif vowel?(first_letter=word[0].downcase)
         word + 'ay'
-      elsif vowel?(last_letter)
+      elsif vowel?(last_letter=word[-1].downcase)
         move_last_letter(word) + 'ay'
       end
     else
