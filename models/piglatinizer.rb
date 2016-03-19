@@ -49,4 +49,7 @@ class PigLatinizer
     vowels.include?(letter)
   end
 
+  def vowels
+    %w[a e i o u]
+  end
 end
