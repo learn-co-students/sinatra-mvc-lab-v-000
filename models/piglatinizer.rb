@@ -12,7 +12,6 @@ class PigLatinizer
   def translate(word)
     if word.length > 1
       first_letter  = word[0].downcase
-      second_letter = word[1].downcase
       last_letter   = word[-1].downcase
 
       if word == 'and' || word == 'an' || word == 'in'
