@@ -11,19 +11,16 @@ class PigLatinizer
 
   def translate(word)
     if word.length > 1
-      first_letter = word[0].downcase
+      first_letter  = word[0].downcase
       second_letter = word[1].downcase
-      last_letter = word[-1].downcase
+      last_letter   = word[-1].downcase
+
       if word == 'and' || word == 'an' || word == 'in'
         word
       elsif word == 'Once'
         'eOncay'
-      elsif word == 'Stream'
-        'eamStray'
-      elsif consonants.include?(first_letter) && consonants.include?(second_letter)
-        move_first_and_second_letter(word) + 'ay'
-      elsif consonants.include?(first_letter)
-        move_first_letter(word) + 'ay'
+      elsif capture = consonant_expression.match(word)
+        capture.post_match.to_s + capture.to_s + 'ay'
       elsif vowel?(first_letter)
         word + 'ay'
       elsif vowel?(last_letter)
@@ -34,19 +31,20 @@ class PigLatinizer
     end
   end
 
-  def move_first_letter(word)
-    word[1..-1] + word[0]
-  end
-
+  # Move last letter to beginning of word
   def move_last_letter(word)
     word[-1] +  word[0..-2]
   end
 
-  def move_first_and_second_letter(word)
-    word[2..-1] + word[0..1]
+  private
+  def consonant_expression
+    # at the beginning of a String
+    # capture anything not a vowel (consonants)
+    # capture 1, 2 or 3 occurences
+    # ignore case and whitespace
+    /^ [^aeiou] {1,3}/ix
   end
 
-  private
   def vowel?(letter)
     vowels.include?(letter)
   end
