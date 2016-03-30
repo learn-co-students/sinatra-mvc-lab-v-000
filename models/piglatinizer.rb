@@ -1,16 +1,15 @@
 require 'pry'
 
 class PigLatinizer
-  attr_accessor :word, :phrase
-  @@vowels = %w[a e i o u A E I O U]
 
   def piglatinize(word)
-    @word = word
-    if @@vowels.include?(@word[0])
-      @word + 'way'
+    vowels = %w[a e i o u A E I O U]
+
+    if vowels.include?(word[0])
+      word + 'way'
     else
-      idx = @word.index(/[aeiouAEIOU]/)
-      @word[idx, @word.length-idx] + @word[0, idx] + "ay"
+      idx = word.index(/[aeiouAEIOU]/)
+      word[idx, word.length-idx] + word[0, idx] + "ay"
 
       # #index gives you the index number of the first element that returns true for the given condition in block
       # difference between .. and , in array ranges
@@ -20,16 +19,10 @@ class PigLatinizer
   end
 
   def to_pig_latin(phrase)
-    @phrase = phrase
-    words = phrase.split(" ") 
-    words.collect! do |word|
-      if @@vowels.include?(word[0])
-        word + 'way'
-      else
-        idx = word.index(/[aeiouAEIOU]/)
-        word[idx, word.length-idx] + word[0, idx] + "ay"
-      end
-    end
-    words.join(" ")
+    # #split string into separate strings for each word
+    # #collect array of piglatinized words
+    # #join with a space betwen each word and make into string
+    
+    phrase.split.collect{|word| piglatinize(word)}.join(" ")
   end
 end
