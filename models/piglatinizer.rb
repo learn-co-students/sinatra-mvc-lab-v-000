@@ -39,7 +39,6 @@ class PigLatinizer
       @pigtext = "#{ary}ay"
 
     else
-      puts "you made it to the 3-letter consonant else code"
       ary = text.split("")
       3.times do ary.shift end
       ary << text[0..2]
