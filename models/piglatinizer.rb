@@ -2,7 +2,6 @@ class PigLatinizer
 
   def piglatinize(word)
 
-    
     ignore = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
   
   if word.length > 1 && !ignore.include?(word)
