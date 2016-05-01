@@ -3,11 +3,11 @@ class PigLatinizer
   def piglatinize(word)
     vowels = ["a", "e", "i", "o", "u"]
 
-    if vowels.include? word[0].downcase
+    if vowels.include?(word[0].downcase)
       word << "way"
     else
       consonants = ""
-      while !vowels.include?(word[0])
+      while !vowels.include?(word[0].downcase)
         consonants << word[0]
         word = word.split("")[1..-1].join
       end
