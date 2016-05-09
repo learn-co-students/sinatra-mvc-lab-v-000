@@ -24,27 +24,3 @@ class PigLatinizer
     end
   end
 end
-
-
-
-# def to_pig_latin(phrase)
-#   @phrasing = split_phrase(phrase)
-#   piglatinize
-#   @latinized.join(" ")
-# end
-#
-# def piglatinize
-#   @latinized = []
-#   i = 0
-#   while i < @phrasing.count
-#     first_split = @phrasing[i].split(/([aeiou].*)/)[0]
-#     second_split = @phrasing[i].split(/([aeiou].*)/)[1]
-#     if first_split == ""
-#       @latinized << second_split + "way"
-#     else
-#       @latinized << second_split + first_split + "ay"
-#     end
-#     i += 1
-#   end
-# end
-# end
