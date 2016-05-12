@@ -1,35 +1,24 @@
 class PigLatinizer
 
 
-  def piglatinize(word)
-   
-    alpha = ('a'..'z').to_a
-    vowels = %w[a e i o u]
-    consonants = alpha - vowels
-
-    if vowels.include?(word[0])
-      word + 'way'
-    elsif consonants.include?(word[0]) && consonants.include?(word[1])
-      word[2..-1] + word[0..1] + "ay"
-    elsif word[0..1] == "qu" 
-      word[2..-1]+ "quay"
-    elsif word[0..2] == "squ"
-       word[3..-1]+ "squay"
-    elsif consonants.include?(word[0])
-      word[1..-1] + word[0..0] + "ay"
-    elsif word.length <= 1
-      word + "way"
+def piglatinize(word)
+    if %w(a e i o u A E I O U).include?(word[0])
+      piglatin_word = word + "way"
     else
-      word # return unchanged
+      while !%w(a e i o u A E I O U).include?(word[0])
+        word = word[1,word.length-1] + word[0]
+      end
+      piglatin_word = word + "ay"
     end
+    piglatin_word
+  end
+
+  def to_pig_latin(word)
+    piglatinize(word)
   end
 
   def to_pig_latin(string)
     string.split.collect{|word| piglatinize(word)}.join(" ")
   end
-
-
-
-   
 
 end
