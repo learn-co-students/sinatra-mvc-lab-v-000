@@ -8,11 +8,10 @@ class App < Sinatra::Base
   end
 
   post '/piglatinize' do
-    piglatin = PigLatinizer.new(params[:user_input])
-    erb :piglatinize
-
+    # user_phrase = params[:user_phrase]
+    @piglatinized = PigLatinizer.new.to_pig_latin(params[:user_phrase])
+    erb :piglatin
   end
-
 end
 
 # 2. Create a `POST` method in your controller (`app.rb`) to receive your form's `params`./
