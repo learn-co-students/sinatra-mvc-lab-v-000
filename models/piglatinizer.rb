@@ -1,5 +1,5 @@
 
-class PigLatinize
+class PigLatinizer
   attr_accessor :text
   @@vowels = ['a', 'e', 'i', 'o', 'u']
 
@@ -7,16 +7,16 @@ class PigLatinize
     @text = text
   end
 
-  def piglatin
-    words = self.text.split(" ")
+  def to_pig_latin(phrase = @text)
+    words = phrase.split(" ")
     pigged_words = []
     pigged_words = words.map do |word|
-      convert_to_pig_latin(word)
+      piglatinize(word)
     end
     pigged_words.join(" ")
   end
 
-  def convert_to_pig_latin(word)
+  def piglatinize(word)
     converted_word = word
     #if word starts with vowel
     if word.downcase.start_with?('a', 'e', 'i', 'o', 'u')
@@ -36,18 +36,5 @@ class PigLatinize
       converted_word << "#{leading_consonants}ay"
     end
     converted_word
-  end
-
-end
-
-# hack to pass spec's
-class PigLatinizer < PigLatinize
-  def piglatinize(word)
-    convert_to_pig_latin(word)
-  end
-
-  def to_pig_latin(phrase)
-    @text = phrase
-    piglatin
   end
 end
