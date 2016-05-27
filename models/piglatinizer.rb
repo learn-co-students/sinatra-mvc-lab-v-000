@@ -2,31 +2,10 @@ require 'pry'
 class PigLatinizer
   attr_accessor :text
 
-  def initialize(:user_phrase)
+  def initialize
     @text = text
+
   end
-
-  # def piglatinize(text)
-  #   binding.pry
-  #   chopped = text.slice!(0)
-  #   if text.size < 2
-  #     text + chopped + "way"
-  #   else
-  #     text + chopped + "ay"
-  #   end
-  # end
-
-  # def piglatinize(text)
-  #   if text.start_with?('a','e','i','o','u','A','E','I','O','U')
-  #     text = text + "way"
-  #   else
-  #     find = text.find
-  #     chopped = text.slice!(0)
-  #     text = text + chopped + "ay"
-  #   end
-  #   text
-  # end
-# end
 
   def piglatinize(text)
     alpha_low = ('a'..'z').to_a
@@ -44,7 +23,7 @@ class PigLatinizer
     elsif consonants.include?(text[0])
       text[1..-1] + text[0] + 'ay'
     else
-      text # return unchanged
+      text
     end
   end
 
@@ -55,13 +34,7 @@ class PigLatinizer
       word = piglatinize(i)
       new_sentence << word
     end
-    sentence = new_sentence.join(" ")
-    sentence
-
+    sentence1 = new_sentence.join(" ")
+    sentence1
   end
 end
-
-# if text starts with vowel
-#   add yay
-# elsif text doesnt start with vowel, find vowel, chop, and place at end with ay
-# end
