@@ -2,7 +2,7 @@ require 'pry'
 class PigLatinizer
   attr_accessor :text
 
-  def initialize
+  def initialize(:user_phrase)
     @text = text
   end
 
