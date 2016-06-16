@@ -1,3 +1,4 @@
+require 'pry'
 describe 'class PigLatinizer' do 
   let!(:words) { PigLatinizer.new }
 
@@ -8,6 +9,7 @@ describe 'class PigLatinizer' do
 
   it 'piglatinizes an individual word' do 
     expect(words.piglatinize("pork")).to eq("orkpay")
+    # binding.pry
     expect(words.piglatinize("I")).to eq("Iway")
     expect(words.piglatinize("hello")).to eq("ellohay")
     expect(words.piglatinize("please")).to eq("easeplay")
