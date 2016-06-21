@@ -1,34 +1,68 @@
+require 'pry'
 class PigLatinizer
   attr_accessor :text
 
   @@vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+  @@array = []
+  #def initialize(text)
+  #  @text = text
+  #end
 
-  def initialize(text)
-    @text = text
-  end
-
-  def init_pig
+  def piglatinize(text)
+    latin(text)
+=begin
     text_arr = @text.split(' ')
-    translated_words = text_arr.map do |x|
-      consonant_checker(x)
+    if text_arr.length == 1
+      to_pig_latin_one(text_arr)
+    else
+      translated_words = text_arr.map do |x|
+        consonant_checker(x)
+      end
+      return translated_words.join(' ')
     end
-    return translated_words.join(' ')
+=end
   end
 
-  def consonant_vowel_checker(word)
-    word_arr = word.split('') # ["O", "n", "c", "e"]
-    #word_arr.map! do |x|
-      if !@@vowels.include?(word_arr[0]) && @@vowels.include?(word_arr[1])
-        word_arr.rotate!(1)
-        word_arr << "ay"
-      elsif !@@vowels.include?(word_arr[0]) && !@@vowels.include?(word_arr[1])
-        word_arr.rotate!(2)
-        word_arr << "ay"
-      elsif @@vowels.include?(word_arr[0])
-        word_arr << "way"
-      end
-    #end
-    translated_word = word_arr.join(' ')
-    return translated_word
+  def to_pig_latin(text)
+    text_arr = text.split(' ')
+    word_arr = text_arr.each do |x|
+      @@array << latin(x)
+    end
+    @@array.join(' ')
+
   end
+
+  def latin(split_word)
+    #translated = []
+    if split_word.length > 1
+      split_split_word = split_word.split('')
+      latin_more_than_one(split_split_word)
+      #binding.pry
+      #split_word.each do |x|
+    elsif @@vowels.include?(split_word)
+      split_word + "way"
+    end
+
+  end
+
+  def latin_more_than_one(split_split_word)
+
+
+    if !@@vowels.include?(split_split_word[0]) && @@vowels.include?(split_split_word[1])
+      split_split_word.rotate!(1)
+      split_split_word << "ay"
+    elsif !@@vowels.include?(split_split_word[0]) && !@@vowels.include?(split_split_word[1]) && !@@vowels.include?(split_split_word[2])
+      split_split_word.rotate!(3)
+      split_split_word << "ay"
+    elsif !@@vowels.include?(split_split_word[0]) && !@@vowels.include?(split_split_word[1])
+      split_split_word.rotate!(2)
+      split_split_word << "ay"
+    elsif @@vowels.include?(split_split_word[0])
+      split_split_word << "way"
+    end
+
+    split_split_word.join('')
+
+  end
+
 end
