@@ -1,7 +1,7 @@
 class PigLatinizer
   attr_accessor :text
 
-  @@vowels = ["a", "e", "i", "o", "u"]
+  @@vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 
   def initialize(text)
     @text = text
@@ -16,18 +16,18 @@ class PigLatinizer
   end
 
   def consonant_vowel_checker(word)
-    word_arr = word.split('')
-    word_arr.map! do |x|
-      if !@@vowels.include?(x[0]) && @@vowels.include?(x[1])
-        x.rotate!(1)
-        x << "ay"
-      elsif !@@vowels.include?(x[0]) && !@@vowels.include?(x[1])
-        x.rotate!(2)
-        x << "ay"
-      elsif @@vowels.include?(x[0])
-        x << "way"
+    word_arr = word.split('') # ["O", "n", "c", "e"]
+    #word_arr.map! do |x|
+      if !@@vowels.include?(word_arr[0]) && @@vowels.include?(word_arr[1])
+        word_arr.rotate!(1)
+        word_arr << "ay"
+      elsif !@@vowels.include?(word_arr[0]) && !@@vowels.include?(word_arr[1])
+        word_arr.rotate!(2)
+        word_arr << "ay"
+      elsif @@vowels.include?(word_arr[0])
+        word_arr << "way"
       end
-    end
+    #end
     translated_word = word_arr.join(' ')
     return translated_word
   end
