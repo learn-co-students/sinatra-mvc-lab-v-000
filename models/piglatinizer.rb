@@ -1,20 +1,20 @@
 class PigLatinizer
 
   def piglatinize(word)
-    first_vowel_at_index = word.downcase.index(/[aeiou]/)
-    if first_vowel_at_index == 0 
+    vowels = ["a", "e", "i", "o", "u"]
+    if vowels.include? word[0].downcase
       word + "way"
-    elsif 
-      initial_consonants = word[0..first_vowel_at_index-1]
-      rest_of_word = word[first_vowel_at_index..-1]
-      rest_of_word + initial_consonants + "ay"
+    else
+      consonants = ""
+      while !vowels.include? word[0].downcase
+        consonants << word[0]
+        word = word.split("")[1..-1].join
+      end 
+      word + consonants + "ay"
     end
   end
 
   def to_pig_latin(phrase)
-    words = phrase.split(" ")
-    words.map do |word|
-      piglatinize(word)
-    end.join(" ")
+    phrase.split.map { |word| piglatinize(word) }.join(" ")
   end
 end
