@@ -18,11 +18,14 @@ class PigLatinizer
     # "glove" → "oveglay"
     #return pig_a_tized word
 #----------------
-    vowel_idx = word.index(/[aeiou]/)
-    word_pt1 = word.slice(0..vowel_idx - 1)
-    word_pt2 = word.slice(vowel_idx..word.length)
-    pig_a_tized_word = word_pt2 + word_pt1 + "ay"
-
+    if word.index(/[aeiou]/)
+      vowel_idx = word.index(/[aeiou]/)
+      word_pt1 = word.slice(0..(vowel_idx - 1))
+      word_pt2 = word.slice(vowel_idx..word.length)
+      pig_a_tized_word = word_pt2 + word_pt1 + "ay"
+    else
+      pig_a_tized_word = word + "ay"
+    end
   end
 
   def vowel_begin (word)
