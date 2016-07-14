@@ -13,7 +13,7 @@ class PigLatinizer
   end
 
   def piglatinize(word)
-    constants = "bcdfghjklmnpqrstvwxyz".split("")
+    constants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".split("")
     letters = word.split("")
     if constants.include?(letters[0])
       while constants.include?(letters[0])
