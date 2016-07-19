@@ -6,7 +6,7 @@ class PigLatinizer
       output = word << "way"
     else
       word_array = word.split("")
-      while word_array[0] =~ /[b-df-hj-np-tv-z]/i
+      while word_array[0] =~ /[^aeiou]/i
         first_letter = word_array.shift
         word_array << first_letter
       end
