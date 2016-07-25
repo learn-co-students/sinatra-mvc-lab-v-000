@@ -8,16 +8,15 @@ class PigLatinizer
   def piglatinize(word)
     vowels = %w[a e i o u A E I O U]
 
-    if vowels.include?(word[0])
-      word + "way"
+    if vowels.include? word[0]
+      word << "way"
     else
-      new_word = []
-      until vowels.include?(new_word[0])
-      new_word = word.downcase.split(//)
-      new_word << new_word.shift
-      new_word.join
-    end
-    new_word.join + "ay"
+      new_word = ""
+      while !vowels.include?(word[0])
+        new_word << word[0]
+        word = word.split(//)[1..-1].join
+      end
+      word + new_word + "ay"
     end
   end
 
