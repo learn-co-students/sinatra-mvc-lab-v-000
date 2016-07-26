@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Pig Latinizer!</title>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Pig Latinizer!</h1>
-
-    <form method="post" name="user_phrase" action="/piglatinize">
-      <p>Welcome to Pig Latinizer.
-      <br>Enter your phrase:</p>
-      <textarea name="user_phrase"></textarea>
-      <p><button type="submit" value="submit">Submit</button></p>
+    <form action="/piglatinize" id="user_phrase" method="post" name=
+    "user_phrase">
+        <p>Welcome to Pig Latinizer.<br>
+        Enter your phrase:</p><img alt="Welcoming Pig" class="welcome" src=
+        "../images/pig_in_tophat.png"><img alt="Welcoming Pig" class="img-flip"
+        src="../images/pig_in_tophat.png">
+        <textarea name="user_phrase"></textarea>
+        <p><button type="submit" value="submit">Submit</button></p>
     </form>
-
-  </body>
+</body>
 </html>

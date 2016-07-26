@@ -1,16 +1,19 @@
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Pig Latinized!</title>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Pig Latinized!</h1>
-
-      <p>Thank you for using Pig Latinizer!
-      <br>This is your phrase translated to Pig Latin:</p>
-      <div class="results"><%= @piglatinize %></div>
-      <p>
-      <button type="submit" value="submit" onclick="history.back(-1)">Do it again</button>
-      </p>
-  </body>
+    <p>Thank you for using Pig Latinizer!<br>
+    This is your phrase translated to Pig Latin:</p>
+    <div class="results">
+        <%= @piglatinize %>
+    </div>
+    <p><button onclick="history.back(-1)" type="submit" value="submit">Do it
+    again</button></p>
+    <div><img alt="piggy satisfaction" class="piglatinize" src=
+    "../images/adventuretime_piglets.png"></div>
+</body>
 </html>
