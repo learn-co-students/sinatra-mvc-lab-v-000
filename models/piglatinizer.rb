@@ -1,25 +1,38 @@
-class PigLatinize
-  attr_accessor :user_phrase
+class PigLatinizer
 
-  def initialize(user_phrase)
-    @user_phrase = user_phrase
+  def piglatinize(words)
+    pig_latin_words_array = []
+    words = words.split
+    words.each do |word|
+      if /\A[y]/.match(word) # first letter y
+        cons = cons_rule(word).to_s
+        word += word.slice!(0, cons.length) + 'ay'
+        pig_latin_words_array << word
+      elsif cons_rule(word) # first letter cons
+        cons = y_rule(word).to_s
+        word += word.slice!(0, cons.length) + 'ay'
+        pig_latin_words_array << word
+      else # first letter is vowel
+        word = word + 'way'
+        pig_latin_words_array << word
+      end
+    end
+    pig_latin_words_array
   end
 
-  def translate(str)
-    str = @user_phrase.split(", ")
-    alpha = ('a'..'z').to_a
-    vowels = %w[a e i o u]
-    consonants = alpha - vowels
+  def y_rule(word)
+    /\A[^aeiou]+/.match(word)
+  end
 
-    if vowels.include?(str[0])
-      str + 'ay'
-    elsif consonants.include?(str[0]) && consonants.include?(str[1])
-      str[2..-1] + str[0..1] + 'ay'
-    elsif consonants.include?(str[0])
-      str[1..-1] + str[0] + 'ay'
+  def cons_rule(word)
+    /\A[^aeiouy]+/.match(word)
+  end
+
+  def to_pig_latin(string)
+    if string.size > 1
+      string.split.collect{|word| piglatinize(word)}.join(" ")
     else
-      str # return unchanged
+      string
     end
-    @user_phrase.join(" ")
   end
 end
