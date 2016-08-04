@@ -6,21 +6,29 @@ class PigLatinizer
 
   def piglatinize(text)
     vowels = ["a","e","o","u","i"]
-    consontants = ""
-    if vowels.include?(text[0])
+    if vowels.include?(text[0].downcase)
       word = text + "way"
     else
-      until !(vowels.include?text[0] == false)
-        consontants = consontants + text[0]
+      consontants = ""
+      until vowels.include?text[0]
+        consontants = (consontants + text[0])
         text = text[1..-1]
       end 
-      binding.pry
       word = text + consontants + "ay"
     end 
   word
   end 
 
-end
+  def to_pig_latin(text)
+    (text.split(" ").map{|word| piglatinize(word)}).join(" ")
+  end 
+end 
+
+
+
+
+
+
  
 =begin
   def count_of_vowels
