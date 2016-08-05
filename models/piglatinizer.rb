@@ -32,7 +32,8 @@ class PigLatinizer
     if string.size > 1
       string.split.collect{|word| piglatinize(word)}.join(" ")
     else
-      string
+      string.split(",")
+      string.join("")
     end
   end
 end
