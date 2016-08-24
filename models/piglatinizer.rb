@@ -7,7 +7,6 @@ class PigLatinizer
     else
     	word + "way"
     end
-
   end
 
   def to_pig_latin(words)
@@ -15,7 +14,7 @@ class PigLatinizer
 	  words.split(" ").map do |word|
 		  string << piglatinize(word)
 	  end
-	string.join(" ")
+	  string.join(" ")
   end
 
 end
