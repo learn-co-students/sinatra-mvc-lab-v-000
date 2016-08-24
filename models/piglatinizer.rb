@@ -11,7 +11,11 @@ class PigLatinizer
   end
 
   def to_pig_latin(words)
-    
+    string = []
+	  words.split(" ").map do |word|
+		  string << piglatinize(word)
+	  end
+	string.join(" ")
   end
 
 end
