@@ -34,21 +34,16 @@ class PigLatinizer
     @new_sentence.join(" ")
   end
 
-  # word_array.index(/[aeouiAEIOU]/)
-  # indexes = []
-  # word_array.each do |word|
-  #   letter = "" + word.scan(/[aeouiAEIOU]/) + ""
-  #   indexes << word_array.index(letter)
-  # end
-  # indexes
+  # # word = "programmer"
+  # # word_array = word.scan /\w/
+  # first_vowel = word[/[aeiou]/]
 
-  # word_array.each.with_index do |word, index|
-  #   # if word.scan(/[aeouiAEIOU]/) != nil
-  #   puts word.scan(/[aeouiAEIOU]/)
-  #     # puts index
-  #   end
-  # end
+  # first_vowel_index = word_array.index(first_vowel) # 2
 
+  # ending = word_array.shift(first_vowel_index) #["p", "r"] # word_array = ["o", "g", "r", "a", "m", "m", "e", "r"]
+  # word_array << ending #["o", "g", "r", "a", "m", "m", "e", "r", ["p", "r"]] 
+  # word_array << "ay" #["o", "g", "r", "a", "m", "m", "e", "r", ["p", "r"], "ay"] 
+  # new_word = word_array.flatten.join("") #"ogrammerpray" 
 
   def piglatinize(word)
     word_array = word.scan /\w/
@@ -57,10 +52,12 @@ class PigLatinizer
       new_word = word_array.join("")
       @new_sentence << new_word
     else
-      new_word_array = word_array.shift
-      word_array << new_word_array
+      first_vowel = word[/[aeiou]/]
+      first_vowel_index = word_array.index(first_vowel)
+      ending = word_array.shift(first_vowel_index)
+      word_array << ending
       word_array << "ay"
-      new_word = word_array.join("")
+      new_word = word_array.flatten.join("")
       @new_sentence << new_word
     end
     new_word
