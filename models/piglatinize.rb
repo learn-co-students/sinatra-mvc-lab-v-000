@@ -1,4 +1,4 @@
-require 'pry'
+#require 'pry'
 class PigLatinizer
 
   def piglatinize(word)
@@ -9,6 +9,12 @@ class PigLatinizer
     else
       word + "way"
     end
+  end
+
+  def to_pig_latin(sentence)
+    words = sentence.split(" ")
+    words.map! { |word| piglatinize(word) }
+    words.join(" ")
   end
 
 end
