@@ -1,14 +1,14 @@
 class PigLatinizer
 
-  def piglatinize(word)
-    if !word.scan(/^[aeiou]/i).empty?
-      word << "way"
+  def piglatinize(string)
+    vowels = ["A","E","I","O","U"]
+
+    if vowels.include?(string[0].upcase)
+        "#{string}" + "way"
     else
-      beginning = word.scan(/^[^aeiou]+/)[0]
-      middle = word.scan(/[aeiou]+\w+/)[0]
-      middle << beginning
-      middle << "ay"
-    end
+        parts = string.split(/([aeiou].*)/)
+        parts.reverse.join('') + 'ay'
+      end
   end
 
   def to_pig_latin(phrase)
