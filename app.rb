@@ -1,6 +1,5 @@
 require_relative 'config/environment'
 
-
 class App < Sinatra::Base
 
   get '/' do
@@ -8,10 +7,9 @@ class App < Sinatra::Base
   end
 
   post '/piglatinize' do
-    @pig = params[:user_phrase]
-    @pig
+    pl = PigLatinizer.new
+    @piglatin = pl.to_pig_latin(params[:user_phrase])
+    erb :results
   end
-
-
 
 end
