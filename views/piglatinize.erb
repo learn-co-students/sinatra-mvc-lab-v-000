@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <% if @phrase.include?(" ") %>
+  <% if params[:user_phrase].include?(" ") %>
   <p><%= @phrase.to_pig_latin(params[:user_phrase]) %></p>
     <% else %>
   <p><%= @phrase.piglatinize(params[:user_phrase]) %></p>
