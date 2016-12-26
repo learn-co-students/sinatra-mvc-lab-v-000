@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pig Latinized Phrase</title>
+  </head>
+  <body>
+    <h2>Your Piglatinized phrase</h2>
+    <p>
+      <strong>Original Phrase: </strong><%= params[:user_phrase] %>
+    </p>
+    <p>
+      <strong>Piglatined Phrase: </strong> <%= @analyzer.to_pig_latin(params[:user_phrase]) %>
+    </p>
+  </body>
+</html>
