@@ -7,14 +7,7 @@ class App < Sinatra::Base
     end
 
     post "/piglatinize" do
-        # binding.pry
-        # if params[user_phrase].scan(/[[:alpha:]]+/).count > 1
-        #     @result=PigLatinizer.new.to_pig_latin(params[user_phrase])
-        # else
-        @result=PigLatinizer.new.piglatinize(params[user_phrase])
-        # end
-        #erb :result
-
-        "#{@result}"
+        @result=PigLatinizer.new.piglatinize(params["user_phrase"])
+         erb :result
     end
 end

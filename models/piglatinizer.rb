@@ -5,7 +5,7 @@ class PigLatinizer
   def piglatinize(word)
     #binding.pry
     non_pig_latin_words = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
-    vowels = ["a", "e", "i", "o", "u"]
+    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 
     if non_pig_latin_words.include?(word)
       word
