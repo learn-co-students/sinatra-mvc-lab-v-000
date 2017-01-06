@@ -1,6 +1,6 @@
 class PigLatinizer
 
-  def self.piglatinize(words)
+  def piglatinize(words)
     chars = words.downcase.split("") #pig => [p i g]
     aux = ""
     chars.each do |char|
@@ -18,14 +18,11 @@ class PigLatinizer
     end
   end
 
-  def piglatinize(words)
-    PigLatinizer.piglatinize(words)
-  end
 
   def to_pig_latin(sentence)
     sentence = sentence.split(" ")
     sentence = sentence.map do |words|
-      self.piglatinize(words)
+      piglatinize(words)
     end
     sentence.join(" ")
   end

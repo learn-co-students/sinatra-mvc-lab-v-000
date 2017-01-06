@@ -11,9 +11,4 @@ class App < Sinatra::Base
      piglatinizer = PigLatinizer.new
      piglatinizer.to_pig_latin(params[:user_phrase])
    end
-
-   post '/piglatinize' do
-     piglatinizer = PigLatinizer.new
-     piglatinizer.to_pig_latin(params[:user_phrase])
-   end
 end
