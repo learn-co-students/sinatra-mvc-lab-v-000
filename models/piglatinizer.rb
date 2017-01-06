@@ -1,20 +1,22 @@
 class PigLatinizer
 
   def piglatinize(words)
-    chars = words.downcase.split("") #pig => [p i g]
+    chars = words.split("") #pig => [p i g]
     aux = ""
     chars.each do |char|
-      if ['a', 'e', 'i', 'o', 'u'].include?(char)
+      if ['a', 'e', 'i', 'o', 'u'].include?(char.downcase)
         break
       else
         aux = aux + char #=> "" + p
       end
     end
 
+    words = words.sub(aux, "")
+    words = words + aux
     if aux.length == 0
       words = words + "way"
     else
-      words.sub!(aux, "") + aux + 'ay'
+      words = words + "ay"
     end
   end
 
