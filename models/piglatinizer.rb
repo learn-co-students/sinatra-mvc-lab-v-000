@@ -1,6 +1,6 @@
 require 'pry'
 class PigLatinizer
-  attr_accessor :words
+  attr_accessor :text
 
   def initialize
   end
