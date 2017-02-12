@@ -1,0 +1,5 @@
+<h1>Pig Latin Translation</h1>
+<%if params.count > 1%>
+<h2><%= @word.to_pig_latin(params) %></h2>
+<%else%>
+<h2><%= @word.piglatinize(params)%></h2>
