@@ -19,22 +19,5 @@ class PigLatinizer
     vowels.include?(letters[0].downcase) ? rotated << "way" : rotated << "ay"
     rotated.join("")
   end
-  # vowels = ["a", "e", "i", "o", "u"]
-  # letters = word.split("")
-  #   if vowels.include?(letters[0].downcase)
-  #     letters << "way"
-  #   elsif !vowels.include?(letters[0]) && !vowels.include?(letters[1]) && !vowels.include?(letters[2]) && vowels.include?(letters[3])
-  #     letters = letters.rotate(3)
-  #     letters << "ay"
-  #   elsif !vowels.include?(letters[0]) && !vowels.include?(letters[1]) && vowels.include?(letters[2])
-  #     letters = letters.rotate(2)
-  #     letters << "ay"
-  #   elsif !vowels.include?(letters[0]) && vowels.include?(letters[1])
-  #     letters = letters.rotate(1)
-  #     letters << "ay"
-  #   end
-  #   word = letters.join("")
-  #   word
-  # end
 
 end
