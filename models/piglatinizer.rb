@@ -1,25 +1,20 @@
 class PigLatinizer
-  
-  def piglatinize(word)
-    non_pig_latin_words = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
-    vowels = ["a", "e", "i", "o", "u"]
 
-    if non_pig_latin_words.include?(word)
-      word
-    elsif vowels.include? word[0]
-      word << "ay"
-    else
-      consonants = ""
-      while !vowels.include?(word[0])
-        consonants << word[0]
-        word = word.split("")[1..-1].join
-      end
-      word + consonants + 'ay'
-    end
+  def word_splitter(text)
+    text.split(" ")
   end
 
-  def to_pig_latin(string)
-    string.split.collect{|word| piglatinize(word)}.join(" ")
+  def to_pig_latin(text)
+    word_splitter(text).collect {|word| piglatinize(word)}.join(" ")
+  end
+
+  def piglatinize(word)
+    if /[aeiou]/.match(word[0].downcase)
+      "#{word}way"
+    else
+      vowel_index = word.index(/[aeiou]/)
+      "#{word[vowel_index..-1]}#{word[0...vowel_index]}ay"
+    end
   end
 
 end
