@@ -3,7 +3,7 @@ class PigLatinizer
 
   def to_pig_latin(string)
     words = string.split(" ").collect do |word|
-      if word[0].match(/^[aeiou]/i) #^ first instance i ignore case
+      if word[0].match(/^[aeiou]/i) # ^ first instance; i ignore case
          word += "way"
       else
         shift = word.split(/[aeiou]/).first
