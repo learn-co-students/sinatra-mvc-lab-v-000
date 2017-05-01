@@ -53,7 +53,7 @@ class PigLatinizer
 
   def to_pig_latin(sentence)
     words = sentence.split(' ')
-    words.map do { |word| piglatinize(word) }.join(' ')
+    words.map { |word| piglatinize(word) }.join(' ')
   end
 
 end
