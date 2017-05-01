@@ -34,7 +34,7 @@ class PigLatinizer
   end
 
   def has_consonant_cluster?(word)
-    /^[thprchksmstlw]{2}/.match(word)
+    /^[thprchkqsmstlw]{2}/.match(word)
   end
 
   def switch_consonant_cluster(word)
@@ -53,9 +53,7 @@ class PigLatinizer
 
   def to_pig_latin(sentence)
     words = sentence.split(' ')
-    words.map do |word|
-      piglatinize(word)
-    end.join(' ')
+    words.map do { |word| piglatinize(word) }.join(' ')
   end
 
 end
