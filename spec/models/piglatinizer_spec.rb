@@ -22,5 +22,13 @@ describe 'class PigLatinizer' do
   it 'has a method splits the sentence to piglatinize each word' do
     expect(words.to_pig_latin("i love programming")).to eq("iway ovelay ogrammingpray") 
   end
-  
+
+  it 'splits this into piglatin!' do 
+    expect(words.to_pig_latin("He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty four days now without taking a fish")).to eq("eHay asway anway oldway anmay owhay ishedfay aloneway inway away iffskay inway ethay ulfGay eamStray andway ehay adhay onegay eightyway ourfay aysday ownay ithoutway akingtay away ishfay")
+  end
+
+  it 'also splits this phrase into piglatin' do
+    expect(words.to_pig_latin("Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nice little boy named baby tuckoo")).to eq("Onceway uponway away imetay andway away eryvay oodgay imetay itway asway erethay asway away oocowmay omingcay ownday alongway ethay oadray andway isthay oocowmay atthay asway omingcay ownday alongway ethay oadray etmay away icenay ittlelay oybay amednay abybay uckootay")
+  end
+
 end
