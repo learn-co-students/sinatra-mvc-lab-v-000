@@ -13,19 +13,20 @@ class PigLatinizer
   end
 end
 
-# First attempt at pig latin method:
-# def piglatinize(word)
-  # letters = word.scan(/[A-Za-z]/)
+#First attempt at pig latin method:
+
+def piglatinize(word)
+  letters = word.scan(/[A-Za-z]/)
 
 
-  # if letters.count > 1 && letters[0..1].join.match(/[^AEIOUaeiou\s]{2}/)
-  #   letters << letters.shift.downcase until letters.first.match(/[AEIOUaeiou]/)
-  #   letters << "ay"
-  # elsif letters.first.match(/[^AEIOUaeiou\s]/)
-  #   letters << "#{letters.shift.downcase}ay"
-  # else
-  #   letters << "way"
-  # end
-  #
-  # letters.join
-# end
+  if letters.count > 1 && letters[0..1].join.match(/[^AEIOUaeiou\s]{2}/)
+    letters << letters.shift.downcase until letters.first.match(/[AEIOUaeiou]/)
+    letters << "ay"
+  elsif letters.first.match(/[^AEIOUaeiou\s]/)
+    letters << "#{letters.shift.downcase}ay"
+  else
+    letters << "way"
+  end
+
+  letters.join
+end
