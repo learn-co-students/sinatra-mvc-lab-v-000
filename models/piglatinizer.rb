@@ -5,8 +5,8 @@ class PigLatinizer
   end
 
   def piglatinize(word)
-    if slug = word.scan(/^[^AEIOUaeiou]{1,}/).first
-      word.gsub(slug, "") + slug + "ay"
+    if slug = word.scan(/^[^aeiou]{1,}/i).first
+      word.sub(slug, "") + slug + "ay"
     else
       word + "way"
     end
