@@ -5,7 +5,15 @@
     <title>title</title>
   </head>
   <body>
-    <h1>Pig Latinizer</h1>
-  
+    <h1>Pig Latinizer!</h1>
+      <!-- <form action="/piglatinize" method="post">
+        <p>Enter your pharse:</p>
+        <input type="textarea" name="pharse">
+        <input type="submit" id="submit">
+      </form> -->
+      <form method="POST" action="/piglatinize">
+      <label for="phrase">Enter your phrase:</label>
+      <input type="text" id="phrase" name='user_phrase'>
+      <input type="submit">
   </body>
 </html>
