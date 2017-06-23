@@ -6,12 +6,9 @@ class PigLatinizer
       word + "way"
     else
       suffix = ""
-      i = 0
       until word[0].match(/[aeiouAEIOU]/)
         suffix += word[0]
         word = word.slice(1..-1)
-        i +=1
-        break if i == 4
       end
       word + suffix + "ay"
     end
