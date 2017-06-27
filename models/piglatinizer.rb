@@ -8,8 +8,10 @@ class PigLatinizer
     end
    def piglatinize(word)
         alpha = ('a'..'z').to_a
+        alphacaps = ('A'..'Z').to_a
+        finalalpha = alpha + alphacaps
         vowels = %w[a e i o u A E I O U]
-        consonants = alpha - vowels
+        consonants = finalalpha - vowels
             if consonants.include?(word[0])
                 if consonants.include?(word[1]) && consonants.include?(word[2])
                     word[3..-1] << word[0..2] + "ay"
