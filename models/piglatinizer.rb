@@ -6,9 +6,9 @@ class PigLatinizer
   end
 
   def piglatinize(words)
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    vowels = ['a', 'e', 'i', 'o', 'u']
-    consonants = letters - vowels
+    @letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    @vowels = ['a', 'e', 'i', 'o', 'u']
+    @consonants = letters - vowels
 
     if words.include?(vowels[0])
       words + 'ay'
