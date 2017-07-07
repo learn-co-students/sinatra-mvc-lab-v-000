@@ -6,16 +6,19 @@ class PigLatinizer
   end
 
   def piglatinize(words)
-    @letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    @vowels = ['a', 'e', 'i', 'o', 'u']
-    @consonants = letters - vowels
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    consonants = letters - vowels
 
-    if words.include?(vowels[0])
-      words + 'ay'
-    elsif words.include?(consonants[0]) && words.include?(consonants[1])
-      words[2..-1] + words[0..1] + 'ay'
-    elsif words.include?(consonants[0])
-      words[1..-1] + words[0] + 'ay'
+    if vowels.include?(words[0])
+      words + "ay"
+      #"words + 'ay'"
+    elsif consonants.include?(words[0])
+      #"words[1..-1] + words[0] + 'ay'"
+      words[1..-1] + words[0] + "ay"
+    elsif consonants.include?(words[0]) && consonants.include?(words[1])
+      words[2..-1] + words[0] + "ay"
+      #"words[2..-1] + words[0..1] + 'ay'"
     else
       words # return unchanged
     end
