@@ -24,4 +24,11 @@ class PigLatinizer
       words # return unchanged
     end
   end
+
+  def to_pig_latin(words)
+    sentence = words.split(" ")
+    sentence.collect do |word|
+      piglatinize(word)
+    end.join(" ")
+  end
 end
