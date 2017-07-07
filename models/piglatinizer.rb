@@ -11,7 +11,8 @@ class PigLatinizer
     consonants = letters - vowels
 
     if vowels.include?(words[0])
-      words + "ay"
+      vowel = words[0]
+      words + "way"
       #"words + 'ay'"
     elsif consonants.include?(words[0])
       #"words[1..-1] + words[0] + 'ay'"
