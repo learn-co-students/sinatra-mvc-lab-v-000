@@ -12,7 +12,7 @@ class PigLatinizer
       word.chars.each do |char| #chars=str.each_char.to_a
         if vowels.include?(char)
           binding.pry
-          return word[cluster.length..-1] + cluster + "way"#cluster. length?
+          return word[cluster.length..-1] + cluster + "ay"#cluster. length?
           #binding.pry
         else
           cluster = cluster + char
