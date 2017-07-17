@@ -13,7 +13,6 @@ class PigLatinizer
 	def piglatinize(phrase)
 		@phrase = phrase
 		split_into_words_array(@phrase)
-		pig_latinized_text = ""
 		pig_latinized_word = ""
 		pig_latinized_array = []
 		@words_array.each do |word|
