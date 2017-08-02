@@ -1,3 +1,7 @@
 <h1>Output!</h1>
 
-<h2>Number of Words:<%= @piglatin_text %></h2>
+<% @piglatin_text.each do |word| %>
+<h2><%= word %></h2>
+<%end%>
+
+

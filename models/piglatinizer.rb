@@ -13,12 +13,8 @@ class PigLatinizer
         results << word + 'way'
       elsif !vowels.include? word[0]
         results << word.sub(word[0], '') + word[0] + 'ay'
-      else 
-        puts "suck it"
-      end
-      results.join(', ')
+      end.join(", ")
     end
-
   end
 
 end
