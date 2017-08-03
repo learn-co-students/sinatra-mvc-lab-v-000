@@ -10,10 +10,10 @@ class PigLatinizer
 
     words.collect do |word|
       if vowels.include? word[0]
-        results << word + 'way'
+        word + 'way'
       elsif !vowels.include? word[0]
-        results << word.sub(word[0], '') + word[0] + 'ay'
-      end.join(", ")
+        word.sub(word[0], '') + word[0] + 'ay'
+      end
     end
   end
 
