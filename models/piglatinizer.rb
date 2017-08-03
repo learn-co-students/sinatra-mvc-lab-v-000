@@ -9,8 +9,11 @@ class PigLatinizer
     words.each do |word|
       if vowels.include? word[0]
         @all << word + 'way'
-      else
+# Do an else, then a 'while' .word[-1]
+      elsif (!vowels.include? word[0]) && (!vowels.include? word[1])
         @all << word.sub(word[0],'') + word[0] + 'ay'
+      else
+        @all << word.sub(word[0], '') + word[0] + 'ay'
       end
     end
     @all.join(' ')
