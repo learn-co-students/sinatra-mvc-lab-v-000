@@ -13,7 +13,7 @@ class PigLatinizer
         @all << word.sub(word[0],'') + word[0] + 'ay'
       end
     end
-    @all.join(', ')
+    @all.join(' ')
   end #This returns an array of the piglatin words
 
 end
