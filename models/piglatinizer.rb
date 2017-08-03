@@ -3,18 +3,21 @@ class PigLatinizer
 
 
   def piglatinize(string)
-    vowels = ['a', 'e', 'i', 'o', 'u']
-    results = []
+    vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U']
 
-    words = string.split(" ")
-
-    words.collect do |word|
-      if vowels.include? word[0]
-        word + 'way'
-      elsif !vowels.include? word[0]
-        word.sub(word[0], '') + word[0] + 'ay'
+      if vowels.include? string[0]
+        string + 'way'
+      elsif !vowels.include? string[0]
+        string.sub(string[0], '') + string[0] + 'ay'
+        #regex
       end
     end
-  end
+
+    def pig_latin_generator(input)
+      input.split.collect do |word|
+        piglatinize(word).join(' ')
+      end 
+    end
+
 
 end
