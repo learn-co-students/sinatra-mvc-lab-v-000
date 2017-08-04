@@ -1,0 +1,6 @@
+
+<% if @user_phrase.split(" ").size == 1 %>
+	<%= @translator.piglatinize(@user_phrase) %>
+<% else %>
+	<%= @translator.to_pig_latin(@user_phrase) %>
+<% end %>
