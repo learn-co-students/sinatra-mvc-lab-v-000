@@ -6,7 +6,9 @@ class PigLatinizer
     if word[0].downcase.match(/[aeiou]/)
       word << "way"
     else
-      word[1..-1] + word[0] + "ay"
+      consonant = word.split(/([aeiou].*)/)[0]
+      rest = word.split(/([aeiou].*)/)[1]
+      rest + consonant + "ay"
     end
   end
 
