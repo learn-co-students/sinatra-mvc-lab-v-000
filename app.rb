@@ -11,7 +11,7 @@ class App < Sinatra::Base
   #   puts :user_phrase
   # end
 
-  post '/piglatinizer' do
+  post '/piglatinize' do
     pigged = PigLatinizer.new
     @piglatin = pigged.to_pig_latin(params[:user_phrase])
 
