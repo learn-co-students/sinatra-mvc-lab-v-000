@@ -1,6 +1,4 @@
 require_relative 'config/environment'
-require_relative 'models/piglatinizer.rb'
-require 'pry'
 
 class App < Sinatra::Base
 
@@ -9,7 +7,8 @@ class App < Sinatra::Base
   end
 
   post '/piglatinize' do
-    erb 
+    @phrase = params[:user_phrase]
+    erb :results
   end
 
 end

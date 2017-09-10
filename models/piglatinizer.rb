@@ -1,24 +1,28 @@
 class PigLatinizer
 
-Alpha = ('a'..'z').to_a
-Vowels = %w[a e i o u]
-Consonants = Alpha - Vowels
+def piglatinize(word)
 
-  def piglatinize(word)
-    if Vowels.include?(word[0])
-      word + 'ay'
-    elsif Consonants.include?(word[0]) &&
-      Consonants.include?(word[1])
-      word[2..-1] + word[0..1] + 'ay'
-    elsif word[0..1] == "qu"
-      word[2..-1]+"quay"
-    elsif word[0..2] == "squ"
-       word[3..-1]+"squay"
-    else Consonants.include?(word[0])
-      word[1..-1] + word[0..0] + 'ay'
+    vowels = ["a","e","i","o","u","A","E","I","O","U"]
+    post_vowel = []
+
+    if vowels.include?(word[0])
+      word + "way"
+    else
+      until vowels.include?(word[0])
+        post_vowel << word[0]
+        word[0] = ""
+      end
+      word.split("")
+      word = word +  post_vowel.join("")
+      word + "ay"
     end
   end
 
-p = PigLatinizer.new
+  def to_pig_latin(sentence)
+    array = sentence.split(" ").map do |word|
+      piglatinize(word)
+    end
+    array.join(" ")
+  end
 
 end
