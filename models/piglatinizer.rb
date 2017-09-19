@@ -6,7 +6,7 @@ class PigLatinizer
     text_ary.collect! do |w|
 
       arr = w.split("")
-      arr[0].match(/[A-Z]/) ? capitalized=true : capitalized=false
+      # arr[0].match(/[A-Z]/) ? capitalized=true : capitalized=false
 
       if arr.length > 1
         consonants = []
@@ -25,13 +25,13 @@ class PigLatinizer
           arr << "ay"
         end
         self.move_punctuation(arr)
-        new_word = arr.join.downcase
+        new_word = arr.join #.downcase
       else
         arr << "way"
         self.move_punctuation(arr)
         new_word = arr.join
       end
-      new_word.capitalize! if capitalized
+      #new_word.capitalize! if capitalized
       new_word
     end
     text_ary.join(" ")
@@ -50,5 +50,8 @@ class PigLatinizer
     end
   end
 
+  def to_pig_latin(text)
+    self.piglatinize(text)
+  end
 
 end
