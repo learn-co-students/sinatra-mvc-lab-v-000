@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pig Latin</title>
+</head>
+<body>
+<% universal_translator = PigLatinizer.new%>
+
+<% translation = universal_translator.to_pig_latin(@params["user_phrase"]) %>
+
+<h1>Translation</h1>
+<p>
+<%= "#{translation}" %>
+</p>
+
+</body>
+</html>
