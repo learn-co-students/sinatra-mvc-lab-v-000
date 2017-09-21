@@ -1,5 +1,5 @@
 require_relative 'config/environment'
-require_relative 'models/piglatinizer.rb'
+# require_relative 'models/piglatinizer.rb'
 
 class App < Sinatra::Base
 
@@ -7,8 +7,8 @@ class App < Sinatra::Base
     erb :user_input
   end
 
-  post '/' do
-    @pig_latinized = PigLatinizer.new(params[:user_input])
-    erb :results
+  post '/piglatinize' do
+    @pig_latinized = PigLatinizer.new.to_pig_latin(params[:user_phrase])
+    erb :piglatinize
   end
 end
