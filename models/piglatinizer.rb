@@ -3,10 +3,6 @@ require 'pry'
 class PigLatinizer
   attr_reader :text
 
-  #def initialize(text)
-  #  @text = text
-  #end
-
   def to_pig_latin(text)
     if text.split(" ").count > 1
       sentence = text.split(" ").collect {|word| piglatinize(word)}
