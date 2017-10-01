@@ -2,10 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Pig Latin</title>
   </head>
   <body>
-    <h1>Pig Latinizer</h1>
-  
+    <h1>Pig Latinizer!</h1>
+    <p>
+      <label for="user_phrase">Enter your phrase:</label>
+    </p>
+    <form action='/piglatinize' method="POST">
+      <p>
+        <input type="text" name="user_phrase" id="user_phrase" />
+      </p>
+      <p>
+        <input type="submit" id="submit" value="Submit"
+      </p>
+    </form>
   </body>
 </html>
