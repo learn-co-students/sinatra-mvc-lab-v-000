@@ -4,7 +4,7 @@ class PigLatinizer
     def piglatinize(word)
         letters = word.split('')
         
-        if word.scan(/^spr/) != []
+        if word.scan(/^str|spr/i) != []
             3.times {
                 letter = letters.shift()
                 letters.push(letter)
@@ -16,7 +16,7 @@ class PigLatinizer
         elsif word.scan(/^[AaEeIiOoUu]/) != []
             word + "way" 
             
-        elsif word.scan(/^ch|sh|sm|st|th|pl|sp|pr|wh|sk/) != []
+        elsif word.scan(/^\b(ch|sh|sm|st|th|pl|sp|pr|wh|sk)/) != []
             first_letter = letters.shift()
             second_letter = letters.shift()
             letters.push(first_letter+second_letter+"ay").join()
