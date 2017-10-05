@@ -9,7 +9,8 @@ gem 'sinatra'
     gem 'shotgun'
     gem 'pry'
     gem 'require_all'
-    
+    gem 'awesome_print'
+
 group :test do
       gem 'rspec'
       gem 'capybara'
