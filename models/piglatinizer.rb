@@ -5,6 +5,7 @@ class PigLatinizer
   @@invalid_words = ["i", "me", "to", "too", "a", "an", "in", "and", "on", "until"]
 
   def piglatinize(word)
+
     if @@invalid_words.include?(word.downcase)
       word << 'way'
     else
