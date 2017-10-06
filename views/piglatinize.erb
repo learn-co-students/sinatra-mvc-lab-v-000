@@ -1,0 +1,5 @@
+<%if @phrase.split(" ").length == 1%>
+<%= @user_phrase.piglatinize(@phrase)%>
+<%else%>
+<%= @user_phrase.to_pig_latin(@phrase)%>
+<%end%>
