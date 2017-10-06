@@ -24,8 +24,6 @@ class PigLatinizer
 
     if vowels.include?(word[0])
       word += 'way'
-    elsif !vowels.include?(word[0]) && vowels.include?(word[1])
-      word = word.split('').rotate.join('') + "ay"
     else
       vowel_index = word.split('').index{|letter| vowels.include?(letter)}
       word = word.split('')
