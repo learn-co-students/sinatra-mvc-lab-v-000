@@ -7,9 +7,9 @@
   <body>
     <h1> Pig Latinizer! : </h1>
 
-    <p> Phrase: <%= params[:user_phrase] %></p>
+    <p> Phrase: <%= @phrase %></p>
 
-    <p> Pig Latinized Phrase: <%= @pig_latin.to_pig_latin(params[:user_phrase]) %></p>
+    <p> Pig Latinized Phrase: <%= @pig_latin.to_pig_latin(@phrase) %></p>
 
   </body>
 </html>
