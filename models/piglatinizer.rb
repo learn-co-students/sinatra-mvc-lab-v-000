@@ -6,7 +6,7 @@ class PigLatinizer
       pig_latin += "way"
     else
       opening_letters = pig_latin.slice(0,first_vowel_index)
-      pig_latin = pig_latin.gsub(opening_letters, "") + "#{opening_letters}ay"
+      pig_latin = pig_latin.sub(opening_letters, "") + "#{opening_letters}ay"
     end
   end
 
