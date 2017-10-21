@@ -21,8 +21,9 @@ class PigLatinizer
   def consonant_first(word)
     new_word = []
     word.each_char do |char|
-      if 
+      char.consonant? ?  new_word.push(char) : new_word.unshift(char)
     end
+    new_word.join += "ay"
   end
 
   def consonant?
