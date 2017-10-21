@@ -16,19 +16,15 @@ class PigLatinizer
 
     # While a consonant...this checks every 1st letter...
     while !vowels.include?(word[0])
-
-      ### BEGIN RUBY BLACK MAGIC ###
       # Keep rotating the 1st word of the array to the end until a vowel
       word = word.rotate
       # Once it sees a vowel, exit the loop with word having vowel at word[0]
-      ### END RUBY BLACK MAGIC ###
 
       ### Another way ###
       # Shift the 1st letter out of the word array...
       # letter = word.shift
       # ...Move it to the end of the array...loop continues until vowel exists in 0th index
       # word = word << letter
-
       end
 
       # Join the word array, append 'ay'
