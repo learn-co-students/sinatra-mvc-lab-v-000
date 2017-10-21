@@ -9,7 +9,8 @@ class PigLatinizer
     @pl_phrase = self.phrase.collect do |word|
       !!word.match(/\A[aeiou]/i) ?  vowel_first(word) : consonant_first(word)
     end
-    @pl_phrase.first.capitalize!
+    first_word =  @plphrase.shift.downcase.capitalize
+    @pl_phrase.unshift(first_word)
     @pl_phrase.join(" ")
   end
 
@@ -18,10 +19,15 @@ class PigLatinizer
   end
 
   def consonant_first(word)
-    word_array = word.split("")
-    word_array.
-
-
+    new_word = []
+    word.each_char do |char|
+      if 
+    end
   end
+
+  def consonant?
+    !self.match(/[aeiou]/)
+  end
+
 
 end  # End of Class
