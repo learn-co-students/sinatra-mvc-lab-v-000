@@ -5,20 +5,20 @@ class PigLatinizer
     if !!word.match(/\A[aeiou]/i) 
       word += "way"
     else   
-      new_word = []
-      word.each_char do |char|
-        !char.downcase.match(/[aeiou]/) ?  new_word.push(char) : new_word.unshift(char)
+      while !word[0].match(/\A[aeiou]/i) 
+        word = word.split("")
+        char = word.shift
+        word << char        
       end
-      new_word.join("") << "ay"
-
-     end 
+        word.join("")
+    end  
   end
 
-  def sentence_to_pl(string)
+  def to_pig_latin(string)
    new_string = string.split(" ").collect do |word|
     piglatinize(word)
     end
-    new_string.join(" ")
+    new_string.join(" ") << "ay"
   end
 
 end  # End of Class
