@@ -5,12 +5,12 @@ class PigLatinizer
     if !!word.match(/\A[aeiou]/i) 
       word += "way"
     else   
+      word = word.split("")
       while !word[0].match(/\A[aeiou]/i) 
-        word = word.split("")
         char = word.shift
         word << char        
       end
-        word.join("")
+        word.join("") << "ay"
     end  
   end
 
@@ -18,7 +18,7 @@ class PigLatinizer
    new_string = string.split(" ").collect do |word|
     piglatinize(word)
     end
-    new_string.join(" ") << "ay"
+    new_string.join(" ") 
   end
 
 end  # End of Class
