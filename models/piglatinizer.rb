@@ -1,34 +1,24 @@
 class PigLatinizer
-  attr_accessor :phrase, :pl_phrase
+  
 
-  def initialize(text)
-    @phrase = text.split(" ")
+  def piglatinize(word)
+    if !!word.match(/\A[aeiou]/i) 
+      word += "way"
+    else   
+      new_word = []
+      word.each_char do |char|
+        !char.downcase.match(/[aeiou]/) ?  new_word.push(char) : new_word.unshift(char)
+      end
+      new_word.join("") << "ay"
+
+     end 
   end
 
-  def piglatinize
-    @pl_phrase = self.phrase.collect do |word|
-      !!word.match(/\A[aeiou]/i) ?  vowel_first(word) : consonant_first(word)
+  def sentence_to_pl(string)
+   new_string = string.split(" ").collect do |word|
+    piglatinize(word)
     end
-    first_word =  @plphrase.shift.downcase.capitalize
-    @pl_phrase.unshift(first_word)
-    @pl_phrase.join(" ")
+    new_string.join(" ")
   end
-
-  def vowel_first(word)
-    word += "way"
-  end
-
-  def consonant_first(word)
-    new_word = []
-    word.each_char do |char|
-      char.consonant? ?  new_word.push(char) : new_word.unshift(char)
-    end
-    new_word.join += "ay"
-  end
-
-  def consonant?
-    !self.match(/[aeiou]/)
-  end
-
 
 end  # End of Class
