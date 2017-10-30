@@ -1,4 +1,4 @@
-describe "Pig Latinizer App" do
+describe "Goat Aramaicizer App" do
   describe "GET '/'" do
     before(:each) do
       get '/'
@@ -9,7 +9,7 @@ describe "Pig Latinizer App" do
     end
 
     it "renders the instructions" do
-      expect(last_response.body).to include("Pig Latinizer!")
+      expect(last_response.body).to include("Goat Aramaicizer!")
     end
 
     it "renders a new form element on the page" do
@@ -18,7 +18,7 @@ describe "Pig Latinizer App" do
     end
 
     it "renders the form directions on the page" do
-      expect(last_response.body).to include("Enter your phrase:")
+      expect(last_response.body).to include("Please enter your phrase:")
     end
 
     it "renders the input field for the phrase" do
@@ -27,9 +27,9 @@ describe "Pig Latinizer App" do
 
   end
 
-  describe "POST '/piglatinize'" do
+  describe "POST '/goataramaicize'" do
     before do
-      post '/piglatinize', {
+      post '/goataramaicize', {
         "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nice little boy named baby tuckoo"
       }
     end
@@ -38,14 +38,14 @@ describe "Pig Latinizer App" do
       expect(last_response.status).to eq(200)
     end
 
-    it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("Onceway uponway away imetay andway away eryvay oodgay imetay itway asway erethay asway away oocowmay omingcay ownday alongway ethay oadray andway isthay oocowmay atthay asway omingcay ownday alongway ethay oadray etmay away icenay ittlelay oybay amednay abybay uckootay")
+    it "displays the goat aramaicized phrase upon form submission" do
+      expect(last_response.body).to include("Oncetasah upontasah atasah imetackh andtasah atasah eryvackh oodgackh imetackh ittasah aswackh erethackh aswackh atasah oocowmackh omingcackh owndackh alongtasah ethackh oadrackh andtasah isthackh oocowmackh atthackh aswackh omingcackh owndackh alongtasah ethackh oadrackh etmackh atasah icenackh ittlelackh oybackh amednackh abybackh uckootackh")
     end
   end
 
-  describe "POST '/piglatinize' again" do
+  describe "POST '/goataramaicize' again" do
     before do
-      post '/piglatinize', {
+      post '/goataramaicize', {
         "user_phrase"=> "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty four days now without taking a fish"
       }
     end
@@ -54,8 +54,8 @@ describe "Pig Latinizer App" do
       expect(last_response.status).to eq(200)
     end
 
-    it "displays the pig latinized phrase upon form submission" do
-      expect(last_response.body).to include("eHay asway anway oldway anmay owhay ishedfay aloneway inway away iffskay inway ethay ulfGay eamStray andway ehay adhay onegay eightyway ourfay aysday ownay ithoutway akingtay away ishfay")
+    it "displays the goat aramaicized phrase upon form submission" do
+      expect(last_response.body).to include("eHackh aswackh antasah oldtasah anmackh owhackh ishedfackh alonetasah intasah atasah iffskackh intasah ethackh ulfGackh eamStrackh andtasah ehackh adhackh onegackh eightytasah ourfackh aysdackh ownackh ithoutwackh akingtackh atasah ishfackh")
     end
   end
 end
