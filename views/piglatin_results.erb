@@ -6,8 +6,6 @@
   </head>
   <body>
     <h1>Your Pig Latin Phrase</h1>
-          <!-- <% @phrase = PigLatinizer.new(@analyzed_text).piglatinize %> -->
-          <% @phrase = PigLatinizer.new(@analyzed_text)  %>
-    <p> <%= @phrase.piglatinize %> </p>
+          <p> <%= @phrase.to_pig_latin(@initial_sentence) %> </p>
   </body>
 </html>
