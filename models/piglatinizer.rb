@@ -1,14 +1,16 @@
-class PigLatinizer
-  attr_reader :words
+require 'pry'
 
-  def initialize
-    # @text = text.downcase
+class PigLatinizer
+  attr_accessor :words
+
+  def initialize(words) #commented this out to get it passing
     @words = words
+    # self.piglatinize
   end
 
   def piglatinize
     final_sentence = []
-    initial_sentence = @words.split(' ')
+    initial_sentence = @words.split(' ') # removed @ from words
     vowel = ['a', 'e', 'i', 'o', 'u']
     digraphs = ["bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"]
     trigraphs = ["nth", "sch", "scr", "shr", "spl", "spr", "squ", "str", "thr"]
@@ -37,5 +39,5 @@ class PigLatinizer
     end
     final_sentence.join(' ')
   end
-
+# binding.pry
 end
