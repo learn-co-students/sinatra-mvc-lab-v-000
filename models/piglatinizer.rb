@@ -12,10 +12,14 @@ class PigLatinizer
 
   def start_with_consonants
     @letter = @letter + @array.shift
-    if "aeiouAEIOU".include?(@array[0])
-      @array.join + @letter + "ay"
+    if @array[0]
+      if "aeiouAEIOU".include?(@array[0])
+        @array.join + @letter + "ay"
+      else
+        start_with_consonants
+      end
     else
-      start_with_consonants
+      ""
     end
   end
 
