@@ -6,6 +6,16 @@
   </head>
   <body>
     <h1>Pig Latinizer</h1>
-  
+
+    <p> Welcome to the fabulous PigLatinizer page. Here you can input a phrase and we will turn it in to pig latin for you. Go Pig Latinizer!<p>
+
+<form method="POST" action="/piglatinize">
+Enter your phrase:  <input type="textbox" name="user_phrase">
+
+
+</form>
+Your pig latin phrase comes out as:
+<%= @pig_latin %>
+
   </body>
 </html>
