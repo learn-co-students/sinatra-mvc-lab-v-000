@@ -9,10 +9,10 @@ class PigLatinizer
   end
 
   def piglatinize(user_phrase)
-    if user_phrase[0].downcase.scan(/[aeiou]/).size > 0
+    if user_phrase[0].scan(/[aeiouAEIOU]/).size > 0
       user_phrase + "way"
     else
-      first = user_phrase.scan(/^[bcdfghjklmnpqrstvwxyz]+/)[0]
+      first = user_phrase.scan(/^[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]+/)[0]
       rest = user_phrase[first.size..-1]
       rest + first + "ay"
     end
