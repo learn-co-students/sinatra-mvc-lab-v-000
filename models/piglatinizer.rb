@@ -6,7 +6,11 @@ class PigLatinizer
   end
 
   def piglatinize(word)
-    if word[0].scan(/[aeiouAEIOU]/) != []
+    non_pig_latin_words = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
+
+    if non_pig_latin_words.include?(word)
+      word
+    elsif word[0].scan(/[aeiouAEIOU]/) != []
       word += "way"
     else
       index_of_vow = word.index(/[aeiouAEIOU]/)
