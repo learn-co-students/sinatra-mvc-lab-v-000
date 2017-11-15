@@ -2,9 +2,13 @@ require 'pry'
 class PigLatinizer
 
   def piglatinize(word)
-    if word.length > 1
-      word << word[0]
-      word.slice!(0)
+    if !["a","e","i","o","u"].include?(word[0])
+      until ["a","e","i","o","u"].include?(l)
+        word.split("").each_with_index do |l, i|
+          word << l
+          word.slice!(i)
+        end
+      end
       word << "ay"
     else
       word << "way"
