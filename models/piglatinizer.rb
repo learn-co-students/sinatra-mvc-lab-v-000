@@ -16,8 +16,6 @@ class Pig_Latinizer
 	  result
 	end
 
-	end 
-
 end 
 
 

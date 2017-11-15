@@ -8,10 +8,9 @@ class App < Sinatra::Base
 		erb :user_input_submit
 	end 
 
-	post '/results' #or to new page -- 
+	post '/results' do #or to new page? -- 
 		@result = PigLatinizer.new(params[:user_input])
 		
 		erb :results
 	end 
-
 end
