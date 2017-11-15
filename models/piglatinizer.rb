@@ -1,4 +1,4 @@
-require_relative './config/environment'
+#require_relative './config/environment'
 
 class Pig_Latinizer 
 	attr_reader :string
