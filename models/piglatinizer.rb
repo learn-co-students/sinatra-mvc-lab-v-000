@@ -3,11 +3,12 @@ class PigLatinizer
 
   def piglatinize(word)
     if !["a","e","i","o","u"].include?(word[0])
+      word.split("")
+      for letter in word
+        binding.pry
       until ["a","e","i","o","u"].include?(l)
-        word.split("").each_with_index do |l, i|
-          word << l
-          word.slice!(i)
-        end
+        word << l
+        word.slice!(i)
       end
       word << "ay"
     else
