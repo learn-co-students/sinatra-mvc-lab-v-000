@@ -1,3 +1,5 @@
+require_relative './config/environment'
+
 class Pig_Latinizer 
 	attr_reader :string
 
@@ -18,4 +20,5 @@ class Pig_Latinizer
 
 end 
 
+#issue: will need to add one for phrases. 
 

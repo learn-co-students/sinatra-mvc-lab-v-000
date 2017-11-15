@@ -3,9 +3,9 @@ require_relative 'config/environment'
 class App < Sinatra::Base
 
 
-	get '/user_input_submit' do # because this page is like the index 
+	get '/' do # because this page is the index 
 
-		erb :user_input_submit
+		erb :user_input
 	end 
 
 	post '/results' do #or to new page? -- 
