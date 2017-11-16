@@ -10,8 +10,9 @@ class App < Sinatra::Base
 
 	post '/piglatinize' do #or to new page? -- 
 		
-		@result = PigLatinizer.new.piglatinize(params[:user_phrase])
-		 
+		# @piglatin = PigLatinizer.new.piglatinize(params[:user_phrase])
+		pl = PigLatinizer.new
+    	@piglatin = pl.to_pig_latin(params[:user_phrase])
 		
 		erb :results
 	end 
