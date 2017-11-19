@@ -1,0 +1,3 @@
+i = 0
+a.each do |e|
+if e.match(/^[b-d|f-h|j-n|p-t|v-z]/) != nil
