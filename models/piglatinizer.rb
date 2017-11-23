@@ -6,22 +6,6 @@ class PigLatinizer
     @words = words
   end
 
-#works:
-  # def piglatinize!
-  #   new_array = [ ]
-  #   words_array = @words.split
-  #   words_array.each do |word|
-  #     individual_arr = word.split("")
-  #     if individual_arr[0] != "a" && individual_arr[0] != "e" && individual_arr[0] != "i" && individual_arr[0] !="o" && individual_arr[0] != "u"
-  #       new_array << move_first_consonants(individual_arr).join + "ay"
-  #     else
-  #       new_array << word + "way"
-  #     end
-  #   end
-  #
-  #   new_array.join(" ")
-  # end
-
   def piglatinize!
     to_pig_latin(@words)
   end
@@ -34,8 +18,6 @@ class PigLatinizer
     end
     new_array.join(" ")
   end
-
-
 
   def piglatinize(word)
     new_array = [ ]
