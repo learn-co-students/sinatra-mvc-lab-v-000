@@ -30,7 +30,6 @@ class PigLatinizer
     new_array.join
   end
 
-
 # works:
   def move_first_consonants(individual_arr)
     if not_begin_with_a_vowel?(individual_arr)
