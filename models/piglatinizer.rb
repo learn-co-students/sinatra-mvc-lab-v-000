@@ -22,7 +22,8 @@ class PigLatinizer
     if is_vowel?(word[0])
       word += "way"
     elsif !is_vowel?(word[0]) && !is_vowel?(word[1])
-      split_word = word.split /([aeiou].)/            ###Split into array at the vowels
+      split_word = word.split(/([aeiou])/)#.reject! {|c| c.empty?}            ###Split into array at the vowels
+      # binding.pry
       latinized_word = split_word.insert(-1, split_word.delete_at(0)).join  ###move first element to end and join to string
       latinized_word += "ay"
     else
