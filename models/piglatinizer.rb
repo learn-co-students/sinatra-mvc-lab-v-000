@@ -1,5 +1,5 @@
 class PigLatinizer
-  
+
 
   def piglatinize(word)
     vowels = ["a","e","i","o","u","A","E","I","O","U"]
@@ -11,9 +11,9 @@ class PigLatinizer
            until vowels.include?(word[0])
            after_vowels << word[0]
            word[0] = ""
-           end
+         end
            word.split("")
-           word = word +  after_vowels.join("")
+           word = word + after_vowels.join("")
            word + "ay"
        end
     # text.split(" ").map do |word|
@@ -32,5 +32,5 @@ class PigLatinizer
     piglatinize(word)
   end
   array.join(" ")
-  end
+end
 end
