@@ -18,7 +18,7 @@ describe "Pig Latinizer App" do
     end
 
     it "renders the form directions on the page" do
-      expect(last_response.body).to include("Enter your phrase:")
+      expect(last_response.body).to include("Utpay oryay Igpay Atinlay erehyay:")
     end
 
     it "renders the input field for the phrase" do
