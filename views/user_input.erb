@@ -5,23 +5,14 @@
     <title>title</title>
   </head>
   <body>
-    <h1>Pig Latinizer!</h1>
-          <form method="post" action="/piglatinize">   <!--what where-->
-            <p>Enter your phrase:</p>
-            <textarea name="user_phrase"></textarea>
-            <button type="submit" value="submit">Submit</button>
-          </form>
+    <h1>Pig Latinizer!</h1>  <!--main title-->
+ <!--Lets make a form -->
+  <form method="post" action="/piglatinize"><!-- when contents of the form have been filled out, it will post to the piglatinize. This corresponds to the post route in the app.rb controller-->
+  <p>Enter your phrase:</p>
+  <textarea name="user_phrase"></textarea>  <!-- text area is the input box, the contents of the inputs of the textbox is named user_phrase which will be setup as a hash by Sinatra magic which can be extracted using params[:user_phrase]-->
+  
+  <button type="submit" value="submit">Submit</button>
+</form>
+
   </body>
 </html>
-
-
-
-
-
-
-<!--<form method="post" action="/">     -->
-<!--  <p>Input the text you want analyzed here:</p>     -->
-<!--  <textarea name="user_text"></textarea>      -->
-<!--  <br>      -->
-<!--  <button type="submit" value="submit">Submit</button>      -->
-<!--</form>     -->
