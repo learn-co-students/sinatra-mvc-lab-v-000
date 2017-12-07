@@ -1,3 +1,12 @@
-<h1>Your Text Piglatinized!</h1>
-
-<h2><%=@text.piglatinize%></h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Pig Latinizer</h1>
+    <% words = PigLatinizer.new %>
+    <p><%= words.piglatinize(@text) %></p>
+  </body>
+</html>

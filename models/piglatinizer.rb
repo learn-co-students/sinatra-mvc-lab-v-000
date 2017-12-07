@@ -1,36 +1,18 @@
 class PigLatinizer
-  attr_reader :text
 
-  def initialize(text)
-    @text = text
-  end
-
-  def piglatinize
-
-    if text[0].match(/[bcdfghjklmnpqrstvwxyz]/) && text[1].match(/[bcdfghjklmnpqrstvwxyz]/)
-      sliced_text = text.slice!(0..1)
-      text = text << sliced_text << "ay"
-
-    elsif text[0].match(/[bcdfghjklmnpqrstvwxyz]/)
-      sliced_text = text.slice!(0)
-      text = text << sliced_text << "ay"
-
-    elsif text[0].match(/[aeoui]/)
-        text = text << "way"
-
+  def piglatinize(text)
+    text.split.map do |word|
+      if /\A[aeiou]/i.match(word)
+        "#{word}way"
+      else
+        cons = word.split(/[aeiou]/).first
+        "#{word.sub(cons,"")}#{cons}ay"
+      end
+      end.join(' ')
     end
 
-  end
-
   def to_pig_latin(text)
-    sentence_array = []
-    text.split.each do |t|
-     sentence_array << t.piglatinize
-   end
-   sentence_array.join(" ").to_s
+    piglatinize(text)
   end
-
-
-
 
 end
