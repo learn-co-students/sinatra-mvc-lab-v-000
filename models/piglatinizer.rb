@@ -33,5 +33,5 @@ class PigLatinizer
 
 end
 
-p = PigLatinizer.new
-p.piglatinize("pork")
+# p = PigLatinizer.new
+# p.piglatinize("pork")
