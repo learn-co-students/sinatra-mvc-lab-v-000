@@ -1,12 +1,12 @@
-describe 'class PigLatinizer' do 
+describe 'class PigLatinizer' do
   let!(:words) { PigLatinizer.new }
 
 
-  it 'can create a new instance of a class' do 
+  it 'can create a new instance of a class' do
     expect(PigLatinizer.new).to be_an_instance_of(PigLatinizer)
   end
 
-  it 'piglatinizes an individual word' do 
+  it 'piglatinizes an individual word' do
     expect(words.piglatinize("pork")).to eq("orkpay")
     expect(words.piglatinize("I")).to eq("Iway")
     expect(words.piglatinize("hello")).to eq("ellohay")
@@ -19,8 +19,8 @@ describe 'class PigLatinizer' do
     expect(words.piglatinize("prays")).to eq("ayspray")
   end
 
-  it 'has a method splits the sentence to piglatinize each word' do
-    expect(words.to_pig_latin("i love programming")).to eq("iway ovelay ogrammingpray") 
+  it 'has a method that splits the sentence to piglatinize each word' do
+    expect(words.piglatinize("i love programming")).to eq("iway ovelay ogrammingpray")
   end
-  
+
 end
