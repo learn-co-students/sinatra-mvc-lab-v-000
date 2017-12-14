@@ -1,25 +1,23 @@
 class PigLatinizer
-  attr_reader :words
-  def initialize(words)
-    @words = words
-  end
 
-  def separate_in_array
-    words = @words.split(" ")
+  def split_in_array(phrase)
+    words = phrase.split(" ")
     words.map do |word|
       first_part = word[1..-1]
-      second_part = word[0] + "ay"
+      if word[-1] =~ /[aeiou]/
+        second_part = word[0] + "way"
+      else
+        second_part = word[0] + "ay"
+      end
       first_part + second_part
     end
   end
 
-  def to_pig_latin
-    self.separate_in_array.join(" ")
+  def to_pig_latin(phrase)
+    split_in_array(phrase).join(" ")
   end
 
-  def piglatinize
-    first_part = @words[1..-1]
-    second_part = @words[0] + "ay"
-    first_part + second_part
+  def piglatinize(phrase)
+    to_pig_latin(phrase).join(" ")
   end
 end
