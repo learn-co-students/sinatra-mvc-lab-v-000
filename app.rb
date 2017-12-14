@@ -2,12 +2,13 @@ require_relative 'config/environment'
 require_relative 'models/piglatinizer.rb'
 
 class App < Sinatra::Base
-  gets '/' do
+  get '/' do
     erb :user_input
   end
 
   post '/' do
-    @word = Piglatinizer.new(params[:text])
+    @user_phrase = params[:user_phrase]
+    @words = PigLatinizer.new(@user_phrase)
 
     erb :results
   end
