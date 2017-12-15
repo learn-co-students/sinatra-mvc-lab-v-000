@@ -1,20 +1,24 @@
 class PigLatinizer
 
-  def split_in_array(phrase)
+  def to_pig_latin(phrase)
     words = phrase.split(" ")
     words.map do |word|
-      first_part = word[1..-1]
-      if word[-1] =~ /[aeiou]/
-        second_part = word[0] + "way"
+      if word[0] =~ /[aeiou]/
+        word << "way"
       else
-        second_part = word[0] + "ay"
+        word.map do |letter|
+          consonants = []
+          index = 0
+          until letter =~ /[aeiou]/
+            consonants << letter
+            index += 1
+          end
+          piglatin_array = word[index..-1]
+          piglatin_array << consonants
+          piglatin_array << "ay"
+        end
       end
-      first_part + second_part
     end
-  end
-
-  def to_pig_latin(phrase)
-    split_in_array(phrase).join(" ")
   end
 
   def piglatinize(phrase)
