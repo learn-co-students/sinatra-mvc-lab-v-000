@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'config/environment'
 require_relative 'models/piglatinizer'
 class App < Sinatra::Base
@@ -6,11 +7,12 @@ class App < Sinatra::Base
     erb :user_input
   end
 
-  post '/' do
+  post '/piglatinize' do
     piglatined = PigLatinizer.new
-    @piglatinize = piglatined.to_pig_latin(params[:user_input])
+    # binding.pry
+    @piglatinize = piglatined.to_pig_latin(params[:user_phrase])
 
-    erb :Piglatinizer
+    erb :piglatinizer
 
   end
 end

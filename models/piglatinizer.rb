@@ -1,3 +1,4 @@
+
 class PigLatinizer
   attr_reader :text
 
@@ -15,11 +16,12 @@ def piglatinize(words)
     words = words[1..-1]<<words[0]
     words << "ay"
   end
+  # binding.pry
   words
 end
 
 def to_pig_latin(words)
-  words.split.collect{|word| piglatinize(word)}.join(" ")
+  words.split(" ").collect{|word| piglatinize(word)}.join(" ")
 
 end
 end
