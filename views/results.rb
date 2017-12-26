@@ -6,7 +6,6 @@
  </head>
   <body>
   <h1>PigLatinized Text</h1>
-  # <h2>Phrase:<%= @piglatinized_text.user_phrase %></h2>
-  <%= piglatin %>
+  <h2><%= @piglatin %></h2>
   </body>
 </html>
