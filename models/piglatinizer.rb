@@ -8,7 +8,7 @@ class PigLatinize
       word = word << "way"
     else
       otherword = ""
-      while !vowels.include?(word[0].downcase)
+      while !vowels.include?(word[0])
         otherword << word[0]
         word = word.split("")[1..-1].join
       end
