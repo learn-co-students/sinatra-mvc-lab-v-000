@@ -1,4 +1,4 @@
-require 'pry'
+
 
 class PigLatinize
   def PigLatinize(word)
@@ -10,7 +10,7 @@ class PigLatinize
       otherword = ""
       while !vowels.include?(word[0].downcase)
         otherword << word[0]
-        word = word.spilt("")[1..-1].join
+        word = word.split("")[1..-1].join
       end
       word + otherword + "ay"
     end
