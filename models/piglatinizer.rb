@@ -1,7 +1,7 @@
 
 
 class PigLatinizer
-  def PigLatinize(word)
+  def piglatinize(word)
     vowels = ["a", "e", "i", "o", "u"]
 
     if vowels.include?(word[0].downcase)
@@ -16,8 +16,8 @@ class PigLatinizer
     end
   end
 
-  def pig_string(string)
-    string.split.collect{|word| PigLatinize(word)}.join(" ")
+  def to_pig_latin(string)
+    string.split.collect{|word| piglatinize(word)}.join(" ")
   end
 
 end
