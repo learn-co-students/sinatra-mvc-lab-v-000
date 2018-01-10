@@ -4,9 +4,7 @@ class PigLatinizer
 
     def piglatinize(words) 
         if !words.include?(" ")
-            if words == "Once" || words == "once"
-                words + "way"
-            elsif words.chr == "a" || words.chr == "e" || words.chr == "i" || words.chr == "o" || words.chr == "u" || words.chr == "A" || words.chr == "E" || words.chr == "I" || words.chr == "O" || words.chr == "U"
+            if words.chr == "a" || words.chr == "e" || words.chr == "i" || words.chr == "o" || words.chr == "u" || words.chr == "A" || words.chr == "E" || words.chr == "I" || words.chr == "O" || words.chr == "U"
                 words + "way" 
             elsif words.match(/^[^aAeEiIoOuU]{3}/)
                 last_char_3 = words.split(/^.../).slice(1) 
@@ -32,9 +30,7 @@ class PigLatinizer
     def to_pig_latin(words)
         pl_ary = []
         words.split(" ").collect do |word| 
-            if words == "Once" || words == "once"
-                words + "way"
-            elsif word.chr == "a" || word.chr == "e" || word.chr == "i" || word.chr == "o" || word.chr == "u"
+        if word.chr == "a" || word.chr == "e" || word.chr == "i" || word.chr == "o" || word.chr == "u" || word.chr == "A" || word.chr == "E" || word.chr == "I" || word.chr == "O" || word.chr == "U"
                 word + "way"   
                 fin_pl = word + "way"   
                 pl_ary << fin_pl    
