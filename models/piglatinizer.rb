@@ -2,52 +2,90 @@ require 'pry'
 
 class PigLatinizer
 
-    attr_reader :words
-
-    def initilialize(words)
-        @words = word
-    end
-
     def piglatinize(words) 
-        # binding.pry
-        if words.include?("")
-            words.split("").each do |word| 
-            if word.downcase.chr == "a" || word.downcase.chr == "e" || word.downcase.chr == "i" || word.downcase.chr == "o" || word.downcase.chr == "u"
-                    word + "way"      
-            elsif word.match(/^[^aAeEiIoOuU]{3}/)
-                    last_char_3 = word.downcase.split(/^.../).slice(1) 
-                    first_char_3 = word.downcase.split("")[0..2].join
-                    plized = last_char_3 + first_char_3 + "ay"
-                    plized
-            elsif word.match(/^[^aeiou]{2}/)
-                    last_char_2 = word.downcase.split(/^../).slice(1) 
-                    first_char_2 = word.downcase.split("")[0..1].join
-                    plized = last_char_2 + first_char_2 + "ay"
-                    plized
-            elsif word.match(/^[^aeiou]{1}/)
-                    last_char = word.downcase.split(/^./).slice(1) 
-                    first_char = word.downcase[0]
-                    plized = last_char + first_char + "ay"
-                    plized
-            end
-        else
-            if words.downcase.chr == "a" || words.downcase.chr == "e" || words.downcase.chr == "i" || words.downcase.chr == "o" || words.downcase.chr == "u"
-                words + "way"      
+        if !words.include?(" ")
+            if words == "Once" || words == "once"
+                words + "way"
+            elsif words.chr == "a" || words.chr == "e" || words.chr == "i" || words.chr == "o" || words.chr == "u" || words.chr == "A" || words.chr == "E" || words.chr == "I" || words.chr == "O" || words.chr == "U"
+                words + "way" 
             elsif words.match(/^[^aAeEiIoOuU]{3}/)
-                last_char_3 = words.downcase.split(/^.../).slice(1) 
-                first_char_3 = words.downcase.split("")[0..2].join
+                last_char_3 = words.split(/^.../).slice(1) 
+                first_char_3 = words.split("")[0..2].join
                 plized = last_char_3 + first_char_3 + "ay"
                 plized
             elsif words.match(/^[^aeiou]{2}/)
-                last_char_2 = words.downcase.split(/^../).slice(1) 
-                first_char_2 = words.downcase.split("")[0..1].join
+                last_char_2 = words.split(/^../).slice(1) 
+                first_char_2 = words.split("")[0..1].join
                 plized = last_char_2 + first_char_2 + "ay"
                 plized
             elsif words.match(/^[^aeiou]{1}/)
-                last_char = words.downcase.split(/^./).slice(1) 
-                first_char = words.downcase[0]
+                last_char = words.split(/^./).slice(1) 
+                first_char = words[0]
                 plized = last_char + first_char + "ay"
                 plized
+            end
+        else words.include?(" ")
+            to_pig_latin
         end
     end
+
+    def to_pig_latin(words)
+        pl_ary = []
+        words.split(" ").collect do |word| 
+            if words == "Once" || words == "once"
+                words + "way"
+            elsif word.chr == "a" || word.chr == "e" || word.chr == "i" || word.chr == "o" || word.chr == "u"
+                word + "way"   
+                fin_pl = word + "way"   
+                pl_ary << fin_pl    
+        elsif word.match(/^[^aAeEiIoOuU]{3}/)
+                last_char_3 = word.split(/^.../).slice(1) 
+                first_char_3 = word.split("")[0..2].join
+                plized = last_char_3 + first_char_3 + "ay"
+                pl_ary << plized
+        elsif word.match(/^[^aeiou]{2}/)
+                last_char_2 = word.split(/^../).slice(1) 
+                first_char_2 = word.split("")[0..1].join
+                plized = last_char_2 + first_char_2 + "ay"
+                pl_ary << plized
+        elsif word.match(/^[^aeiou]{1}/)
+                last_char = word.split(/^./).slice(1) 
+                first_char = word[0]
+                plized = last_char + first_char + "ay"
+                pl_ary << plized
+            end
+        end
+        pl_ary.join(' ') 
+    end
 end
+
+
+
+# class PigLatinizer
+
+#     def piglatinize(word)
+  
+#       non_pig_latin_words = ["I", "me", "to", "too", "a", "an", "in", "and", "on"]
+#       vowels = ["a", "e", "i", "o", "u"]
+  
+#       if non_pig_latin_words.include?(word)
+#         word
+#       elsif vowels.include? word[0]
+#         word << "ay"
+#       else
+#         consonants = ""
+#         while !vowels.include?(word[0])
+#           consonants << word[0]
+#           word = word.split("")[1..-1].join
+#         end
+#         word + consonants + 'ay'
+#       end
+#     end
+  
+  
+#     def to_pig_latin(string)
+#       string.split.collect{|word| piglatinize(word)}.join(" ")
+#     end
+  
+#   end
+  
