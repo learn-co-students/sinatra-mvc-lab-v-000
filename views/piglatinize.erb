@@ -5,7 +5,14 @@
     <title></title>
   </head>
   <body>
-    <h1><%if params[:user_text].include?(" ") %></h1>
+    <h1>
+    <%if params[:user_text].include?(" ") %>
+      <%=@text.to_pig_latin(params[:user_phrase])%>
+    <%else%>
+      <%=@text.piglatinize(params[:user_phrase])%>
+    <%end%>
+    </h1>
+
 
   </body>
 </html>
