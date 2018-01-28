@@ -32,9 +32,7 @@ class PigLatinizer
     text_arr = text.split(" ")
     text_arr.collect do |word|
       piglatinize(word)
-  end.join(" ")
-end
+    end.join(" ")
+  end
 
 end
-
-puts PigLatinizer.new.to_pig_latin("what the fuck")
