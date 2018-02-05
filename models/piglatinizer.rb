@@ -1,14 +1,18 @@
 class PigLatinizer
-  attr_reader :text
 
-  def initialize
-    @text = text
+
+  def piglatinize(word)
+    
+
   end
 
-  def piglatinize(text)
+  def to_pig_latin(sentence)
+    sentence.split.collect{|word|piglatinize(word).join("")}
   end
 
-  def splits
+
+  def consonent?(character)
+    !character.match(/[aAeEiIoOuU]/)
   end
 
 
