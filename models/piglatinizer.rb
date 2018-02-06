@@ -1,7 +1,6 @@
 class PigLatinizer
 
   def piglatinize(word)
-
     if consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
       word = word.slice(3..-1) + word.slice(0) + word.slice(1) + word.slice(2) + "ay"
 
