@@ -24,5 +24,4 @@ class PigLatinizer
     !letter.match(/[aAeEiIoOuU]/)
   end
 
-
 end
