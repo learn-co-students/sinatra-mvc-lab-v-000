@@ -13,4 +13,10 @@ class PigLatinizer
             word += SUFFIX
         end
     end
+
+    def to_pig_latin(sentence)
+        sentence.split(' ').collect do |word|
+            self.piglatinize(word)
+        end.join(' ')
+    end
 end
