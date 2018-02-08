@@ -1,0 +1,5 @@
+<% if (params[:user_phrase].split(" ").count) == 1 %>
+  <h1><%= @piglatinized_string.piglatinize(params[:user_phrase]) %></h1>
+<% else %>
+  <h1><%= @piglatinized_string.to_pig_latin(params[:user_phrase]) %></h1>
+<% end %>
