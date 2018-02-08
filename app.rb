@@ -9,7 +9,11 @@ class App < Sinatra::Base
   end
 
   post '/piglatinize' do
-    @piglatinized_string = PigLatinizer.new
+    if params[:user_phrase].split(" ").count == 1
+      @piglatinized_string = PigLatinizer.new.piglatinize(params[:user_phrase])
+    else
+      @piglatinized_string = PigLatinizer.new.to_pig_latin(params[:user_phrase])
+    end
     erb :results
   end
 end
