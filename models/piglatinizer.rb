@@ -2,7 +2,7 @@ require 'pry'
 
 class PigLatinizer
   # Create a constant array of vowels
-  VOWELS = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+  VOWELS = %w[a e i o u A E I O U]
 
 
   # need to split the sentence
