@@ -39,11 +39,13 @@ class PigLatinizer
 
   def char_move(word)
     new_word = ""
+    i = 0
     if is_vowel?(word[0])
       new_word = word + "way"
     else
-      char = word[0]
-      new_word = word.slice(1, word.length - 1) + char + "ay"
+      until is_vowel?(word[i +1])
+        chars_to_add += word[i]
+      new_word = word.slice(i, word.length - i) + chars_to_add + "way"
     end
     new_word
   end
