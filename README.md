@@ -19,3 +19,23 @@ In this lab, you'll be building a **Pig Latinizer** using Sinatra and the MVC pa
 <a href='https://en.wikipedia.org/wiki/Pig_Latin'>Pig Latin on wikipedia</a>
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-mvc-lab' title='Sinatra MVC Lab - Pig Latinizer'>Sinatra MVC Lab - Pig Latinizer</a> on Learn.co and start learning to code for free.</p>
+
+
+def piglatinize(word)
+    arr = word.scan /\w/
+    
+    if arr[0].downcase == 'a' || arr[0].downcase == 'e' || arr[0].downcase == 'i' || arr[0].downcase == 'o' || arr[0].downcase == 'u'
+
+      arr << "w"
+      arr << "a"
+      arr << "y"
+      
+    else 
+      arr << "a"
+      arr << "y"
+      arr.insert(-3, arr.delete_at(0))
+      
+    end 
+
+    arr.join 
+  end 
