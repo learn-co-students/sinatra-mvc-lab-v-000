@@ -1,6 +1,5 @@
 class PigLatinizer
 
-
   def self.piglatinize(word)
     if word =~ (/\A[aeiou]/i)
       word = word + 'way'
