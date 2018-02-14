@@ -1,0 +1,7 @@
+<h1>Your text converted to PigLatin!</h1>
+
+<% if params[:user_phrase].split.count > 1 %>
+  <h2><%= @pig_latin.to_pig_latin(params[:user_phrase]) %></h2>
+<% else %>
+  <h2><%= @pig_latin.piglatinize(params[:user_phrase]) %></h2>
+  <% end %>
