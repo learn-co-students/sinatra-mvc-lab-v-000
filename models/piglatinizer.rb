@@ -1,9 +1,5 @@
 class PigLatinizer
-  attr_reader :text
 
-  def initialize(text = 'nil')
-    @text = text
-  end
 
   def to_pig_latin(sentence)
     sentence.split.map{|text| piglatinize(text)}.join(' ')
