@@ -1,23 +1,23 @@
 class PigLatinizer
 
-  def piglatinize(user_string)
-    @vowel = ['a', 'e', 'i', 'o', 'u']
-    words = user_string.split.map do |word|
-  		if word[0..1].include? ('qu')
-  			word = word[2..-1] + word[0..1]
-  		elsif word[1..2].include? ('qu')
-  			word = word[3..-1] + word[0..2]
-  		elsif @vowel.include?(word[0..0])
-  			word
-  		elsif @vowel.include?(word[1..1])
-  			word = word[1..(word.length - 1)] + word[0..0]
-  		elsif @vowel.include?(word[2..2])
-  			word = word[2..(word.length - 1)] + word[0..1]
-  		else
-  			word = word[3..(word.length - 1)] + word[0..2]
-  		end
-  		word = word + 'ay'
-  	end
-  	words.join(' ')
+  def piglatinize(word)
+    if !consonant?(word[0])
+      word = word + "w"
+    elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
+      word = word.slice(3..-1) + word.slice(0,3)
+    elsif consonant?(word[0]) && consonant?(word[1])
+      word = word.slice(2..-1) + word.slice(0,2)
+    else
+      word = word.slice(1..-1) + word.slice(0)
+    end
+    word << "ay"
+  end
+
+  def consonant?(char)
+    !char.match(/[aAeEiIoOuU]/)
+  end
+
+  def to_pig_latin(sentence)
+    sentence.split.collect { |word| piglatinize(word) }.join(" ")
   end
 end
