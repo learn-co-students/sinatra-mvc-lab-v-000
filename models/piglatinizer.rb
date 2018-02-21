@@ -5,14 +5,14 @@ class PigLatinizer
    EndingConsonant = "ay"
 
    def piglatinize(phrase)
-      to_pig_latin(phrase).join(" ")
+      to_pig_latin(phrase)
       
    end
 
   def to_pig_latin(phrase)
      phrase.split(' ').map {|word|
         compute(word)
-     }
+  }.join(" ")
    end
 
   def compute(word)
