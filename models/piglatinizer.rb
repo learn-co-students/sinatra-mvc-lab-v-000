@@ -13,11 +13,19 @@ class PigLatinizer
 
     lowercased = word.downcase
     if ["a","e","i","o","u"].any?{|vowel| lowercased[0] == vowel}
-      ary.push(word[0],"way")
+      ary.push("way")
+      ary.join("")
     else
-      ary.push(word[0],"ay")
+      moved = ary.slice(0,vindex)
+      ary.shift(vindex)
+      ary.push(moved,"ay")
+      ary.join("")
     end
-    ary.shift
-    return ary.join("")
+  end
+
+  def to_pig_latin(sentence)
+    ary = sentence.split(" ")
+    ary.map!{|i| self.piglatinize(i)}
+    ary.join(" ")
   end
 end
