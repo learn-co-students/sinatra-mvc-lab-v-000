@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Pig Latinizer</title>
+   </head>
+   <body>
+      <h1>Here is your piglatinized phrase:
+      </h1>
+      <p>
+         <%=@piglatinizer.to_pig_latin(params[:user_phrase])%>
+      </p>
+   </body>
+</html>
