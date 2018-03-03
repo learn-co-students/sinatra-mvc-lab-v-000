@@ -12,13 +12,13 @@ class PigLatinizer
 end
 
   def piglatinize(word)
-    first = word.scan(/\A[^aeiouAEIOU]+/)
+    first = word.scan(/\A[^aeiouAEIOU]+/).join('')
     if first.empty?
       "#{word}way"
-    else
-      word.gsub(first[0], "") << first[0] + "ay"
+    elsif word.start_with?(first)
+      prefix = word.slice!(0, first.length)
+      word << prefix << "ay" 
     end
   end
-
 
 end
