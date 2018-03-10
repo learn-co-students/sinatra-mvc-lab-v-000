@@ -1,26 +1,30 @@
-describe 'class PigLatinizer' do 
-  let!(:words) { PigLatinizer.new }
+describe "Pig Latinizer App" do
+  describe "GET '/'" do
+    before(:each) do
+      get '/'
+    end
 
+    it "returns a 200 status code" do
+      expect(last_response.status).to eq(200)
+    end
 
-  it 'can create a new instance of a class' do 
-    expect(PigLatinizer.new).to be_an_instance_of(PigLatinizer)
+    it "renders the instructions" do
+      expect(last_response.body).to include("Pig Latinizer!")
+    end
+
+    it "renders a new form element on the page" do
+      expect(last_response.body).to include("<form")
+      expect(last_response.body).to include("</form>")
+    end
+
+    it "renders the form directions on the page" do
+      expect(last_response.body).to include("Enter your phrase:")
+    end
+
+    it "renders the input field for the phrase" do
+      expect(last_response.body).to include("user_phrase")
+    end
+
   end
 
-  it 'piglatinizes an individual word' do 
-    expect(words.piglatinize("pork")).to eq("orkpay")
-    expect(words.piglatinize("I")).to eq("Iway")
-    expect(words.piglatinize("hello")).to eq("ellohay")
-    expect(words.piglatinize("please")).to eq("easeplay")
-    expect(words.piglatinize("tomorrow")).to eq("omorrowtay")
-    expect(words.piglatinize("until")).to eq("untilway")
-    expect(words.piglatinize("this")).to eq("isthay")
-    expect(words.piglatinize("Enumeration")).to eq("Enumerationway")
-    expect(words.piglatinize("spray")).to eq("ayspray")
-    expect(words.piglatinize("prays")).to eq("ayspray")
-  end
-
-  it 'has a method splits the sentence to piglatinize each word' do
-    expect(words.to_pig_latin("i love programming")).to eq("iway ovelay ogrammingpray") 
-  end
-  
 end
