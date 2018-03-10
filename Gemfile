@@ -1,6 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
-
+require 'capybara'
+require 'capybara/dsl'
 # gem "rails"
 
 gem 'sinatra'
@@ -9,7 +10,7 @@ gem 'sinatra'
     gem 'shotgun'
     gem 'pry'
     gem 'require_all'
-    
+
 group :test do
       gem 'rspec'
       gem 'capybara'
