@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <h1>Pig Latinizer!</h1>
+    <h4>Here's your post in Pig Latin</h4>
+
+    <p>
+      <%= @user_input.to_pig_latin(params[:user_phrase]) %>
+    </p>
+
+  </body>
+</html>
