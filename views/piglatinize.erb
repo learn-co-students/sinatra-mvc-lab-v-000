@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1>Pig Latinizer!</h1>
+    <h2>Here is your piglatinized phrase:</h2>
+    <p>
+      <%= @piglatin.to_pig_latin(@phrase) %>
+    </p>
     <h2>Enter your phrase:</h2>
     <form action="/piglatinize" method="post">
       <textarea name="user_phrase" rows="8" cols="40"></textarea>
