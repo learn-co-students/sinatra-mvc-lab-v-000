@@ -1,0 +1,102 @@
+@import  "https://fonts.googleapis.com/css?family=Amatic+SC:400,700";
+@import  "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700";
+@import  "https://fonts.googleapis.com/css?family=Oxygen+Mono";
+
+body {
+    background-color: #D6FAAC;
+}
+
+h1 {
+    font: 75px 'Amatic SC',sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+p,button {
+    font: 30px 'Open Sans Condensed',sans-serif;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+form {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    z-index: 1;
+}
+
+textarea {
+    width: inherit;
+    font: 20px 'Oxygen Mono',monospace;
+    resize: none;
+    padding: 15px 15px;
+    border-color: #000;
+    border-width: thin;
+    border-style: ridge;
+}
+
+button {
+    width: 60%;
+    text-align: center;
+    cursor: default;
+    color: #fff;
+    background-color: #772323;
+    box-sizing: border-box;
+    padding: 2px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: #772323;
+}
+
+div {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.results {
+    width: 60%;
+    background-color: #fff;
+    border-color: #000;
+    border-width: thin;
+    border-style: ridge;
+    text-align: center;
+    font: 20px 'Oxygen Mono',monospace;
+    margin: auto;
+    padding: 15px 15px;
+}
+
+.welcome {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    max-height: 50%;
+    position: absolute;
+    right: 30px;
+    top: 140px;
+    z-index: -3;
+}
+
+.img-flip {
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: FlipH;
+    position: absolute;
+    left: 30px;
+    top: 140px;
+    z-index: -3;
+}
+
+.piglatinize img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    z-index: -3;
+}
