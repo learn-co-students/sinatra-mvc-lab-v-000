@@ -27,9 +27,9 @@ describe "Pig Latinizer App" do
 
   end
 
-  describe "POST '/piglatinize'" do
+  describe "POST '/'" do
     before do
-      post '/piglatinize', {
+      post '/', {
         "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nice little boy named baby tuckoo"
       }
     end
@@ -43,9 +43,9 @@ describe "Pig Latinizer App" do
     end
   end
 
-  describe "POST '/piglatinize' again" do
+  describe "POST '/' again" do
     before do
-      post '/piglatinize', {
+      post '/', {
         "user_phrase"=> "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty four days now without taking a fish"
       }
     end
