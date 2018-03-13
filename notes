@@ -1,0 +1,36 @@
+if text.length == 1
+  text + "way"
+elsif
+  text =~ (/\A[AEIOUaeiou]/)
+  text + "way"
+
+
+
+
+elsif
+  text.split("")[1].downcase == "l"
+  letters = text.split("")
+  letters << letters.shift << letters.shift + "ay"
+  letters.join
+
+
+elsif
+  text.split("")[0].downcase == "s" && text.split("")[1].downcase == "p" && text.split("")[2].downcase == "r"
+  letters = text.split("")
+  letters << letters.shift << letters.shift << letters.shift + "ay"
+  letters.join
+
+
+elsif
+  text.split("")[0].downcase == "t" && text.split("")[1].downcase == "h"
+  letters = text.split("")
+  letters << letters.shift << letters.shift + "ay"
+  letters.join
+
+
+else
+  letters = text.split("")
+  letters << letters.shift + "ay"
+  letters.join
+end
+end
