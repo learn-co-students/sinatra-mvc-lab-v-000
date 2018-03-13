@@ -5,41 +5,34 @@ class PigLatinizer
     @text = text
   end
 
+  def consonant?(letter)
+    !letter.match(/[AEIOUaeiou]/)
+  end
+
   def piglatinize(text)
-    #handles individual words
-    split_text = text.split("")
+  #handles individual words
 
-    if # only one letter or starts with a vowel
-      text.length == 1 || text =~ (/\A[AEIOUaeiou]/)
-      text + "way"
+    if !consonant?(text[0]) # if 1st letter is a vowel
+      word = text + "w"
+    elsif # if first 3 letters are consonants
+      consonant?(text[0]) && consonant?(text[1]) && consonant?(text[2])
+      word = text.slice(3..-1) + text.slice(0..2)
 
-    elsif # second letter "l" or "r", or first two "sp" or "th"
-      split_text[1] == "l" || split_text[1] == "r" || split_text[0] == "t" && split_text[1] == "h"
-      split_text << split_text.shift << split_text.shift << "ay"
-      split_text.join
+    elsif # if first 2 letters are consonants
+      consonant?(text[0]) && consonant?(text[1])
+      word = text.slice(2..-1) + text.slice(0..1)
 
-    elsif # second and third letters are "p" and "r"
-      split_text[1] == "p" && split_text[2] == "r" || split_text[1] == "t" && split_text[2] == "r"
-      split_text << split_text.shift << split_text.shift << split_text.shift << "ay"
-      split_text.join
-
-    elsif # first and second letters are "wh" or "sk"
-      split_text[0] == "w" && split_text[1] == "h" || split_text[0] == "s" && split_text[1] == "k"
-      split_text << split_text.shift << split_text.shift << "ay"
-      split_text.join
-
-    else
-      split_text << split_text.shift + "ay"
-      split_text.join
+    else # if first letter is consonant
+      word = text.slice(1..-1) + text.slice(0)
     end
+    word + "ay"
   end
 
   def to_pig_latin(text)
-    # handles sentences
-    split_text = text.split
-    split_text.collect! do |word|
-      piglatinize(word)
-    end
-    split_text.join(" ")
+  # handles sentences
+  phrase = text.split.collect! do |word|
+    piglatinize(word)
+  end
+  phrase.join(" ")
   end
 end
