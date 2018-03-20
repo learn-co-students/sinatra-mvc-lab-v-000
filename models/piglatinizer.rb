@@ -10,7 +10,7 @@ class PigLatinizer
     word_array = word.split(" ")
     #binding.pry
     if word_array.length > 1
-      splits(word)
+      return splits(word)
     end
     #binding.pry
     word = word.split("")
