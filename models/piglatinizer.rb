@@ -1,8 +1,8 @@
+
 require 'pry'
-class PigLatinizer < Sinatra::Base
-  def initialize(user_phrase)
-    @user_phrase = user_phrase.downcase
-  end
+class PigLatinizer
+  attr_reader :words
+
 
   def piglatinize(word)
     #any word begining with a vowel +> add 'way'
@@ -17,19 +17,20 @@ class PigLatinizer < Sinatra::Base
       word_array.insert(4, f)
       word_array.shift
       new_word = word_array.join('')
-      new_word += "way"
+      new_word += "ay"
     end
     new_word
-    binding.pry
+    #binding.pry
   end
 
-    def splits(user_phrase)
-      array_of_words = user_phrase.split(" ")
+    def splits(words)
+      array_of_words = words.split(" ")
       new_phrase = ""
       array_of_words.each do |w|
-        new_phrase += piglatinize(w)
+        new_phrase += " " + piglatinize(w)
       end
+      new_phrase
+      binding.pry
     end
-
 
 end
