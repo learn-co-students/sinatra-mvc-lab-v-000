@@ -1,4 +1,4 @@
-
+#(word_array[0] == "a" ) || (word_array[0] == "e") || (word_array[0] == "i") || (word_array[0] == "o") || (word_array[0] == "u")
 require 'pry'
 class PigLatinizer
   attr_reader :words
@@ -7,30 +7,37 @@ class PigLatinizer
   def piglatinize(word)
     #any word begining with a vowel +> add 'way'
     #any word beginning with a constonant, remove constonaent and place 'ay' on the end
-    word_array = word.downcase.split("")
-    if word_array.first.include?("a" || "e" || "i" || "o" || "u")
+    word_array = word.split(" ")
+    #binding.pry
+    if word_array.length > 1
+      splits(word)
+    end
+    #binding.pry
+    word = word.split("")
+    if !word[0].match(/[aeiouAEIOU]/)
+      until word[0].match(/[aeiouAEIOU]/)
+        word = word.rotate!
+      end
       new_word = " "
-      new_word = word_array.join("") + "way"
+      new_word = word.join("") + "ay"
     else
-      new_word = " "
-      f = word_array.first
-      word_array.insert(4, f)
-      word_array.shift
-      new_word = word_array.join('')
-      new_word += "ay"
+      new_word = word.join('')
+      new_word += "way"
     end
     new_word
     #binding.pry
   end
 
     def splits(words)
+      #binding.pry
       array_of_words = words.split(" ")
+      #binding.pry
       new_phrase = ""
       array_of_words.each do |w|
         new_phrase += " " + piglatinize(w)
       end
-      new_phrase
-      binding.pry
+      new_phrase.strip
+      #binding.pry
     end
 
 end
