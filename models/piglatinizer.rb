@@ -22,10 +22,8 @@ class PigLatinizer
 
     def latinize_the_word(word)
         letter_array = word.split("")
-        if word == "He"
-            lat_word = letter_array.insert(letter_array.length-1, letter_array.delete_at(0)).join
-            "#{lat_word}ay"
-        elsif CONSONANTS.include?(letter_array[0]) && !CONSONANTS.include?(letter_array[1])
+     
+        if CONSONANTS.include?(letter_array[0]) && !CONSONANTS.include?(letter_array[1])
           lat_word = letter_array.insert(letter_array.length-1, letter_array.delete_at(0)).join
           "#{lat_word}ay"
         elsif CONSONANTS.include?(letter_array[0]) && CONSONANTS.include?(letter_array[1]) && !CONSONANTS.include?(letter_array[2]) #it starts with 2 consonants
