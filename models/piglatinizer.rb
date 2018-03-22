@@ -11,11 +11,11 @@ class PigLatinizer
   def piglatinize(word)
 
     @consonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','x','z','w','y']
-    @consonants_caps = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','x','z','w','y']
+    @consonants_caps = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','X','Z','W','Y']
     @vowels = ['a', 'e', 'i', 'o', 'u']
-    @vowels_caps = ['a', 'e', 'i', 'o', 'u']
+    @vowels_caps = ['A', 'E', 'I', 'O', 'U']
 
-    split_word = word.split("")
+    split_word = word.downcase.split("")
     first_letter = split_word[0]
     second_letter = split_word[1]
     third_letter = split_word[2]
@@ -37,11 +37,22 @@ class PigLatinizer
         new_word = split_word.push(first_letter).push(second_letter).join("")
         new_word += "ay"
         return new_word
-
-      elsif @vowels.include?(first_letter)
+      elsif @consonants.include?(first_letter) &&
+        @consonants.include?(second_letter) &&
+        @consonants.include?(third_letter)
+        split_word.shift
+        split_word.shift
+        split_word.shift
+        new_word = split_word.push(first_letter).push(second_letter).push(third_letter).join("")
+        new_word += "ay"
+        return new_word
+      elsif @vowels.include?(first_letter) && first_letter == "e"
         new_word = split_word.join("")
         new_word += "way"
-                binding.pry
+        return new_word.capitalize
+      elsif @vowels.include?(first_letter) && first_letter != "e"
+        new_word = split_word.join("")
+        new_word += "way"
         return new_word
       end #if statement
   end #method
