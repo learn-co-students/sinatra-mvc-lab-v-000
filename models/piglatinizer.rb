@@ -37,12 +37,6 @@ class PigLatinizer
         end  
     end 
 
-    # if the string is more than 1 word
-    #     latinize_the_word
-    # else
-    #     split the string into individual words then latinize each word then put the string back together. if the word
-    #     is the first word in the sentence, capitalize the string. 
-    # end 
 
 #1.if it starts with a vowel it just adds "-way" to th end
 #2. if it starts with ONE consonant, it removes the consonant from the start of the string to the end of the 
