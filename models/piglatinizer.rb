@@ -1,54 +1,48 @@
-
+require 'pry'
 class PigLatinizer
 
-  attr_accessor :word
+  attr_accessor :word, :consonants, :vowels
 
 
-
-  def initialize(word)
+  def initialize
     @word = word
   end
 
   def piglatinize(word)
 
-    consonants = ['B','b','C','c','D','d','F','f', 'G','g', 'H','h','J','j','K','k','L','l','M','m', 'N','n','P','p','Q','q','R','r','S','s','T','t','V','v','X','x','Z','z']
+    @consonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','x','z','w','y']
+    @consonants_caps = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','x','z','w','y']
+    @vowels = ['a', 'e', 'i', 'o', 'u']
+    @vowels_caps = ['a', 'e', 'i', 'o', 'u']
 
-    vowels = ['a','A','e','E','i','I','o','O','u','U']
+    split_word = word.split("")
+    first_letter = split_word[0]
+    second_letter = split_word[1]
+    third_letter = split_word[2]
+      if @vowels.include?(first_letter) && split_word.length == 1
+        new_word = first_letter.capitalize + "way"
+        return new_word
+      elsif @consonants.include?(first_letter) &&
+        @vowels.include?(second_letter)
+        split_word.shift
+        split_word.push(first_letter)
+        new_word = split_word.join("")
+        new_word += "ay"
+        return new_word
+      elsif @consonants.include?(first_letter) &&
+        @consonants.include?(second_letter) &&
+        @vowels.include?(third_letter)
+        split_word.shift
+        split_word.shift
+        new_word = split_word.push(first_letter).push(second_letter).join("")
+        new_word += "ay"
+        return new_word
 
-    array = word.split("")
-    first_letter = array[0]
-    second_letter = array[1]
-    third_letter = array[2]
-
-    if first_letter.start_with?(vowels.to_s) && array.length == 1
-        array.shift
-        new_array = array.push(first_letter)
-        new_word = new_array.push("w", "a", "y").join("")
-        return new_word
-    elsif first_letter.start_with?(consonants.to_s) && second_letter.start_with?(vowels.to_s)
-        array.shift
-        new_array = array.push(first_letter)
-        new_word = new_array.push("a", "y").join("")
-        return new_word
-    elsif first_letter.start_with?('s','S') && second_letter.start_with?('p','P') && third_letter.start_with?('r','R')
-        array.shift
-        array.shift
-        array.shift
-        new_word = array.push("a", "y").join("")
-        return new_word
-    elsif first_letter.start_with?(vowels.to_s) && second_letter.start_with?(consonants.to_s)
-          new_word = array.push("w", "a", "y").join("")
-          return new_word
-    else first_letter.start_with?(consonants.to_s) && second_letter.start_with?(consonants.to_s)
-        first_letter = array[0]
-        second_letter = array[1]
-        array.shift
-        array.shift
-        new_array = array.push(first_letter)
-        new_array = array.push(second_letter)
-        new_word = new_array.push("a", "y").join("")
+      elsif @vowels.include?(first_letter)
+        new_word = split_word.join("")
+        new_word += "way"
+                binding.pry
         return new_word
       end #if statement
   end #method
-
-end
+  end
