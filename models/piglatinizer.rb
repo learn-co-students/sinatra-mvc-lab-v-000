@@ -71,16 +71,22 @@ class PigLatinizer
 
     array.each_with_index do |word, index|
         if @vowels.include?(word[0]) && word.length == 1
-        new_word = word[0] + "way"
-        pig_latin << new_word
+          new_word = word[0] + "way"
+          pig_latin << new_word
         elsif @consonants.include?(word[0]) && @vowels.include?(word[1])
-        split_word = word.split("")
-        split_word.shift
-        new_word = split_word.push(word[0]).join("") + "ay"
-        pig_latin << new_word
+          split_word = word.split("")
+          split_word.shift
+          new_word = split_word.push(word[0]).join("") + "ay"
+          pig_latin << new_word
         else @consonants.include?(word[0]) && @consonants.include?(word[1]) && @vowels.include?(word[2])
+          split_word = word.split("")
+          split_word.shift
+          split_word.shift
+          new_word = split_word.push(word[0]).push(word[1]).join("") + "ay"
+          pig_latin << new_word
         end #if statement
     end #each iterator
+        return pig_latin.join(" ")
   end #method
 
   end
