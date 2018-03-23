@@ -72,12 +72,26 @@ class PigLatinizer
 
     array.each_with_index do |word, index|
 
-        if @vowels.include?(word[0]) && word.length == 1
+        if @consonants_caps.include?(word[0]) && word.length == 2
+          split_word = word.split("")
+          split_word.shift
+          new_word = split_word.push(word[0]).push("a", "y").join("")
+          pig_latin << new_word
+        elsif @vowels.include?(word[0]) && word.length == 1
           new_word = word[0] + "way"
           pig_latin << new_word
-        # elsif @consonants_caps.include?(word[0]) && word.length == 2
-        #   new_word = word + "ay"
-        #   pig_latin << new_word
+        elsif @consonants_caps.include?(word[0]) && word.length == 6
+          split_word = word.split("")
+          split_word.shift
+          split_word.shift
+          split_word.shift
+          new_word = split_word.push(word[0]).push(word[1]).push(word[2]).push("a", "y").join("")
+          pig_latin << new_word
+        elsif @consonants_caps.include?(word[0]) && word.length == 4 #TESTING, GULF
+          split_word = word.split("")
+          split_word.shift
+          new_word = split_word.push(word[0]).push("a", "y").join("")
+          pig_latin << new_word
         elsif @vowels.include?(word[0]) || @vowels_caps.include?(word[0]) && @consonants.include?(word[1])
           new_word = word + "way"
           pig_latin << new_word
