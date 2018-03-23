@@ -1,11 +1,12 @@
 require 'pry'
 class PigLatinizer
 
-  attr_accessor :word, :consonants, :vowels
+  attr_accessor :word, :consonants, :vowels, :phrase
 
 
   def initialize
     @word = word
+    @phrase = phrase
   end
 
   def piglatinize(word)
@@ -70,8 +71,15 @@ class PigLatinizer
     pig_latin = []
 
     array.each_with_index do |word, index|
+
         if @vowels.include?(word[0]) && word.length == 1
           new_word = word[0] + "way"
+          pig_latin << new_word
+        # elsif @consonants_caps.include?(word[0]) && word.length == 2
+        #   new_word = word + "ay"
+        #   pig_latin << new_word
+        elsif @vowels.include?(word[0]) || @vowels_caps.include?(word[0]) && @consonants.include?(word[1])
+          new_word = word + "way"
           pig_latin << new_word
         elsif @consonants.include?(word[0]) && @vowels.include?(word[1])
           split_word = word.split("")
