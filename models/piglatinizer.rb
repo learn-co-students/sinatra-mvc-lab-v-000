@@ -6,10 +6,8 @@ class PigLatinizer
   def piglatinize(phrase)
     words = phrase.split
     piglatinized_phrase = ""
-    #binding.pry
     words.each do |word|
       piglatinized_phrase << word_to_piglatinize(word) + " "
-      #binding.pry
     end
     piglatinized_phrase.strip
   end
