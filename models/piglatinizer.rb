@@ -12,9 +12,9 @@ class PigLatinizer
     if !consonant?(input[0])
       input = input + "w"
     elsif consonant?(input[0]) && consonant?(input[1]) && consonant?(input[2])
-      input = input.slice(3..-1) + input.slice(0,3)
+      input = input.slice(3..-1) + input.slice(0, 3)
     elsif consonant?(input[0]) && consonant?(input[1])
-      input = input.slice(2..-1) + input.slice(0,2)
+      input = input.slice(2..-1) + input.slice(0, 2)
     else
       input = input.slice(1..-1) + input.slice(0)
     end
