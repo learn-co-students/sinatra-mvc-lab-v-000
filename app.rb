@@ -8,8 +8,10 @@ class App < Sinatra::Base
       end
 
 #post is mailman
-  post'/'do
-  binding.pry
+  post'/piglatinize'do
+   new_phrase = PigLatinizer.new
+   @piglatin = new_phrase.to_pig_latin[:user_phrase]
     erb :user_input
+
   end
 end
