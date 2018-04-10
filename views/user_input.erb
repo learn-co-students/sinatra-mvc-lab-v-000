@@ -6,9 +6,9 @@
 </head>
 <body>
   <h1>Pig Latinizer!</h1>
-  <form method="POST" action="piglatinize">
-    <p>Enter your phrase: </p>
-    <textarea name="user_phrase"></textarea>
+  <form method="POST" action="/piglatinize">
+    <label for="phrase">Enter your phrase:</label>
+      <input type="text" id="phrase" name='user_phrase'>
     <button type="submit" value="submit">Submit</button>
   </form>
 </body>
