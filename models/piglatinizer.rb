@@ -1,7 +1,10 @@
+require 'pry'
+
 class PigLatinizer
 
   def piglatinize(string)
     i = (string.split(" ").length==1) ? pl_word(string) : pl_phrase(string)
+    puts i
     i
   end
 
@@ -31,6 +34,4 @@ class PigLatinizer
   def consonant?(charecter)
     !charecter.match(/[aAeEiIoOuU]/)
   end
-
-
 end #End of class
