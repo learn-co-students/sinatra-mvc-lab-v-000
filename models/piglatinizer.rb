@@ -20,13 +20,12 @@ class PigLatinizer
   def convert_word(word)
     # Converts each or single word into Pig Latin
     newWord = word
-    word = word.downcase
     # If word starts with Consonant(s)...
-    if word[0].match(/[bcdfghjklmnpqrstvwxyz]/)
+    if word.downcase[0].match(/[bcdfghjklmnpqrstvwxyz]/)
       # Grab (all) Consonant(s) and append them to the end of the word + "ay"
       newWord = word.match(/[aeoui]/).to_a[0] + word.match(/[aeoui]/).post_match + word.match(/[aeoui]/).pre_match + "ay"
     # If word starts with vowel...
-    elsif word[0].match(/[aeoui]/)
+    elsif word.downcase[0].match(/[aeoui]/)
       # Append "way"
       newWord = word + "way"
     else
