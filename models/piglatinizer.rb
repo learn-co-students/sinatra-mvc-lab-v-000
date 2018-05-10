@@ -8,12 +8,13 @@ class PigLatinizer
 
   def piglatinize(words)
     @text = words
-
-    @text.split.collect do |word|
+    converted = ""
+    @text.split.collect! do |word|
       # Converts each or single word into Pig Latin
-      convert_word(word)
+      converted << convert_word(word)
     end
     # Returns converted phrase -- used "collect"
+    converted
   end
 
   def convert_word(word)
