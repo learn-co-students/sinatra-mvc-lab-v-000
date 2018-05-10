@@ -8,17 +8,17 @@ class PigLatinizer
 
   def piglatinize(words)
     @text = words
-    # Checks number of words in phrase (if more than one)
-    # Converts each or single word into Pig Latin
-    # Returns converted phrase
-  end
 
-  def check_phrase(phrase)
-    # Checks number of words in phrase (if more than one)
+    @text.split.collect do |word|
+      # Converts each or single word into Pig Latin
+      convert_word(word)
+    end
+    # Returns converted phrase -- used "collect"
   end
 
   def convert_word(word)
     # Converts each or single word into Pig Latin
+    word
   end
 
 end
