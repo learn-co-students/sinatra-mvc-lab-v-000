@@ -11,15 +11,30 @@ class PigLatinizer
     converted = ""
     @text.split.collect! do |word|
       # Converts each or single word into Pig Latin
-      converted << convert_word(word)
+      converted << convert_word(word) + " "
     end
     # Returns converted phrase -- used "collect"
-    converted
+    converted.strip
   end
 
   def convert_word(word)
     # Converts each or single word into Pig Latin
-    word
+    newWord = word
+
+    # If word starts with Consonant(s)...
+    if word[0].match(/[bcdfghjklmnpqrstvwxyz]/)
+      # Grab (all) Consonant(s) and append them to the end of the word + "ay"
+
+    # If word starts with vowel...
+    elsif word[0].match(/[aeoui]/)
+      # Append "way"
+      newWord = word + "way"
+    else
+      newWord = "Not a proper word."
+    end
+
+    # "Orig = #{word} || converted = #{newWord}"
+    newWord
   end
 
 end
