@@ -24,7 +24,7 @@ class PigLatinizer
     # If word starts with Consonant(s)...
     if word[0].match(/[bcdfghjklmnpqrstvwxyz]/)
       # Grab (all) Consonant(s) and append them to the end of the word + "ay"
-
+      newWord = word[0].match(/[bcdfghjklmnpqrstvwxyz]/).post_match + word[0].match(/[bcdfghjklmnpqrstvwxyz]/).pre_match + "ay"
     # If word starts with vowel...
     elsif word[0].match(/[aeoui]/)
       # Append "way"
