@@ -37,3 +37,7 @@ class PigLatinizer
   end
 
 end
+
+#Referenced
+# https://ruby-doc.org/core-2.2.0/String.html#method-i-match
+# https://ruby-doc.org/core-2.2.0/MatchData.html
