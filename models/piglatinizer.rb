@@ -3,7 +3,7 @@ class PigLatinizer
   # def initialize(phrase)
   #   @phrase = phrase
   # end
-  #
+
   def piglatinize(phrase)
     current = phrase.split(" ")
 
@@ -28,7 +28,7 @@ class PigLatinizer
         word << "way"
       end
     end
-    phrase = current.join(" ")
+    @phrase = current.join(" ")
   end
 
 end
