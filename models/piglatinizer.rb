@@ -1,12 +1,11 @@
 class PigLatinizer
-  attr_reader :phrase
 
-  def initialize(phrase)
-    @phrase = phrase
-  end
-
-  def convert
-    current = @phrase.split(" ")
+  # def initialize(phrase)
+  #   @phrase = phrase
+  # end
+  #
+  def piglatinize(phrase)
+    current = phrase.split(" ")
 
     current.map do |word|
 
@@ -29,7 +28,7 @@ class PigLatinizer
         word << "way"
       end
     end
-    @phrase = current.join(" ")
+    phrase = current.join(" ")
   end
 
 end
