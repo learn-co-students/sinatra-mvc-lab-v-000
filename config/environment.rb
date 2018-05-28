@@ -5,3 +5,6 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 
 require './app'
 require_all 'models'
+
+# quick exit
+def x; exit!;end
