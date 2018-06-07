@@ -1,0 +1,30 @@
+
+[1mFrom:[0m /home/Su0414/sinatra-mvc-lab-v-000/models/piglatinizer.rb @ line 16 PigLatinizer#piglatinize:
+
+     [1;34m9[0m:   [32mdef[0m [1;34mpiglatinize[0m(str_words)
+    [1;34m10[0m:     arr = []
+    [1;34m11[0m:     arr2 = []
+    [1;34m12[0m:     str = [31m[1;31m"[0m[31may[1;31m"[0m[31m[0m
+    [1;34m13[0m:     i = [1;34m0[0m
+    [1;34m14[0m:     words = str_words.split([31m[1;31m"[0m[31m [1;31m"[0m[31m[0m)
+    [1;34m15[0m:     words.each [32mdo[0m |word|
+ => [1;34m16[0m:       binding.pry
+    [1;34m17[0m:       word.each_char.with_index([1;34m1[0m).map { |val,index|
+    [1;34m18[0m:         [32mif[0m [31m[1;31m'[0m[31maeiouAEIOU[1;31m'[0m[31m[0m.include?val
+    [1;34m19[0m:           i = index - [1;34m1[0m
+    [1;34m20[0m:           [32mbreak[0m;
+    [1;34m21[0m:         [32mend[0m
+    [1;34m22[0m:       }
+    [1;34m23[0m:         str1 = word.slice([1;34m0[0m,i)
+    [1;34m24[0m:         str2 = word.slice(i)
+    [1;34m25[0m:         str3 = word.slice(i, word.length)
+    [1;34m26[0m:         [32mif[0m(i == [1;34m0[0m)
+    [1;34m27[0m:           str = [31m[1;31m"[0m[31mway[1;31m"[0m[31m[0m
+    [1;34m28[0m:         [32mend[0m
+    [1;34m29[0m:         str4 =  str3 + str1 + str
+    [1;34m30[0m:         arr << str4
+    [1;34m31[0m:         binding.pry
+    [1;34m32[0m: [32mend[0m
+    [1;34m33[0m:     arr.join([31m[1;31m"[0m[31m [1;31m"[0m[31m[0m)
+    [1;34m34[0m:   [32mend[0m
+
