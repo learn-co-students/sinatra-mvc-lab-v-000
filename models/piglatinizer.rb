@@ -2,18 +2,12 @@ require 'pry'
 
 class PigLatinizer
 
-  # def initialize(words)
-  #   @words = words
-  # end
 
   def piglatinize(word)
-    # phrase = @words.downcase
-    # vowels = %w(a e i o u)
-    # phrase = words.split(' ')
+
     consonants = ('a'..'z').to_a - %w(a e i o u)
     piglatin = ''
 
-    # phrase.each do |w|
 
     if !consonants.include?(word[0].downcase)
       pl =  word + 'way'
