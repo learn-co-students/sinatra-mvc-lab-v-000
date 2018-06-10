@@ -1,60 +1,44 @@
 require 'pry'
 
 class PigLatinizer
-  attr_accessor :string
 
-  def initialize
-    @string = string
+  # def initialize(words)
+  #   @words = words
+  # end
+
+  def piglatinize(word)
+    # phrase = @words.downcase
+    # vowels = %w(a e i o u)
+    # phrase = words.split(' ')
+    consonants = ('a'..'z').to_a - %w(a e i o u)
+    piglatin = ''
+
+    # phrase.each do |w|
+
+    if !consonants.include?(word[0].downcase)
+      pl =  word + 'way'
+    elsif consonants.include?(word[0].downcase) && consonants.include?(word[1].downcase) && consonants.include?(word[2].downcase)
+      pl =  word[3..-1] + word[0..2] + 'ay'
+    elsif consonants.include?(word[0].downcase) && consonants.include?(word[1].downcase)
+      pl =  word[2..-1] + word[0..1] + 'ay'
+    elsif consonants.include?(word[0].downcase)
+      pl =  word[1..-1] + word[0] + 'ay'
+    else
+      pl =  word
+    end
+    piglatin += pl
+    piglatin.strip
   end
 
-# here, can have 3 conditionals that test for: vowel first letter,
-# consonant first letter, and consonant-cluster.
-# pork, orkpay
-
-  def piglatinize(string)
-# if the first letter is a vowel, just add "way" to the end
+  def to_pig_latin(words)
     # binding.pry
-    # string = string.downcase
-     if string.split(" ").count > 1
-       x = to_pig_latin(string)
-     elsif string.start_with?('a','e','i','o','u','A','E','I','O','U')
-       string << 'way'
-
-     elsif !string[0].start_with?('a','e','i','o','u','A','E','I','O','U') && !string[1].start_with?('a','e','i','o','u','A','E','I','O','U') && !string[2].start_with?('a','e','i','o','u','A','E','I','O','U')
-       # binding.pry
-       x = string.slice!(0..2)
-       # string[0] = ""
-       # string[0] = ""
-       string << x + "ay"
-       # string
-
-    elsif !string[0].start_with?('a','e','i','o','u','A','E','I','O','U') && !string[1].start_with?('a','e','i','o','u','A','E','I','O','U')
-      # binding.pry
-      x = string.slice!(0..1)
-      # string[0] = ""
-      # string[0] = ""
-      string << x + "ay"
-      # string
-
-          elsif !string[0].start_with?('a','e','i','o','u','A','E','I','O','U')
-            # binding.pry
-            x = string.slice!(0)
-            string << x + "ay"
+    x = words.split(" ")
+    # binding.pry
+    x = x.each do |word|
+      piglatinize(word)
+  end
+  x.join(" ")
+end
 
 
-          end
-        end
-
-        def to_pig_latin(words)
-          # binding.pry
-          x = words.split(" ")
-          # binding.pry
-          x = x.each do |word|
-            piglatinize(word)
-        end
-        x.join(" ")
-      end
-
-
-
-      end
+end
