@@ -1,4 +1,4 @@
-describe "Pig Latinizer App" do
+puts describe "Pig Latinizer App" do
   describe "GET '/'" do
 
     before(:each) do
@@ -28,7 +28,7 @@ describe "Pig Latinizer App" do
 
   end
 
-  describe "POST '/piglatinize'" do
+  puts describe "POST '/piglatinize'" do
     before do
       post '/piglatinize', {
         "user_phrase"=> "Once upon a time and a very good time it was there was a moocow coming down along the road and this moocow that was coming down along the road met a nice little boy named baby tuckoo"
@@ -44,7 +44,7 @@ describe "Pig Latinizer App" do
     end
   end
 
-  describe "POST '/piglatinize' again" do
+  puts describe "POST '/piglatinize' again" do
     before do
       post '/piglatinize', {
         "user_phrase"=> "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty four days now without taking a fish"
