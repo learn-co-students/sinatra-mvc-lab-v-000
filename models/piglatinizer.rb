@@ -7,15 +7,14 @@ class PigLatinizer
       pl = []
       if word[0].include?(/[aeiou]/)
         word << "way"
-        pl << word.join
       else
         word.last = arr.first
         word.unshift
         word << "ay"
-        pl << word.join
       end
-      puts pl
-      binding.pry
+      pl << word.join
     end
+    pl.join(" ")
   end
+
 end
