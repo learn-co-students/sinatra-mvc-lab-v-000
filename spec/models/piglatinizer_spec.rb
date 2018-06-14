@@ -1,4 +1,4 @@
-describe 'class PigLatinizer' do
+puts describe 'class PigLatinizer' do
   let!(:words) { PigLatinizer.new }
 
 

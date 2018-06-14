@@ -5,7 +5,7 @@ puts describe "Pig Latinizer App" do
       get '/'
     end
 
-    it "returns a 200 status code" do
+  putd   it "returns a 200 status code" do
       expect(last_response.status).to eq(200)
     end
 
@@ -55,7 +55,7 @@ puts describe "Pig Latinizer App" do
       expect(last_response.status).to eq(200)
     end
 
-    it "displays the pig latinized phrase upon form submission" do
+  puts   it "displays the pig latinized phrase upon form submission" do
       expect(last_response.body).to include("eHay asway anway oldway anmay owhay ishedfay aloneway inway away iffskay inway ethay ulfGay eamStray andway ehay adhay onegay eightyway ourfay aysday ownay ithoutway akingtay away ishfay")
     end
   end
