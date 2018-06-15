@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/ELTemi/sinatra-mvc-lab-v-000/models/piglatinizer.rb @ line 25 PigLatinizer#piglatinize:
+
+     [1;34m9[0m: [32mdef[0m [1;34mpiglatinize[0m(str)
+    [1;34m10[0m:   alpha = ([31m[1;31m'[0m[31ma[1;31m'[0m[31m[0m..[31m[1;31m'[0m[31mz[1;31m'[0m[31m[0m).to_a
+    [1;34m11[0m:   vowels = [31m[1;31m%w[[0m[31ma e i o u[1;31m][0m[31m[0m
+    [1;34m12[0m:   consonants = alpha - vowels
+    [1;34m13[0m:   two_letter_consonants = [[31m[1;31m"[0m[31msp[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mpr[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mqu[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mth[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mbr[1;31m"[0m[31m[0m]
+    [1;34m14[0m:   words = str.split([31m[1;31m"[0m[31m [1;31m"[0m[31m[0m)
+    [1;34m15[0m:   result = []
+    [1;34m16[0m:   words.each [32mdo[0m |word|
+    [1;34m17[0m:     [32mif[0m vowels.include?(word.downcase[[1;34m0[0m])
+    [1;34m18[0m:       new_str = word + [31m[1;31m"[0m[31mway[1;31m"[0m[31m[0m
+    [1;34m19[0m:       result << new_str
+    [1;34m20[0m:     [32melsif[0m consonants.include?(word[[1;34m0[0m]) && consonants.include?(word[[1;34m1[0m])
+    [1;34m21[0m:       new_str = word[[1;34m2[0m..[1;34m-1[0m] + word[[1;34m0[0m..[1;34m1[0m] + [31m[1;31m"[0m[31may[1;31m"[0m[31m[0m
+    [1;34m22[0m:       result << new_str
+    [1;34m23[0m:     [32melsif[0m consonants.include?(word[[1;34m0[0m])
+    [1;34m24[0m:       new_str = word[[1;34m1[0m..[1;34m-1[0m] + word[[1;34m0[0m] + [31m[1;31m"[0m[31may[1;31m"[0m[31m[0m
+ => [1;34m25[0m:       binding.pry
+    [1;34m26[0m:       result << new_str
+    [1;34m27[0m:     [32melsif[0m two_letter_consonants.include?(word[[1;34m0[0m] + word[[1;34m1[0m])
+    [1;34m28[0m:       new_str = [31m[1;31m"[0m[31may[1;31m"[0m[31m[0m + word
+    [1;34m29[0m:       result << new_str
+    [1;34m30[0m:     [32melse[0m
+    [1;34m31[0m:       result << word [1;34m# return unchanged[0m
+    [1;34m32[0m:     [32mend[0m
+    [1;34m33[0m:   [32mend[0m
+    [1;34m34[0m:   result.join([31m[1;31m"[0m[31m [1;31m"[0m[31m[0m)
+    [1;34m35[0m: [32mend[0m
+
