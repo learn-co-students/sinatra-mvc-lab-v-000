@@ -7,42 +7,31 @@ class PigLatinizer
   end
 
   def piglatinize(str)
-    # Vowels to consider
-    vowels = ["a", "e", "i", "o", "u"]
-    # Special cases to consider
-    two_letter_consonants = ["ch", "sh", "qu", "th", "br"]
-    three_letter_consonants = ["thr", "sch", "squ"]
-    # Seperate each word from the phrase given
+    alpha = ('a'..'z').to_a
+    vowels = %w[a e i o u]
+    consonants = alpha - vowels
+    two_letter_consonants = ["sp", "pr", "qu", "th", "br"]
     words = str.split(" ")
-    #Location for processed words
-    result = [];
+    result = []
     words.each do |word|
-        # Words that start with a vowels
-        if vowels.include? word[0]
-            result.push word << 'way'
-        # Words that start with a consonant
-        else
-            # Check for special consonants
-            if three_letter_consonants.include? word[0] + word[1] + word[2]
-                # Slice off first three letters
-                first_three_letters = word.slice!(0,3)
-                # Add letters to end of word with 'ay'
-                result.push word << first_three_letters << 'ay'
-            elsif  two_letter_consonants.include? word[0] + word[1]
-                # Slice off first two letters
-                first_two_letters = word.slice!(0,2)
-                # Add the letters to end of word with 'ay'
-                result.push word << first_two_letters << 'ay'
-            else
-                # Slice off first letter...
-                first_letter = word.slice!(0)
-                # Add first letter to end of word with 'ay'
-                result.push word << first_letter << 'ay'
-            end #End of special consonant check
-        end #End of vowel check
-    end #End of words.each
-    #Present the processed words as a single string
-    return result.join(" ")
-  end #End of translate function
+      if vowels.include?(word.downcase[0])
+        new_str = word + "way"
+        result << new_str
+      elsif consonants.include?(word.downcase[0]) && consonants.include?(word.downcase[1]) && consonants.include?(word.downcase[2])
+        new_str = word[3..-1] + word[0..2] + "ay"
+        result << new_str
+      elsif consonants.include?(word.downcase[0]) && consonants.include?(word.downcase[1])
+        new_str = word[2..-1] + word[0..1] + "ay"
+        result << new_str
+      elsif consonants.include?(word.downcase[0])
+        new_str = word[1..-1] + word[0] + "ay"
+        result << new_str
+      else
+        result << word # return unchanged
+      end
+
+    end
+    result.join(" ")
+  end
 
 end
