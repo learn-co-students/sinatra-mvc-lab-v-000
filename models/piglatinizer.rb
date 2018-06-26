@@ -12,7 +12,6 @@ def piglatinize(string)
       if word.match /^[^aeiouAEIOU]{3}/
         pig_latin = word_array.concat(word_array.slice!(0,3)).join+'ay'
         pig_latin_array << pig_latin
-         # binding.pry
       elsif word.match /^[^aeiouAEIOU]{2}/
         pig_latin = word_array.concat(word_array.slice!(0,2)).join + 'ay'
         pig_latin_array << pig_latin
