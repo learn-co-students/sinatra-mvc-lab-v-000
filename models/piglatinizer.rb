@@ -1,19 +1,32 @@
+require 'pry'
 class PigLatinizer
-  attr_reader :string
 
-  def initialize(string)
-    @string = string.downcase.split
+
+def piglatinize(string)
+  @string = string.split
+  pig_latin_array =[]
+  @string.each do |word|
+    if word.match /^[^aeiouAEIOU]/
+      word_array = word.split("")
+
+      if word.match /^[^aeiouAEIOU]{3}/
+        pig_latin = word_array.concat(word_array.slice!(0,3)).join+'ay'
+        pig_latin_array << pig_latin
+         # binding.pry
+      elsif word.match /^[^aeiouAEIOU]{2}/
+        pig_latin = word_array.concat(word_array.slice!(0,2)).join + 'ay'
+        pig_latin_array << pig_latin
+      elsif word.match /^[^aeiouAEIOU]{1}/
+       pig_latin = word_array.concat(word_array.slice!(0,1)).join+'ay'
+       pig_latin_array << pig_latin
+      end
+
+    else
+      pig_latin = word + 'way'
+      pig_latin_array << pig_latin
+    end
   end
-
-
-  def to_pig_latin
-    string.collect do |word|
-      if word(/^[^aeiou]/)
-         word_array = word.split(" ")
-         first_letter = word_array.shift()
-         word_array.push(first_letter).join
-
-  end
-
+  pig_latin_array.join(' ')
+end
 
 end
