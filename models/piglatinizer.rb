@@ -1,7 +1,7 @@
 require 'pry'
 
 class PigLatinizer
-	#credit to github user splith for piglatinizing methods https://github.com/spilth/ubyray/blob/master/lib/ubyray.rb
+	#credit to github user splith for piglatinizing methods I used as the base for these instance methods https://github.com/spilth/ubyray/blob/master/lib/ubyray.rb
 
 	def initialize
 	end
@@ -25,7 +25,6 @@ class PigLatinizer
 	      split_index = first_vowel_index(word)
 	      rest = word[0..split_index-1]
 	      start = word[split_index..-1]
-	      #start.capitalize! if capitalized?(word)
 	      piglatin = "#{start}#{rest}ay"
     	end
   	end
