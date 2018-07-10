@@ -19,8 +19,9 @@ class PigLatinizer
   end
 
   def vowel(text)
-    @pigtext = "#{text}way"
-    @pigtext
+		# @pigtext = 
+		"#{text}way"
+    # @pigtext
   end
 
   def consonant(text)
@@ -39,7 +40,10 @@ class PigLatinizer
       @pigtext = "#{ary}ay"
 
     else
-      ary = text.split("")
+			ary = text.split("")
+			
+binding.pry
+
       3.times do ary.shift end
       ary << text[0..2]
       ary = ary.join("")
