@@ -11,13 +11,16 @@ class PigLatinizer
   def pig_latinize
     vowels = ['a', 'e', 'i', 'o', 'u']
     
-    # grab consonants
-      ^[^aeiou]+
+    if vowels.include?(@text[0])  
+      matchdata = @text.match(/^[aeiou]+/i)
+      back = front.post_match
+      front = matchdata[0]
+    else !vowels.include?(@text[0])
+      matchdata = @text.match(/^[^aeiou]+/i)
+      back = front.post_match
+      front = matchdata[0]
+    end
     
-    # starts with vowel
-      ^[aeiou]+
-    
-
   end
   
 end
