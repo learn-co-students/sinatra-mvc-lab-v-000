@@ -10,6 +10,8 @@ class PigLatinizer
     vowels = ['a', 'e', 'i', 'o', 'u']
     
     # https://en.wikipedia.org/wiki/Pig_Latin#Rules
+    
+    # https://github.com/BrennanFulmer/sinatra-integrating-models-walkthrough-v-000
   end
   
 end
