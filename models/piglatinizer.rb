@@ -12,8 +12,10 @@ class PigLatinizer
     vowels = ['a', 'e', 'i', 'o', 'u']
     
     # grab consonants
+      ^[^aeiou]+
     
     # starts with vowel
+      ^[aeiou]+
     
 
   end
