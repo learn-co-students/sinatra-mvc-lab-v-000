@@ -8,7 +8,7 @@ class PigLatinizer
       seperated = text.split(' ')
       
       formatted = seperated.collect do |word| 
-        if vowels.include?(text[0])  
+        elsif vowels.include?(text[0])  
           matched = text.match(/^[aeiou]+/i)
           back = matched.post_match
           front = matched[0]
@@ -23,7 +23,13 @@ class PigLatinizer
       
       formatted.join(' ')
     else
-      if vowels.include?(text[0])  
+      if text.length < 2
+        if vowels.include?(text)
+          text += 'way'
+        else
+          text += 'ay'
+        end
+      elsif vowels.include?(text[0])  
         matched = text.match(/^[aeiou]+/i)
         back = matched.post_match
         front = matched[0]
