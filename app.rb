@@ -7,10 +7,14 @@ class App < Sinatra::Base
     erb :index
   end 
   
-  post '/' do
-    @pl_obj = PigLatinizer.new(params[:user_phrase])
+  post '/piglatinize' do
+    binding.pry
     
-    erb :results
+    pl_obj = PigLatinizer.new 
+    
+    @piglatinized = pl_obj.piglatinize(params[:user_phrase])
+    
+    erb :piglatinize
   end
   
 end
