@@ -1,21 +1,21 @@
 class PigLatinizer
 
-  attr_accessor :word
 
-
-  def piglatinize(phrase)
-      vowels = %w{a e i o u}
-      phrase.gsub(/(\A|\s)\w+/) do |str|
-              str.strip!
-          while not vowels.include? str[0] or (str[0] == 'u' and str[-1] == 'q')
-              str += str[0]
-              str = str[1..-1]
-          end
-          str  = ' ' + str + 'ay'
-      end.strip
+  def piglatinize(word)
+    words=word.split(" ")
+    words.each do |x|
+      if ["a","e","i","o","u"].include?x[0,1]
+        x << ("ay")
+      else
+        until ["a","e","i","o","u"].include?x[0,1]
+          x << ("#{x[0,1]}")
+          x[0,1]=""
+        end
+        x << "ay"
+      end
+    end
+    words.join(" ")
   end
-
-
 
 
 end
