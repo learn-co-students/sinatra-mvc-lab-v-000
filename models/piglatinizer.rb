@@ -2,14 +2,20 @@ class PigLatinizer
 
   attr_accessor :word
 
-  def initialize(word)
-    @word = word
+
+  def piglatinize(phrase)
+      vowels = %w{a e i o u}
+      phrase.gsub(/(\A|\s)\w+/) do |str|
+              str.strip!
+          while not vowels.include? str[0] or (str[0] == 'u' and str[-1] == 'q')
+              str += str[0]
+              str = str[1..-1]
+          end
+          str  = ' ' + str + 'ay'
+      end.strip
   end
 
-  def pig_it
-    new_phrase = @word.split(" ")
-    first_letter = @word.slice!(0)
-    "#{@word}#{first_letter}ay"
-  end
+
+
 
 end

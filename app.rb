@@ -7,12 +7,11 @@ class App < Sinatra::Base
   end
 
   post '/pigged' do
-    @analyzed_text = PigLatinizer.new(params[:user_text])
-    "this is hard coded: #{params[:user_text]}"
-    @analyzed_text.pig_it
+    @analyzed_text = PigLatinizer.new
+    @analyzed_text.word = (params[:user_text])
+    binding.pry
 
-
-    #erb:pigged
+    erb:pigged
 end
 
 
