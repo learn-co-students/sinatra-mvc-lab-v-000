@@ -1,26 +1,25 @@
-# https://en.wikipedia.org/wiki/Pig_Latin#Rules
-# https://github.com/BrennanFulmer/sinatra-integrating-models-walkthrough-v-000
 
 class PigLatinizer
   attr_reader :text
   
-  def initialize(text)
-    @text = text
+  def initialize(text = '')
+    @text = text.strip.downcase
   end
   
-  def pig_latinize
+  def piglatinize
     vowels = ['a', 'e', 'i', 'o', 'u']
     
-    if vowels.include?(@text[0])  
-      matchdata = @text.match(/^[aeiou]+/i)
-      back = front.post_match
-      front = matchdata[0]
-    else !vowels.include?(@text[0])
-      matchdata = @text.match(/^[^aeiou]+/i)
-      back = front.post_match
-      front = matchdata[0]
+    if @text.length < 2
+      return @text += 'ay'
+    elsif vowels.include?(@text[0])  
+      matched = @text.match(/^[aeiou]+/)
+    else
+      matched = @text.match(/^[^aeiou]+/)
     end
     
+    back = matched.post_match
+    front = matched[0]
+    "#{back}#{front}ay"
   end
   
 end
