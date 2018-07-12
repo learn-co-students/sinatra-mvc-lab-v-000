@@ -1,49 +1,33 @@
 
 class PigLatinizer
 
-  def piglatinize(text)
+  def process(word)
     vowels = ['a', 'e', 'i', 'o', 'u']
 
-    # binding.pry
+    if word.length == 1 && !vowels.include?(word.downcase)
+      "#{word}ay"
+    elsif vowels.include?(word[0].downcase)
+      "#{word}way"
+    else
+      matched = word.match(/^[^aeiou]+/i)
+      back = matched.post_match
+      front = matched[0]
+      "#{back}#{front}ay"
+    end
+  end
 
-    if text.strip.include?(' ')
-      seperated = text.split(' ')
+  def piglatinize(text)
+    if text.include?(' ')
+      seperated = text.strip.split(' ')
 
       formatted = seperated.collect do |word|
-        if word.length < 2
-          if vowels.include?(word)
-            "#{word}way"
-          else
-            "#{word}ay"
-          end
-        elsif vowels.include?(word[0].downcase)
-          "#{word}way"
-        else
-          matched = word.match(/^[^aeiou]+/i)
-          back = matched.post_match
-          front = matched[0]
-          "#{back}#{front}ay"
-        end
+        process(word)
       end
 
       formatted.join(' ')
     else
-      if text.length < 2
-        if vowels.include?(text.downcase)
-          "#{text}way"
-        else
-          "#{text}ay"
-        end
-      elsif vowels.include?(text[0].downcase)
-        "#{text}way"
-      else
-        matched = text.match(/^[^aeiou]+/i)
-        back = matched.post_match
-        front = matched[0]
-        "#{back}#{front}ay"
-      end
+      process(text.strip)
     end
-
   end
 
 end
