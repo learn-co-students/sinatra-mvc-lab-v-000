@@ -1,25 +1,28 @@
 
 class PigLatinizer
   attr_reader :text
-  
-  def initialize(text = '')
-    @text = text.strip.downcase
-  end
-  
-  def piglatinize
+
+  def piglatinize(phrase)
     vowels = ['a', 'e', 'i', 'o', 'u']
     
-    if @text.length < 2
-      return @text += 'ay'
-    elsif vowels.include?(@text[0])  
-      matched = @text.match(/^[aeiou]+/)
-    else
-      matched = @text.match(/^[^aeiou]+/)
+    
+    seperated = phrase.split(' ')
+    
+    formatted = seperated.collect do |word| 
+      if vowels.include?(phrase[0])  
+        matched = phrase.match(/^[aeiou]+/)
+        back = matched.post_match
+        front = matched[0]
+        "#{back}#{front}way"
+      else
+        matched = phrase.match(/^[^aeiou]+/)
+        back = matched.post_match
+        front = matched[0]
+        "#{back}#{front}ay"
+      end
     end
     
-    back = matched.post_match
-    front = matched[0]
-    "#{back}#{front}ay"
+    formatted.join(' ')
   end
   
 end
