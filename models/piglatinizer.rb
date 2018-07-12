@@ -4,7 +4,9 @@ class PigLatinizer
   def piglatinize(word)
     words=word.split(" ")
     words.each do |x|
-      if ["a","e","i","o","u"].include?x[0,1]
+      if x.downcase.start_with?('a','e','i','o','u')
+        x << ("way")
+      elsif ["a","e","i","o","u"].include?x[0,1]
         x << ("ay")
       elsif x.downcase.start_with?('a','e','i','o','u')
         x << ("way")
