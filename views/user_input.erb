@@ -7,8 +7,9 @@
   <body>
     <h1>Pig Latinizer</h1>
 
-    <form>
-      <label>Enter your prhase: <%= @user_phrase %> <input></label>
+    <form action="/piglatinize" method="post">
+      <label>Enter your prhase: <input type="text" name="user_phrase" id="user_phrase"></label>
+      <label type="submit">
     </form>
 
   </body>
