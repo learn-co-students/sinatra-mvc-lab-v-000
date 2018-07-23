@@ -6,7 +6,8 @@ class PigLatinizer
 
   end
 
-  def piglatinize
+  def piglatinize(phr=nil)
+    @phrase = phr unless phr == nil
     phrase_array = @phrase.split(" ")
     pg_array = []
 
