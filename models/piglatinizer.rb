@@ -13,15 +13,15 @@ class PigLatinizer
   end
   
   def piglatinize_string(string)
-    if string.match(/\A+[bcdfghjklmnpqrstvwxyz]{3}/)
+    if string.downcase.match(/\A+[bcdfghjklmnpqrstvwxyz]{3}/)
       new_string = string[3..-1]
       new_string << string[0..2]
       "#{new_string}ay"
-    elsif string.match(/\A+[bcdfghjklmnpqrstvwxyz]{2}/)
+    elsif string.downcase.match(/\A+[bcdfghjklmnpqrstvwxyz]{2}/)
       new_string = string[2..-1]
       new_string << string[0..1]
       "#{new_string}ay"
-    elsif string.match(/\A+[bcdfghjklmnpqrstvwxyz]/)
+    elsif string.downcase.match(/\A+[bcdfghjklmnpqrstvwxyz]/)
       new_string = string[1..-1]
       new_string << string[0]
       "#{new_string}ay"
