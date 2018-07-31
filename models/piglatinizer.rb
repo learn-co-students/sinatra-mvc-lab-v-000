@@ -1,30 +1,43 @@
+require 'pry'
 class PigLatinizer
 
-  def piglatinize(string)
-    string = string.split('')
-    if string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[2].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
-      first = string.shift
-      second = string.shift
-      third = string.shift
-      "#{string.join}#{first}#{second}#{third}ay"
-    elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
-      first = string.shift
-      second = string.shift
-      "#{string.join}#{first}#{second}ay"
-    elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
-      first = string.shift
-      "#{string.join}#{first}ay"
-    elsif string.first.downcase.match(/[aeoui]/)
-      "#{string.join}way"
+  def piglatinize(phrase)
+    x = phrase.split(" ")
+    if x.size == 1
+      self.pig(x[0])
     else
-      string.join
+      self.to_pig_latin(phrase)
     end
   end
+    #differentiate between multiple words or one word
+    #if one word continue as is
+    #if multiple words
+      #.split(" ")
+#Onceway
+      #return word if %w[and an in].include?(word)
+  def pig(word)
+    letters = word.split("")
+    letters.keep_if {|letter| letter != "."}
+      if letters.size == 1 || vowel?(letters[0])
+        letters << "way"
+      elsif letters.size > 1
+        until vowel?(letters[0])
+          letters << letters.shift
+        end
+        letters  << "ay"
+      end
+      letters.join
+  end
 
-  def to_pig_latin(sentence)
-    phrase = sentence.split(' ')
-    phrase.map {|value| piglatinize(value)}
-    phrase.join(" ")
- end
+     def to_pig_latin(text)
+      words = text.split(" ")
+      words.map! {|word| piglatinize(word)}
+      words.join(" ")
+    end
+
+     def vowel?(letter)
+      copy = letter.downcase
+      copy == "o" || copy == "e" || copy == "a" || copy == "i" || copy == "u"
+    end
 
 end
