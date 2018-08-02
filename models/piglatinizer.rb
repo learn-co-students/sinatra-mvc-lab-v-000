@@ -15,11 +15,11 @@ class PigLatinizer
           if vowel?(word) == true
             @new_word = "#{word}way"
             new_array << @new_word
-          elsif double_consonant(word) == true
-            double(word)
-            new_array << @new_word
           elsif triple_consonant(word) == true
             triple(word)
+            new_array << @new_word
+          elsif double_consonant(word) == true
+            double(word)
             new_array << @new_word
           else
             consonant(word)
@@ -30,10 +30,10 @@ class PigLatinizer
     else
       if vowel?(text) == true
         @new_word = "#{text}way"
-      elsif double_consonant(text) == true
-        double(text)
       elsif triple_consonant(text) == true
         triple(text)
+      elsif double_consonant(text) == true
+        double(text)
       else
         consonant(text)
       end
