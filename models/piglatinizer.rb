@@ -83,12 +83,10 @@ class PigLatinizer
   end
 
   def triple(word)
-    def double(word)
-      split = word.split("")
-      dropped = split.drop(3)
-      merged = dropped.join
-      @new_word = "#{merged}#{split[0]}#{split[1]}#{split[2]}ay"
-    end
+    split = word.split("")
+    dropped = split.drop(3)
+    merged = dropped.join
+    @new_word = "#{merged}#{split[0]}#{split[1]}#{split[2]}ay"
   end
 
 end
