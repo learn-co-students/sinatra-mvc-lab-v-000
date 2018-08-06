@@ -39,9 +39,9 @@ describe "Pig Latinizer App" do
       expect(last_response.status).to eq(200)
     end
 
-    #it "displays the pig latinized phrase upon form submission" do
-    #  expect(last_response.body).to include("Onceway uponway away imetay andway away eryvay oodgay imetay itway asway erethay asway away oocowmay omingcay ownday alongway ethay oadray andway isthay oocowmay atthay asway omingcay ownday alongway ethay oadray etmay away icenay ittlelay oybay amednay abybay uckootay")
-    #end
+    it "displays the pig latinized phrase upon form submission" do
+      expect(last_response.body).to include("Onceway uponway away imetay andway away eryvay oodgay imetay itway asway erethay asway away oocowmay omingcay ownday alongway ethay oadray andway isthay oocowmay atthay asway omingcay ownday alongway ethay oadray etmay away icenay ittlelay oybay amednay abybay uckootay")
+    end
   end
 
   describe "POST '/piglatinize' again" do
