@@ -1,22 +1,20 @@
 class PigLatinizer
-
-    def starts_with_a_consonant
-        words = text.split(" ")
-        words.each do |word|
-    
-            if word ==~ /\A[^aeiou]/
-                array = word.split("")
-                arr1 = array.rotate.join
-                arr2 = arr1 + "ay"
-            end
-        end
-        arr2
-        # if text ==~ /\A[^aeiou]/ || text ==~ /\A(?i:(?![aeiou])[a-z]){2}/
-    end
-
-    def starts_with_consonants
-
-    end
-
+  attr_reader :words
+ 
+  def piglatinize(words)
+      latinized = []
+      words = words.split(" ")
+      words.each do |word|
+          if word =~ (/\A[aeiou]/i)
+              word = word + 'way'
+              latinized << word
+          elsif word =~ (/\A[^aeiou]/i)
+          match = /\A[^aeiou]+/i.match(word)
+          word = match.post_match + match.to_s + 'ay'
+          latinized << word
+          end
+      end
+      latinized.join(" ")
+  end
 
 end
