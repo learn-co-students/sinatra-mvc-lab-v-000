@@ -6,6 +6,6 @@
   </head>
   <body>
     <h1>Pig Latinizer!</h1>
-    <p><%=@user_phrase.converter%></p>
+    <p><%= @latinized.piglatinize(params[:user_phrase]) %></p>
   </body>
 </html>
