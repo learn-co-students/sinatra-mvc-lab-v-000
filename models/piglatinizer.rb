@@ -1,12 +1,6 @@
 require 'pry'
 
 class PigLatinizer
-   # attr_accessor :text
-
-   # def initialize(text)
-   #    @text = text
-   # end
-
    def piglatinize(text)
       arr = text.split(" ")
       newword = []
