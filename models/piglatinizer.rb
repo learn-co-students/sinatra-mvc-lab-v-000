@@ -1,28 +1,28 @@
 class PigLatinizer
 
-  attr_accessor :user_text, :capitalized
+  attr_accessor :user_phrase, :capitalized
 
   def initialize
   end
 
-  def piglatinize(user_text)
-    @user_text = user_text
+  def piglatinize(user_phrase)
+    @user_phrase = user_phrase
     format
     rearrange
     reformat
   end
 
   def format
-    if @user_text.scan(/[A-Z]/) == []
+    if @user_phrase.scan(/[A-Z]/) == []
       @capitalized = false
     else
       @capitalized = true
     end
-    @user_text = @user_text.downcase.split(" ")
+    @user_phrase = @user_phrase.downcase.split(" ")
   end
 
   def rearrange
-    @user_text = @user_text.collect do |t|
+    @user_phrase = @user_phrase.collect do |t|
       pre_vowel = t.scan(/^[bcdfghjklmnpqrstvwkyz]+/)[0]
       if pre_vowel != nil
         t << pre_vowel + "ay"
@@ -36,11 +36,11 @@ class PigLatinizer
   end
 
   def reformat
-    @user_text = @user_text.join(" ")
+    @user_phrase = @user_phrase.join(" ")
     if @capitalized == true
-      @user_text = @user_text.capitalize
+      @user_phrase = @user_phrase.capitalize
     else
-      @user_text
+      @user_phrase
     end
   end
 end
