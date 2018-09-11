@@ -13,17 +13,17 @@ class PigLatinizer
   end
 
   def format
-    if @user_phrase.scan(/[A-Z]/) == []
-      @capitalized = false
-    else
-      @capitalized = true
-    end
-    @user_phrase = @user_phrase.downcase.split(" ")
+    # if @user_phrase.scan(/[A-Z]/) == []
+    #   @capitalized = false
+    # else
+    #   @capitalized = true
+    # end
+    @user_phrase = @user_phrase.split(" ")
   end
 
   def rearrange
     @user_phrase = @user_phrase.collect do |t|
-      pre_vowel = t.scan(/^[bcdfghjklmnpqrstvwkyz]+/)[0]
+      pre_vowel = t.scan(/^[bcdfgGhHjklmnpqrsStvwxyz]+/)[0]
       if pre_vowel != nil
         t << pre_vowel + "ay"
         s1 = pre_vowel.size
@@ -37,10 +37,10 @@ class PigLatinizer
 
   def reformat
     @user_phrase = @user_phrase.join(" ")
-    if @capitalized == true
-      @user_phrase = @user_phrase.capitalize
-    else
-      @user_phrase
-    end
+    # if @capitalized == true
+    #   @user_phrase = @user_phrase.capitalize
+    # else
+    #   @user_phrase
+    # end
   end
 end
