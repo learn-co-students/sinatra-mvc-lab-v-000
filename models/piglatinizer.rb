@@ -1,14 +1,12 @@
 require 'pry'
 
 class PigLatinizer
-  attr_reader :text
+  attr_accessor :phrase
 
-  def initialize
-    @text = text
-  end
 
-  def latinizer
-    array = @text.split(//)
+
+  def piglatinize(phrase)
+    array = @phrase.split(//)
     if [aeiou].include?(array[0])
       array.concat(["w", "a", "y"])
       array
