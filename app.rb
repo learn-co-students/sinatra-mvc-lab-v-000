@@ -8,8 +8,8 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    text_from_user = params[:user_text]
-    @latinized_text = PigLatinizer.new(params[:user_text])
+    phrase_from_user = params[:user_phrase]
+    @latinized_text = PigLatinizer.new(params[:user_phrase])
     erb :results
   end
 end
