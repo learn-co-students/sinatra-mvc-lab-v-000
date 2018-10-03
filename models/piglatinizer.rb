@@ -3,8 +3,8 @@ require 'pry'
 class PigLatinizer
   attr_reader :text
 
-  def initialize(text)
-    @text = text.downcase
+  def initialize
+    @text = @phrase
   end
 
   def latinizer
