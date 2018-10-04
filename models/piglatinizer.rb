@@ -5,8 +5,8 @@ class PigLatinizer
 
 
 
-  def piglatinize(user_phrase)
-    array = @phrase.split(//)
+  def piglatinize(input_string)
+    array = input_string.split(//)
     if [aeiou].include?(array[0])
       array.concat(["w", "a", "y"])
       array
