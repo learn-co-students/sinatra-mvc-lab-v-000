@@ -6,10 +6,12 @@ class PigLatinizer
 
 
   def piglatinize(input_string)
-    array = input_string.split(//)
-    if [aeiou].include?(array[0])
-      array.concat(["w", "a", "y"])
-      array
+    string_array = input_string.split(//)
+    vowel_array = ["a", "e", "i", "o", "u"]
+    if vowel_array.include?(string_array[0])
+      string_array.concat(["w", "a", "y"])
+      string_array.join()
+      
     end
   end
 
