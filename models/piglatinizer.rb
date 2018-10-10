@@ -4,17 +4,16 @@ class PigLatinizer
   def piglatinize_word(words)
     
     vowels = ["a", "e", "i", "o", "u"]
-    three_blend= ["thr", "sch", "squ", "spr"]
-    two_blend = ["ch", "sh", "qu", "th", "br", "pl", "pr"]
-
+    three_blend= ["thr", "sch", "squ", "spr", "str"]
+    two_blend = ["ch", "sh", "qu", "th", "br", "pl", "pr", "sk", "wh"]
        if vowels.include? words.downcase[0]
            v = words << 'way'
            v
-      elsif three_blend.include? words[0] + words[1] + words[2]
+      elsif three_blend.include? words.downcase[0..2]
               first_three = words.slice!(0,3)
               three = words << first_three << 'ay'
               three
-       elsif  two_blend.include? words[0] + words[1]
+       elsif  two_blend.include? words.downcase[0] + words[1]
               first_two = words.slice!(0,2)
               words << first_two << 'ay'
        else    
