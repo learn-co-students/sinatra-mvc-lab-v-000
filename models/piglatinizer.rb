@@ -23,5 +23,3 @@ class PigLatinizer
 
 
 end
-
-PigLatinizer.test
