@@ -6,20 +6,13 @@ class PigLatinizer
 
   attr_reader :text
 
-  def initialize(text)
-    @text = text.downcase
+  def initialize
+
   end
 
-  def translate
-    @text.to_piglatin
+  def piglatinize(text)
+    text.to_piglatin
   end
-
-  # def self.test
-  #   hello = "Hello"
-  #
-  #   puts hello.to_piglatin
-  #   puts "Adam".to_piglatin
-  # end
 
 
 end
