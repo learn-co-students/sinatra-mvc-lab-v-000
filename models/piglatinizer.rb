@@ -4,42 +4,42 @@ require 'pry'
 
 class PigLatinizer
 
-  attr_reader :text
 
-  def initialize
+  # def translate(text)
+  #    text.to_piglatin
+  # end
+
+    def piglatinize(input_str)
+      x = (input_str.split(" ").length == 1) ? piglatinize_word(input_str) : piglatinize_sentence(input_str)
+      puts x
+      x
+    end
+
+    private
+
+    def consonant?(char)
+      !char.match(/[aAeEiIoOuU]/)
+    end
+
+    def piglatinize_word(word)
+      # word starts with vowel
+      if !consonant?(word[0])
+        word = word + "w"
+      # word starts with 3 consonants
+      elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
+        word = word.slice(3..-1) + word.slice(0,3)
+      # word starts with 2 consonants
+      elsif consonant?(word[0]) && consonant?(word[1])
+        word = word.slice(2..-1) + word.slice(0,2)
+      # word starts with 1 consonant
+      else
+        word = word.slice(1..-1) + word.slice(0)
+      end
+      word << "ay"
+    end
+
+    def piglatinize_sentence(sentence)
+      sentence.split.collect { |word| piglatinize_word(word) }.join(" ")
+    end
 
   end
-
-  def piglatinize(text)
-    text.to_piglatin
-
-    # text.splits(word)
-  end
-
-  # def splits(word)
-  #   @phrase = []
-  #   @phrase << word.split
-  #   latinized
-  # end
-  #
-  # def consonant?(character)
-  #   !character.match(/aAeEiIoOuU/)
-  # end
-  #
-  # def latinized
-  #   @phrase.map do |word|
-  #     if word[0].consonant?
-  #       word  = word + w
-  #       elsif word[0, 1].consonant?
-  #         word - word[0, 1]
-  #
-  #     if word.length == 1
-  #       word + way
-  #     elsif word[0].match(/aAeEiIoOuU/)
-  #       word+w
-  #
-  #
-  # end
-
-
-end
