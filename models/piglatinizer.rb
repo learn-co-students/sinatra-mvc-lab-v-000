@@ -14,6 +14,8 @@ class PigLatinizer
     @piglatinized_words.join(' ')
   end
 
+private
+
   def starts_with_vowel?(word)
     letters = word.split('')
     @@vowels.include?(letters[0])
