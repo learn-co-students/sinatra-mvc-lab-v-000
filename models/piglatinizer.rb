@@ -1,4 +1,3 @@
-require 'pry'
 class PigLatinizer
   attr_accessor :piglatinized_words
   @@vowels = ["a","e","i","o","u","A","E","I","O","U"]
@@ -35,7 +34,6 @@ class PigLatinizer
         letters.push(consonant)
       end
     end
-
     piglatin_word = letters.push('a','y').join('')
     @piglatinized_words << piglatin_word
   end
