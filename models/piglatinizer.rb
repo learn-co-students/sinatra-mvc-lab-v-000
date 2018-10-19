@@ -3,10 +3,6 @@ class PigLatinizer
   attr_accessor :piglatinized_words
   @@vowels = ["a","e","i","o","u","A","E","I","O","U"]
 
-  def initialize
-
-  end
-
   def piglatinize(input)
     @piglatinized_words = []
     input.split(' ').each do |word|
