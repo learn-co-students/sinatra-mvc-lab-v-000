@@ -11,45 +11,17 @@ class PigLatinizer
 
 private
 
+  ##
+  # This is a rather direct implementation of the rules of piglatin described
+  # here: https://en.wikipedia.org/wiki/Pig_Latin See "Rules" section
   def pigelate(word)
-#    if consonant_start?(word)
-#      process_constant_start(word)
-#    els
-    if vowel_start?(word)
-      process_vowel_start(word)
-    elsif cluster_start?(word)
-      process_cluster_start(word)
+    if Vowels.include?(word[0]) #vowel_start?(word)
+      word + "way" #process_vowel_start(word)
+    elsif !Vowels.include?(word[0])# consonant_or_cluster_start?(word)
+      cluster = leading_consonants(word)
+      word = word[cluster.length..word.length]
+      word + cluster + "ay"
     end
-  end
-
-#  def consonant_start?(word)
-#    !Vowels.include?(word[0]) && Vowels.include?(word[1])
-#  end
-
-#  def process_constant_start(word)
-#    starting_consonant = word[0]
-#    word[0] = "" #remove firstchar
-#    word + starting_consonant + "ay"
-#  end
-
-  def vowel_start?(word)
-    Vowels.include?(word[0])
-  end
-
-  def process_vowel_start(word)
-    word + "way"
-  end
-
-  def cluster_start?(word)
-    !Vowels.include?(word[0])
-    #&& !Vowels.include?(word[1])
-  end
-
-  #Need to strip all consonants and paste to end
-  def process_cluster_start(word)
-    cluster = leading_consonants(word)
-    word = word[cluster.length..word.length]
-    word + cluster + "ay"
   end
 
   def leading_consonants(str)
