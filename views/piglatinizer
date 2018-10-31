@@ -1,1 +1,0 @@
-<h1> <%= @orig_string.reverse %> </h1>
