@@ -8,16 +8,16 @@ class PigLatinizer
 
   def piglatinize_word(word)
     if start_with_vowel?(word)
-      @orig_string + "ay"
+      new_word = word + "ay"
     else
-      @orig_string[1..-1] + @orig_string[0] + "ay"
+      new_word = word[1..-1] + word[0] + "ay"
     end
+    new_word
   end
 
   def piglatinize
-    words = @orig_string.split(" ")
-    words.collect {|w| piglatinize_word(w)}
-    words.join(" ")
+    new_phrase = @orig_string.split.collect {|w| piglatinize_word(w)}.join(" ")
+    new_phrase
   end
 
   def start_with_vowel?(word)
