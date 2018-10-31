@@ -16,10 +16,8 @@ class PigLatinizer
 
   def piglatinize
     words = @orig_string.split(" ")
-    words.map {|w| piglatinize_word(w)}
-    s = words.join(" ")
-    binding.pry
-    s
+    words.collect {|w| piglatinize_word(w)}
+    words.join(" ")
   end
 
   def start_with_vowel?(word)
