@@ -1,3 +1,5 @@
+require 'pry'
+
 class PigLatinizer
 
   def initialize(string)
@@ -14,8 +16,10 @@ class PigLatinizer
 
   def piglatinize
     words = @orig_string.split(" ")
-    words.map {|w| w.piglatinize_word(w)}
-    words.join(" ")
+    words.map {|w| piglatinize_word(w)}
+    s = words.join(" ")
+    binding.pry
+    s
   end
 
   def start_with_vowel?(word)
