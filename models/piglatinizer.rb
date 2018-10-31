@@ -16,12 +16,12 @@ class PigLatinizer
   end
 
   def combo_sound_2?(word)
-    combo = ["pl", "pr", "th", "spr"]
+    combo = ["pl", "pr", "th", "sk", "wh"]
     combo.include?(word[0..1])
   end
 
   def combo_sound_3?(word)
-    combo = ["spr"]
+    combo = ["spr", "Str"]
     combo.include?(word[0..2])
   end
 
