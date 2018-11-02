@@ -1,23 +1,27 @@
 class PigLatinizer
 
-    def piglatinize(i_string)
-        result = piglatinize_word(i_string) || piglatinize_sentence(i_string)
-        puts result
-        result
-    end
-
-    def piglatinize_word(string)
-        string = string.chars 
-        string if string[0].match(/[aeiou]/)
-        string.rotate.push("a","y").join if string[0].match(/[^aeiou]/)
-    end
-
-    def piglatinize_sentence(string_sentence)
-        sentence.split.map {|word| 
-        word if sentence[word].match(/[aeiou]/)
-        if sentence[word].match(/[^aeiou]/)
-            word.chars.rotate.push("a","y")
+    def piglatinize(string)
+        letters = ('a'..'z').to_a
+        vowels = %w[a e i o u A E I O U]
+        consonants = letters - vowels
+        word = string.split(" ")
+        results = []
+        
+        word.each do |w| 
+        if w.length == 1
+            results << w + "way"
+        elsif vowels.include?(w[0]) 
+            results << w + "way"
+        elsif consonants.include?(w[0].downcase) && consonants.include?(w[1]) && consonants.include?(w[2])
+            results << w[3..-1] + w[0..2] + 'ay'
+        elsif consonants.include?(w[0].downcase) && consonants.include?(w[1])
+            results << w[2..-1] +w[0..1] + 'ay'
+        elsif consonants.include?(w[0].downcase)
+            results << w[1..-1] + w[0] + 'ay'
+        else
+            results << w 
         end
-    }
     end
-end
+    results.join(" ")
+  end
+end  
