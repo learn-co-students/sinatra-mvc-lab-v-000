@@ -10,7 +10,7 @@ describe 'class PigLatinizer' do
     expect(words.piglatinize("pork")).to eq("orkpay")
     expect(words.piglatinize("I")).to eq("Iway")
     expect(words.piglatinize("hello")).to eq("ellohay")
-    expect(words.piglatinize("please")).to eq("easeplay")
+    expect(words.piglatinize("please")).to eq("easeplay") 
     expect(words.piglatinize("tomorrow")).to eq("omorrowtay")
     expect(words.piglatinize("until")).to eq("untilway")
     expect(words.piglatinize("this")).to eq("isthay")
