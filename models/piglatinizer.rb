@@ -1,9 +1,9 @@
 class PigLatinizer
-  attr_reader :words
+  #attr_reader :words
 
-  def initialize(words=nil)
-    @words = words
-  end
+#  def initialize(words=nil)
+#    @words = words
+#  end
 
  #  def piglet
  #  consonants = /\A(?=[^aeiou])(?=[a-z])/i
@@ -21,7 +21,7 @@ class PigLatinizer
  #
  #  end
 
-  def piglatinize
+  def piglatinize(words)
     consonants = /\A(?=[^aeiou])(?=[a-z])/i
     vowels = %w[a e i o u A E I O U]
 
