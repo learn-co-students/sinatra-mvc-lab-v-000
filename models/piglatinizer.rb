@@ -1,18 +1,27 @@
 class PigLatinizer
-  attr_accessor :user_text
+  attr_reader :user_text
+  # 
+  # def initialize(user_text)
+  #   @user_text = user_text
+  # end
 
-  def initialize(text)
-    @user_text = text
+  def vowel?(char)
+    "aeiouAEIOU".include?(char)
   end
 
-  def piglatinize(word)
-    if word =~ (/\A[aeiou]/i)
-      word = word + 'ay'
-    elsif word =~ (/\A[^aeiou]/i)
-      match = /\A[^aeiou]/i.match(word)
-      word = match.post_match + match.to_s + 'ay'
-    end
-    word
+
+  def piglatinize(string)
+    words = string.split
+    words.collect do |word|
+      if vowel?(word[0])
+        word += "way"
+      else
+        until vowel?(word[0]) do
+          word = word[1..-1] + word[0]
+        end
+        word = word + "ay"
+      end
+    end.join(" ")
   end
 
 
