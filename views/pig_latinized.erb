@@ -7,10 +7,8 @@
   <body>
     <h1>Pig Latinizer!</h1>
     <form method="POST" action="/piglatinize">
-      <p>Enter your phrase:</p>
-      <textarea name="user_phrase"></textarea>
-      <br>
-      <button type="submit" value="submit">Submit</button>
+      <p>Your Pig Latinized phrase is:</p>
+      <p><%= @piglatinized_phrase.piglatinize(params[:user_phrase]) %></p>
     </form>
   </body>
 </html>
