@@ -10,7 +10,12 @@ class App < Sinatra::Base
     # binding.pry
     # original_string = params[:user_phrase]
     # @piglatinized_string = original_string.piglatinize
-    @piglatinized_text = PigLatinizer.new(params[:user_phrase])
+    # binding.pry
+    # @piglatinized_string = PigLatinizer.new(params[:user_phrase])
+    # piglatin = PigLatinizer.user_text = params[:user_phrase]
+    # binding.pry
+    piglatinizer = PigLatinizer.new
+    @piglatinized_text = piglatinizer.piglatinize(params[:user_phrase])
     erb :piglatinize
   end
 

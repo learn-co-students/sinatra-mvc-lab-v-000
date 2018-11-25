@@ -1,17 +1,14 @@
 class PigLatinizer
-  attr_reader :user_text
-  # 
-  # def initialize(user_text)
-  #   @user_text = user_text
-  # end
+  attr_reader :piglatinized_text
+  #
 
   def vowel?(char)
     "aeiouAEIOU".include?(char)
   end
 
 
-  def piglatinize(string)
-    words = string.split
+  def piglatinize(user_input)
+    words = user_input.split
     words.collect do |word|
       if vowel?(word[0])
         word += "way"
