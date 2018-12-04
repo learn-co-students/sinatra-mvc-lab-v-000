@@ -11,8 +11,9 @@ class PigLatinizer
       if word.match(/\A+[AEIOU]/i) != nil
         return_string << word.strip + "way" + " "
       else
+        
         consonants = word.scan(/\A+[^AEIOU]+/i)
-        word = word.gsub(consonants.join, '') + consonants.join + 'ay'
+        word = word.sub(consonants.join, '') + consonants.join + 'ay'
         return_string << word.strip+" "
       end
     end
