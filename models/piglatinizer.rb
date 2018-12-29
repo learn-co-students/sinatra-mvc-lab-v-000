@@ -4,8 +4,14 @@ class PigLatinizer
   def piglatinize(word) 
     not_piglatinizable = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
     vowels = ["a", "e", "i", "o", "u"]
-    
-    if vowels
+    after_vowel = []
+    if vowels.include?(word[0])
+      word + "way"
+    else
+      until vowels.include?(word[0])
+        after_vowel << word[0]
+        word[0] = ""
+        
     
 
   end
