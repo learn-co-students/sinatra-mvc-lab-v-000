@@ -1,30 +1,29 @@
 #require 'pry'
 class PigLatinizer
-  
-  def piglatinize(word) 
-    #not_piglatinizable = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
+
+  def piglatinize(word)
+
+    non_pig_latin_words = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
     vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-    after_vowel = []
-    
-    if vowels.include?(word[0])
-      word + "way"
+
+    if non_pig_latin_words.include?(word)
+      word
+    elsif vowels.include? word[0]
+      word << "ay"
     else
-      until vowels.include?(word[0])
-        after_vowel << word[0]
-        word[0] = ""
+      consonants = ""
+      while !vowels.include?(word[0])
+      #binding.pry
+        consonants << word[0]
+        word = word.split("")[1..-1].join
       end
-      word.split('')
-      word = word + after_vowel.join("")
-      word + "ay"
+      word + consonants + 'ay'
     end
   end
-  
-  def to_pig_latin(sentence)
-    array = sentence.split(" ").map do |w|
-      piglatinize(w)
-    end
-    array.join(" ")
+
+
+  def to_pig_latin(string)
+    string.split.collect{|word| piglatinize(word)}.join(" ")
   end
-  
-  
+
 end
