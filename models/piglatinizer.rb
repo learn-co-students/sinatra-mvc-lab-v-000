@@ -10,17 +10,17 @@ class PigLatinizer
     end
   end
 
-  def piglatinize_input(word)
-    if vowel?(word[0])
-      word = word + "w"
-    elsif !vowel?(word[0]) && !vowel?(word[1]) && !vowel?(word[2])
-      word = word.slice(3..-1) + word.slice(0,3)
-    elsif !vowel?(word[0]) && !vowel?(word[1])
-      word = word.slice(2..-1) + word.slice(0,2)
+  def piglatinize_input(text)
+    if vowel?(text[0])
+      text = text + "w"
+    elsif !vowel?(text[0]) && !vowel?(text[1]) && !vowel?(text[2])
+      text = text.slice(3..-1) + text.slice(0,3)
+    elsif !vowel?(text[0]) && !vowel?(text[1])
+      text = text.slice(2..-1) + text.slice(0,2)
     else
-      word = word.slice(1..-1) + word.slice(0)
+      text = text.slice(1..-1) + text.slice(0)
     end
-    word << "ay"
+    text << "ay"
   end
 
   def vowel?(letter)
