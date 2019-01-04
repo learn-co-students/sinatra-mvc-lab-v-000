@@ -7,10 +7,10 @@ class App < Sinatra::Base
     erb :user_input
   end
 
-  post '/' do
-    @piglatinized = Piglatinizer.new(params[:user_text])
+  post '/piglatinize' do
+    @piglatinizer = Piglatinizer.new(params[:user_text])
 
-    erb :result
+    erb :piglatinized_result
   end
 
 end

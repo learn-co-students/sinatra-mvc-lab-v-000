@@ -1,31 +1,11 @@
-class Piglatinizer
+require 'pry'
 
-  def piglatinize(input)
-    if input.split(" ").length == 1
-      piglatinizer_word(input)
-    else
-      piglatinizer_phrase(input)
-    end
-  end
+class PigLatinizer
 
-  def consonant?(text)
-    !text.match(/[aAeEiIoOuU]/)
+  def piglatinize(word)
+    word_array = word.split("")
   end
-
-  def piglatinizer_word(text)
-    if !consonant?(text[0])
-      text = text + "w"
-    elsif consonant?(text[0]) && consonant?(text[1]) && consonant?(text[2])
-      text = text.slice(3..-1) + text.slice(0,3)
-    elsif consonant?(text[0]) && consonant?(text[1])
-      text = text.slice(2..-1) + text.slice(0,2)
-    else
-      text = text.slice(1..-1) + text.slice(0)
-    end
-    text << "ay"
-  end
-
-  def piglatinizer_phrase(phrase)
-    phrase.split.collect { |text| piglatinizer_word(text) }.join(" ")
-  end
+  binding.pry
 end
+
+  PigLatinizer.new.piglatinize('apple')
