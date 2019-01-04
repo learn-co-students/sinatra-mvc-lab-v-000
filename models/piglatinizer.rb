@@ -4,13 +4,13 @@ class PigLatinizer
 
   def piglatinize(input)
     if input.split(" ").length == 1
-      piglatinize_word(input)
+      piglatinize_input(input)
     else
       piglatinize_phrase(input)
     end
   end
 
-  def piglatinize_word(word)
+  def piglatinize_input(word)
     if vowel?(word[0])
       word = word + "w"
     elsif !vowel?(word[0]) && !vowel?(word[1]) && !vowel?(word[2])
@@ -27,10 +27,8 @@ class PigLatinizer
     letter.match(/[aAeEiIoOuU]/)
   end
 
-  def piglatinize_phrase(phrase)
-    phrase.split.collect { |word| piglatinize_phrase(word) }.join(" ")
+  def piglatinize_phrase(string)
+    string.split.collect { |word| piglatinize_input(word) }.join(" ")
   end
 
 end
-
-  PigLatinizer.new.piglatinize('apple')
