@@ -2,18 +2,33 @@ require 'pry'
 
 class PigLatinizer
 
-  def piglatinize(word)
-    word_array = word.split("")
-    if word_array[0] == "a" || word_array[0] == "e" || word_array[0] == "i" || word_array[0] == "o" || word_array[0] == "u"
-      word_array << word_array.shift
+  def piglatinize(input)
+    if input.split(" ").length == 1
+      piglatinize_word(input)
+    else
+      piglatinize_phrase(input)
     end
-    word_array << "ay"
-    word_array.join
   end
-  binding.pry
+
+  def piglatinize_word(word)
+    if vowel?(word[0])
+      word = word + "w"
+    elsif !vowel?(word[0]) && !vowel?(word[1]) && !vowel?(word[2])
+      word = word.slice(3..-1) + word.slice(0,3)
+    elsif !vowel?(word[0]) && !vowel?(word[1])
+      word = word.slice(2..-1) + word.slice(0,2)
+    else
+      word = word.slice(1..-1) + word.slice(0)
+    end
+    word << "ay"
+  end
 
   def vowel?(letter)
-    letter.scan(/[aAeEiIoOuU]/)
+    letter.match(/[aAeEiIoOuU]/)
+  end
+
+  def piglatinize_phrase(phrase)
+    phrase.split.collect { |word| piglatinize_phrase(word) }.join(" ")
   end
 
 end
