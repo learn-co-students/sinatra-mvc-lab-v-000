@@ -2,10 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Pig Latinizer</title>
   </head>
   <body>
-    <h1>Pig Latinizer</h1>
+    <h1>Use the Pig Latinizer to translate your text to Pig Latin!</h1>
   
+    <form method="POST" action="/translation">
+      <label for="user_input">Input the text you want translated here:</label><br><br>
+      <textarea name="user_input" rows="5" cols="40"></textarea><br><br>
+      <input type="submit" value="Submit" id="Submit">
+    </form>
+
   </body>
 </html>
