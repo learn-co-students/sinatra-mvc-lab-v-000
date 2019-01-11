@@ -10,14 +10,16 @@ class PigLatinizer
     result = []
     word_array.each_with_index do |letter, index|
       #binding.pry
-      until vowels.include?(letter)
-        result = word_array[1..index-1].push(letter)
-        #word_array
-        binding.pry
-        result.join("")
+      if !vowels.include?(letter)
+        result = word_array[1..index-1].push(word_array[0])
       end
+      #binding.pry
     end
+    binding.pry
+    result.concat(["a", "y"])
+    result.join("")
     return result
+    binding.pry
   end
 
 
