@@ -4,22 +4,26 @@ class PigLatinizer
   attr_accessor :phrase, :string_array
 
 
+
   def piglatinize(word)
     word_array = word.split("")
+    length = word_array.count
     vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
     result = []
-    word_array.each_with_index do |letter, index|
-      #binding.pry
-      if !vowels.include?(letter)
-        result = word_array[1..index-1].push(word_array[0])
-      end
-      #binding.pry
+    letter = word_array[0]
+    if !vowels.include?(letter)
+      word_array = word_array[1..length-1].push(letter)
+      piglatinize(word_array.join(""))
+    else
+      word_array.push("w")
     end
-    binding.pry
+    result = word_array
+    #binding.pry
     result.concat(["a", "y"])
+    #binding.pry
     result.join("")
-    return result
-    binding.pry
+    #return result
+    #binding.pry
   end
 
 
