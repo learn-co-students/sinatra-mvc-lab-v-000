@@ -21,8 +21,12 @@ class PigLatinizer
       #binding.pry
       result = word_array.concat(["w", "a", "y"])
     end
+
     result.join("")
+
   end
+
+
 
   def starts_with_consonant(word_array)
     #binding.pry
@@ -47,8 +51,9 @@ class PigLatinizer
     if new_result_concat != nil
       new_result_join = new_result_concat.join("")
     end
-    #binding.pry
-    return new_result_join
-    #binding.pry
+
+
+    new_result_join
+
   end
 end
