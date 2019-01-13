@@ -1,0 +1,32 @@
+
+[1mFrom:[0m /home/flylady2/sinatra-mvc-lab-v-000/models/piglatinizer.rb @ line 34 PigLatinizer#starts_with_consonant:
+
+    [1;34m33[0m: [32mdef[0m [1;34mstarts_with_consonant[0m(word_array)
+ => [1;34m34[0m:   binding.pry
+    [1;34m35[0m:   length = word_array.count
+    [1;34m36[0m:   vowels = [[31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31me[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mi[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mo[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mu[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mA[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mE[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mI[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mO[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mU[1;31m"[0m[31m[0m]
+    [1;34m37[0m:   result = []
+    [1;34m38[0m:   letter = word_array[[1;34m0[0m]
+    [1;34m39[0m:   [32mif[0m length == [1;34m1[0m
+    [1;34m40[0m:     result = word_array.concat([[31m[1;31m"[0m[31mw[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31my[1;31m"[0m[31m[0m])
+    [1;34m41[0m:     [32mreturn[0m result.join([31m[1;31m"[0m[31m[1;31m"[0m[31m[0m)
+    [1;34m42[0m:   [32mend[0m
+    [1;34m43[0m:   [32mif[0m !vowels.include?(letter)
+    [1;34m44[0m:     word_array = word_array[[1;34m1[0m..length-[1;34m1[0m].push(letter)
+    [1;34m45[0m:     [1;34m#binding.pry[0m
+    [1;34m46[0m:     starts_with_consonant(word_array)
+    [1;34m47[0m:   [32melse[0m
+    [1;34m48[0m:     new_result = word_array
+    [1;34m49[0m:   [32mend[0m
+    [1;34m50[0m:   [32mif[0m new_result != [1;36mnil[0m
+    [1;34m51[0m:     new_result_concat = new_result.concat([[31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31my[1;31m"[0m[31m[0m])
+    [1;34m52[0m:   [32mend[0m
+    [1;34m53[0m:   [32mif[0m new_result_concat != [1;36mnil[0m
+    [1;34m54[0m:     new_result_join = new_result_concat.join([31m[1;31m"[0m[31m[1;31m"[0m[31m[0m)
+    [1;34m55[0m:   [32mend[0m
+    [1;34m56[0m: 
+    [1;34m57[0m: 
+    [1;34m58[0m:   new_result_join
+    [1;34m59[0m: 
+    [1;34m60[0m: [32mend[0m
+
