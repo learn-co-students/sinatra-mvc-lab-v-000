@@ -6,7 +6,21 @@ class PigLatinizer
   def initialize
   end
 
-  def piglatinize(word)
+  def piglatinize(sentence)
+    if sentence.split(" ").length == 1
+      piglatinize_phrase(sentence)
+      #binding.pry
+    else piglatinize_word(sentence)
+
+    end
+  end
+
+  def piglatinize_phrase(phrase)
+    phrase.split.collect { |word| piglatinize_word(word) }.join(" ")
+  end
+
+  def piglatinize_word(word)
+    #binding.pry
     word_array = word.split("")
     length = word_array.count
     vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
