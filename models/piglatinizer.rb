@@ -28,6 +28,6 @@ class PigLatinizer
     words.each do |word|
       output << piglatinize_word(word)
     end
-    output.join(" ")
+    output.join(" ") 
   end
 end
