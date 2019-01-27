@@ -20,7 +20,6 @@ class PigLatinizer
     vowel = text.scan(/[aeoui]/)
 
     if word.start_with?(consonant)
-
       # if word starts with 1 consonant
         # take 1 consonant, move to end of string, add ay after
       # if word starts with 1+ consonant
