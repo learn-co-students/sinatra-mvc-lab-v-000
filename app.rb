@@ -8,7 +8,7 @@ class App < Sinatra::Base
 
   post '/piglatinize' do
     200
-    
+    @user_input = params[:user_input]
   end
 
 end
