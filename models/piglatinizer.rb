@@ -1,12 +1,8 @@
 require 'pry'
 
 class PigLatinizer
-  attr_accessor :string
 
-  def initialize
-    @string = string
-  end
-
+  #initialize method isn't needed because attributes aren't required
 
   def piglatinize(string)
     @string = string
@@ -22,15 +18,13 @@ class PigLatinizer
         word << 'way'
         word = word.join('')
         new_words << word
-
-      elsif word.first.upcase == 'B' || word.first.upcase == 'C' || word.first.upcase == 'D'|| word.first.upcase ==  'F'|| word.first.upcase == 'G'|| word.first.upcase ==  'H' || word.first.upcase == 'J' || word.first.upcase == 'K' || word.first.upcase == 'L' || word.first.upcase == 'M' || word.first.upcase == 'N' || word.first.upcase == 'P' || word.first.upcase == 'Q' || word.first.upcase == 'R' || word.first.upcase == 'S' || word.first.upcase == 'T' || word.first.upcase == 'V' || word.first.upcase == 'X' || word.first.upcase == 'Z'
+      elsif word.first.upcase == 'B' || word.first.upcase == 'C' || word.first.upcase == 'D'|| word.first.upcase ==  'F'|| word.first.upcase == 'G'|| word.first.upcase ==  'H' || word.first.upcase == 'J' || word.first.upcase == 'K' || word.first.upcase == 'L' || word.first.upcase == 'M' || word.first.upcase == 'N' || word.first.upcase == 'P' || word.first.upcase == 'Q' || word.first.upcase == 'R' || word.first.upcase == 'S' || word.first.upcase == 'T' || word.first.upcase == 'V' || word.first.upcase == 'W' || word.first.upcase == 'X' || word.first.upcase == 'Z'
           consonant_count = 0
           word.map! do |letter|
-            if letter.upcase == 'B' || letter.upcase == 'C' || letter.upcase == 'D'|| letter.upcase ==  'F'|| letter.upcase == 'G'|| letter.upcase ==  'H' || letter.upcase == 'J' || letter.upcase == 'K' || letter.upcase == 'L' || letter.upcase == 'M' || letter.upcase == 'N' || letter.upcase == 'P' || letter.upcase == 'Q' || letter.upcase == 'R' || letter.upcase == 'S' || letter.upcase == 'T' || letter.upcase == 'V' || letter.upcase == 'X' || letter.upcase == 'Z'
+            if letter.upcase == 'B' || letter.upcase == 'C' || letter.upcase == 'D'|| letter.upcase ==  'F'|| letter.upcase == 'G'|| letter.upcase ==  'H' || letter.upcase == 'J' || letter.upcase == 'K' || letter.upcase == 'L' || letter.upcase == 'M' || letter.upcase == 'N' || letter.upcase == 'P' || letter.upcase == 'Q' || letter.upcase == 'R' || letter.upcase == 'S' || letter.upcase == 'T' || letter.upcase == 'V' || letter.upcase == 'X' || letter.upcase == 'W'|| letter.upcase == 'Z'
               word.push(letter)
               consonant_count += 1
-              #shift wasn't working because there are multiple strings
-              #exit with no ! in pry makes you run through an iterator
+          #1 hour to find out W WAS MISSING
             else
               break
             end
