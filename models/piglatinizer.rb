@@ -21,6 +21,14 @@ class PigLatinizer
 
     if word.start_with?(consonant) && consonant == 1
       word << word[0] + "ay"
+      binding.pry
+    elsif word.start_with?(consonant) && consonant == 2
+      word << word[0..1] + "ay"
+    elsif word.start_with?(consonant) && consonant == 3
+      word << word[0..2] + "ay"
+    else word.start_with?(vowel)
+      word << "ay"
+    end
       # if word starts with 1 consonant
         # take 1 consonant, move to end of string, add ay after
       # if word starts with 1+ consonant
