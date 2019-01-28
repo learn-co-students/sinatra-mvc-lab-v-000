@@ -11,6 +11,7 @@ class PigLatinizer
   def piglatinize(string)
     @string = string
     words = @string.split(' ')
+    new_words = []
     #reminder that .map! is how you permanantly change something while iterating
     words.map! do |word|
       #.split('') is how you split words
@@ -20,37 +21,31 @@ class PigLatinizer
       if word.first.upcase == 'A' || word.first.upcase == 'E' || word.first.upcase == 'I' || word.first.upcase == 'O'|| word.first.upcase ==  'U' || word.first.upcase ==  'Y'
         word << 'way'
         word = word.join('')
-        words << word
-        words.shift
-        break
+        new_words << word
+
       elsif word.first.upcase == 'B' || word.first.upcase == 'C' || word.first.upcase == 'D'|| word.first.upcase ==  'F'|| word.first.upcase == 'G'|| word.first.upcase ==  'H' || word.first.upcase == 'J' || word.first.upcase == 'K' || word.first.upcase == 'L' || word.first.upcase == 'M' || word.first.upcase == 'N' || word.first.upcase == 'P' || word.first.upcase == 'Q' || word.first.upcase == 'R' || word.first.upcase == 'S' || word.first.upcase == 'T' || word.first.upcase == 'V' || word.first.upcase == 'X' || word.first.upcase == 'Z'
-        consonant_count = 0
-        word.map! do |letter|
-          if letter.upcase == 'B' || letter.upcase == 'C' || letter.upcase == 'D'|| letter.upcase ==  'F'|| letter.upcase == 'G'|| letter.upcase ==  'H' || letter.upcase == 'J' || letter.upcase == 'K' || letter.upcase == 'L' || letter.upcase == 'M' || letter.upcase == 'N' || letter.upcase == 'P' || letter.upcase == 'Q' || letter.upcase == 'R' || letter.upcase == 'S' || letter.upcase == 'T' || letter.upcase == 'V' || letter.upcase == 'X' || letter.upcase == 'Z'
-            word.push(letter)
-            consonant_count += 1
-            #shift wasn't working because there are multiple strings
-            #exit with no ! in pry makes you run through an iterator
-          else
-            break
+          consonant_count = 0
+          word.map! do |letter|
+            if letter.upcase == 'B' || letter.upcase == 'C' || letter.upcase == 'D'|| letter.upcase ==  'F'|| letter.upcase == 'G'|| letter.upcase ==  'H' || letter.upcase == 'J' || letter.upcase == 'K' || letter.upcase == 'L' || letter.upcase == 'M' || letter.upcase == 'N' || letter.upcase == 'P' || letter.upcase == 'Q' || letter.upcase == 'R' || letter.upcase == 'S' || letter.upcase == 'T' || letter.upcase == 'V' || letter.upcase == 'X' || letter.upcase == 'Z'
+              word.push(letter)
+              consonant_count += 1
+              #shift wasn't working because there are multiple strings
+              #exit with no ! in pry makes you run through an iterator
+            else
+              break
+            end
           end
-        end
-        word.shift(1*consonant_count)
-        word << 'ay'
-        word = word.join('')
-        words << word
-        words.shift
-        break
+          word.shift(1*consonant_count)
+          word << 'ay'
+          word = word.join('')
+          new_words << word
+
       else
-        break
       end
-      word << 'ay'
-      word = word.join('')
-      words.shift
-      break
+      #breaks weren't needed extra ay wasn't needed to be pushed
     end
-    words = words.join(' ')
-    @string = words
+    new_words = new_words.join(' ')
+    @string = new_words
     @string
   end
 end
