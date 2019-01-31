@@ -13,8 +13,7 @@ class PigLatinizer
     vowel = word.match(/[aeoui]/)
     if word.start_with?(consonant[0])
       word[1..3] + word[0] + "ay"
-      binding.pry
-
+      # binding.pry
     elsif word.start_with?(consonant[0]) && consonant[1]
       word << word[0..1] + "ay"
     elsif word.start_with?(consonant[0]) && consonant[1] && consonant [2]
