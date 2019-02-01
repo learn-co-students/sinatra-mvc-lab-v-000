@@ -8,16 +8,19 @@ class PigLatinizer
     end
   end
 
+  def consonant?(char)
+    !char.match(/[aAeEiIoOuU]/)
+  end
+
   def piglatinize_word(word) #<< "pork"
-    consonant = word.match(/[bcdfghjklmnpqrstvwxyz]/)  #scan returned array of strings
-    vowel = word.match(/[aeoui]/)
-    if word.start_with?(consonant[0])
-      word[1..3] + word[0] + "ay"
-    elsif word.start_with?(consonant[0]) && consonant[1]
+    if !consonant?(word[0]) #<< start with vowel
+      word + "way"
+      binding.pry
+    elsif consonant?(word[0]) && consonant?(word[1]) #<<
       word << word[0..1] + "ay"
-    elsif word.start_with?(consonant[0]) && consonant[1] && consonant [2]
+    elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
       word << word[0..2] + "ay"
-    else word.start_with?(vowel[0])
+    else consonant?(word[0])
       word << "ay"
     end
       # if word starts with 1 consonant
@@ -37,3 +40,6 @@ end
 # identify words start with consonants and move consonants to end of string
 # add ay to end of string after consonants
 # identify words start with vowels and ay to end of those strings
+
+# consonant = word.match(/[bcdfghjklmnpqrstvwxyz]/)  #scan returned array of strings
+# vowel = word.match(/[aeoui]/)
