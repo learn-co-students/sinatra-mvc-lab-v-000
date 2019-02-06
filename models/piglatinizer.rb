@@ -15,20 +15,15 @@ class PigLatinizer
   def piglatinize_word(word) #<< "pork"
     if !consonant?(word[0]) #<< start with vowel
       word + "way"
-      binding.pry
+    elsif consonant?(word[0])
+      word[1..-1] << word[0] + "ay"
     elsif consonant?(word[0]) && consonant?(word[1]) #<<
-      word << word[0..1] + "ay"
+      word[2..-1] << word[0..2] + "ay"
     elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
-      word << word[0..2] + "ay"
-    else consonant?(word[0])
-      word << "ay"
+      word[3..-1] << word[0..3] + "ay"
     end
-      # if word starts with 1 consonant
-        # take 1 consonant, move to end of string, add ay after
-      # if word starts with 1+ consonant
-        #take all consonants, move to end of string, add ay after
-      # if word starts with 1 vowel
-        # add ay to end of word
+    # binding.pry
+
   end
 
   def piglatinize_sentence(sentence)
