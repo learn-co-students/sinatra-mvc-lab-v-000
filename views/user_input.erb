@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <style>
+      button {
+        margin-top: 5px;
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <h1>Pig Latinizer</h1>
-  
+    <h1>Pig Latinizer!</h1>
+    <p>Enter your phrase:</p>
+    <form method="POST" action="/piglatinize">
+      <textarea name="user_phrase"></textarea>
+      <button type='submit'>submit</button>
+    </form>
   </body>
 </html>
