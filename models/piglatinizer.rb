@@ -26,7 +26,13 @@ class PigLatinizer
   end
 
   def piglatinize_sentence(sentence)
-    # use piglatinize_word(word) method - run each word through this method first
+    words = sentence.split(/ /)
+    piglatinize_word(words)
+    binding.pry
+
+    words.join(" ")
+    # break down sentence into each word as strings
+    # run each word through this method first
     # then join each word
     # binding.pry
 
