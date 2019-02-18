@@ -12,8 +12,8 @@ class PigLatinizer
     !char.match(/[aAeEiIoOuU]/)
   end
 
-  def piglatinize_word(word) #<< "please"
-    if !consonant?(word[0]) #<< start with vowel
+  def piglatinize_word(word) 
+    if !consonant?(word[0]) 
       word + "way"
     elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
       word[3..-1] << word[0,3] + "ay"
@@ -27,15 +27,8 @@ class PigLatinizer
 
   def piglatinize_sentence(sentence)
     words = sentence.split(/ /)
-    piglatinize_word(words)
-    binding.pry
-
-    words.join(" ")
-    # break down sentence into each word as strings
-    # run each word through this method first
-    # then join each word
-    # binding.pry
-
+    new_sentence = words.collect {|w| piglatinize_word(w) }
+    new_sentence.join(" ")
   end
 
 end
