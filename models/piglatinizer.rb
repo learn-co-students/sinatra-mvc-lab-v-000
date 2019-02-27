@@ -3,16 +3,18 @@ require 'pry'
 class PigLatinizer
   
   def piglatinize(word)
-      new_word = word.split('')
-      pl_word = new_word.insert(-1,new_word.delete_at(0))
-      pl_word.join
-
-    if pl_word.end_with?("a","e","i","o","u","A","E","I","O","U")
-      pl_word << "way"
-    else
-      pl_word << "ay"
-    end
-    
+      pl = word.split('')
+      until pl[0].match(/[aeiouAEIOU]/)
+          pl = pl.insert(-1, pl.delete_at(0))
+        end
+      
+      new_word = pl.join
+      
+      if new_word.end_with?("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
+        new_word << "way"
+      else
+        new_word << "ay"
+      end
   end
   
   
