@@ -1,9 +1,9 @@
 class PigLatinizer
   attr_accessor :words
 
-  def initialize
-    @words = words
-  end
+  # def initialize
+  #   @words = words
+  # end
 
   def piglatinize(words)
     words.scan(/[a-z]+/i).map do |word|
