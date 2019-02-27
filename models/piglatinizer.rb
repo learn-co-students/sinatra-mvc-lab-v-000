@@ -4,7 +4,7 @@ class PigLatinizer
   
   def piglatinize(word)
     arr = word.split(' ')
-    arr.each do |w|
+    arr.map do |w|
       pl = w.split('')
       until pl[0].match(/[aeiouAEIOU]/)
          pl = pl.insert(-1, pl.delete_at(0))
@@ -16,7 +16,7 @@ class PigLatinizer
       else
         new_word << "ay"
       end
-    end
+    end.join(' ')
   end
   
   
