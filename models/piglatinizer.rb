@@ -10,7 +10,7 @@ class PigLatinizer
       
       new_word = pl.join
       
-      if pl.last.match(/[aeiouAEIOU]/)
+      if word.split('')[0].match(/[aeiouAEIOU]/)
         new_word << "way"
       else
         new_word << "ay"
