@@ -9,7 +9,6 @@ class PigLatinizer
     end.join(' ')
   end
   
-  
   def latinize(word)
     pl = word.split('')
     until pl[0].match(/[aeiouAEIOU]/)
