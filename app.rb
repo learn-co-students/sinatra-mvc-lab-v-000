@@ -1,5 +1,5 @@
 require_relative 'config/environment'
-require_relative 'models/text_analyzer.rb'
+require_relative 'models/piglatinizer.rb'
 
 class App < Sinatra::Base
   get '/' do
@@ -7,12 +7,8 @@ class App < Sinatra::Base
   end
 
   post '/'do
-    @analyzed_text = TextAnalyzer.new(params[:user_text})
+    @analyzed_word = WordAnalyzer.new(params[:user_word])
     erb :results
   end
-
-
-
-
 
 end
