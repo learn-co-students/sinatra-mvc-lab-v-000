@@ -6,7 +6,7 @@ class App < Sinatra::Base
     erb :index
   end
 
-  post '/piglatinizer' do
+  post '/piglatinize' do
     @analyzed_word = WordAnalyzer.new(params[:user_word])
     erb :results
   end
