@@ -1,12 +1,11 @@
-class piglatinizer
-  attr_reader :text
+class PigLatinizer
 
-  def initialize(text)
-    @text= text.
-
+  def piglatinize(text)
+    words = text.split(' ')
+    #The somehow move consonants to back = .push
+    # Then concatenate the "ay"
+    words.map {|word| translate_word(word)}.join(' ')
   end
-
-
 
 
 end
