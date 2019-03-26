@@ -1,32 +1,33 @@
-class Piglatin
+class PigLatinizer
 
-   VOWELS= ["a","e","i","o","u"]
+   VOWELS= ["a","e","i","o","u","A","E","I","O","U"]
     attr_accessor :text
 
-   def initialize(phrase)
-     @text= phrase.downcase
-   end
+  #  def initialize(words)
+  #    @text= words
+  #  end
 
-   def pigLatinizer
+   def piglatinize(words)
     # abrir el text en palabras y ponerlo en una array
-      data= self.text.split(' ')
+      data= words.split(' ')
       data2= []
 
     #recorrer el array y cambiar segun las reglas
     data2 =  data.map {|e|
-          if VOWELS.include?(e[0])
+
+          if  ( VOWELS.include?(e[0]) && !VOWELS.include?(e[1]))||(VOWELS.include?(e[0]) && VOWELS.include?(e[1])) 
                e << "way"
+          elsif !VOWELS.include?(e[1]) && !VOWELS.include?(e[2])
+               e= e[3..-1]+ e[0..2] +"ay"                     #spray
+
+          elsif  !VOWELS.include?(e[1])
+                     e= e[2..-1]+ e[0..1] +"ay"   #prays
           else
-             e= e[1..-1]+ e[0] +"ay"
+                e= e[1..-1]+ e[0] +"ay"
           end
-     }
-      data2
-      binding.pry
+        }
+      # volver a convertir el array en text
+      return data2.join(" ")
      end
-    # volver a convertir el array en text
-    #Mostrar texto a traves del atributo de calse @text
-
-
 
 end
-data

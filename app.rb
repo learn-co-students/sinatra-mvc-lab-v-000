@@ -7,9 +7,10 @@ class App < Sinatra::Base
       #de completar me lleva via el action the form a la pagina piglatinresult.
     end
 
-    post '/piglatinresult' do
-       @pl_text = Piglatin.new(params[text])
-      erb :piglatinresult
+    post '/piglatinize' do
+        @pl_text = PigLatinizer.new
+       @text = @pl_text.piglatinize(params[:user_phrase])
+      erb :piglatinize
     end
 
 
