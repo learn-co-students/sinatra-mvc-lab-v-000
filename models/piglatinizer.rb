@@ -8,7 +8,6 @@ class PigLatinizer
             result = "#{str[o_str.length..-1]}#{o_str}ay"
 
             result
-           binding.pry
         end
     end
 
