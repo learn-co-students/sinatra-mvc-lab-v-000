@@ -8,32 +8,32 @@ class PigLatinizer
   end
 
   def split_phrase
-    words = text.split(" ")
+    words = self.text.split(" ")
   end
 
   def piglatinize
-    array = []
-    words = split_phrase
-    words.map do |word|
-      if word.match(/[aeiouAEIOU]/)
-        word + 'ay'
-    binding.pry
+    array = split_phrase
+    words_array = []
+      array.map do |word|
+        if word.match(/\A[aeiouAEIOU][a-zA-Z]*/)
+          @pl = word + 'way'
+        elsif word.match(/\A[^aeiouAEIOU][a-zA-Z]*/)
+          arr = word.chars
+          el = arr.shift
+          @pl = arr.push(el).join("") + 'ay'
+        elsif word.match(/\A[^aeiouAEIOU]{2}[a-zA-Z]*/)
+          arr = word.chars
+          a = arr.slice(0,2).join("")
+          b = arr.slice(2..-1).join("")
+          @pl =  b + a + 'ay'
+        elsif word.match(/\A[^aeiouAEIOU]{3}[a-zA-Z]*/)
+          arr = word.chars
+          a = arr.slice(0,3).join("")
+          b = arr.slice(3..-1).join("")
+          @pl =  b + a + 'ay'
+        end
+        words_array << @pl
+        words_array.join(" ")
+        end
       end
     end
-  end
-
-    # @words.map do |word|
-    #   if (word =~ /yY/) == 0
-    #     words_array << word[1..-1] + 'y' + 'ay'
-    #   else
-    #     vowel_location = first_vowel(word)
-    #     words_array << word[vowel_location..-1] + word[0..vowel_location-1] + 'ay'
-    #   end
-    # end
-    # words_array.join(" ")
-
-  def first_vowel(word)
-    word =~ /[aeiouAEIOU]/
-  end
-
-end
