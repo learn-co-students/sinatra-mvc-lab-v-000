@@ -1,4 +1,4 @@
-# Sinatra MVC Lab - Pig Latinizer
+                             # Sinatra MVC Lab - Pig Latinizer
 
 In this lab, you'll be building a **Pig Latinizer** using Sinatra and the MVC paradigm of app development. Pig Latin is a made-up language formed from English by transferring the initial consonant or consonant cluster of each word to the end of the word and adding a vocalic syllable. For example, noodle soup would be translated to oodlenay oupsay. 
 

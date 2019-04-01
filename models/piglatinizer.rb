@@ -7,33 +7,46 @@ class PigLatinizer
     @text = text
   end
 
-  def split_phrase
-    words = self.text.split(" ")
+  def split_phrase(text)
+    array = text.split(" ")
+  end
+  
+  def validate_letters(text)
+    #letter = text.split(/([aeiouAEIOU].*)/) => will part anything before the first vowel
+      text[0].downcase
+    if text.match(/\A[aeiouAEIOU][a-zA-Z]*/) #begins with vowel
+      @pl = text + 'way'
+    elsif text.match(/\A[^aeiouAEIOU][aeiouAEIOU][a-zA-Z]*/) #cons + vowel
+      arr = text.chars
+      el = arr.shift
+      @pl = arr.push(el).join("") + 'ay'
+    elsif text.match(/\A[^aeiouAEIOU]{2}[a-zA-Z]*/) # Ex: program
+      arr = text.chars
+      a = arr.slice(0,2).join("")
+      b = arr.slice(2..-1).join("")
+      @pl =  b + a + 'ay'
+    elsif text.match(/\A[^aeiouAEIOU]{3}[a-zA-Z]*/) # Ex: spring
+      arr = text.chars
+      a = arr.slice(0,3).join("")
+      b = arr.slice(3..-1).join("")
+      @pl =  b + a + 'ay'
+    else
+      puts nil
+    end
+      @pl
   end
 
-  def piglatinize
-    array = split_phrase
+  def piglatinize(text) #either word or phrase
+    array = split_phrase(text)
     words_array = []
-      array.map do |word|
-        if word.match(/\A[aeiouAEIOU][a-zA-Z]*/)
-          @pl = word + 'way'
-        elsif word.match(/\A[^aeiouAEIOU][a-zA-Z]*/)
-          arr = word.chars
-          el = arr.shift
-          @pl = arr.push(el).join("") + 'ay'
-        elsif word.match(/\A[^aeiouAEIOU]{2}[a-zA-Z]*/)
-          arr = word.chars
-          a = arr.slice(0,2).join("")
-          b = arr.slice(2..-1).join("")
-          @pl =  b + a + 'ay'
-        elsif word.match(/\A[^aeiouAEIOU]{3}[a-zA-Z]*/)
-          arr = word.chars
-          a = arr.slice(0,3).join("")
-          b = arr.slice(3..-1).join("")
-          @pl =  b + a + 'ay'
-        end
-        words_array << @pl
-        words_array.join(" ")
-        end
+    if array.size == 1
+        validate_letters(text)
+    elsif array.size > 1
+      array.each do |text|
+        words_array << validate_letters(text)
       end
+    piglatin = words_array.join(" ")
     end
+    piglatin
+  end
+end
