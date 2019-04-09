@@ -3,7 +3,7 @@ class PigLatinizer
   def piglatinize(input)
     @output = []
     parse_sentence(input)
-    @output.join(' ')
+    @output = @output.join(' ')
   end
   
   def parse_sentence(sentence)
@@ -32,5 +32,4 @@ class PigLatinizer
     
     @output << pl_word
   end
-  
 end
