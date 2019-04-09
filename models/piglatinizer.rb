@@ -6,18 +6,17 @@ class PigLatinizer
     @output.join(' ')
   end
   
-  def parse_sentence(input)
-    input_array = input.split(' ')
-    input_array.each {|word| parse_word(word)}
+  def parse_sentence(sentence)
+    sentence_array = sentence.split(' ')
+    sentence_array.each {|word| parse_word(word)}
   end
   
-  def parse_word(input)
-    input_array = input.split('')
-    
+  def parse_word(word)
+    word_array = word.split('')
     first_letters = []
     last_letters = []
     
-    input_array.each do |letter|
+    word_array.each do |letter|
       if !['a','e','i','o','u'].include?(letter.downcase) && first_letters.empty?
         last_letters << letter
       else
@@ -25,7 +24,7 @@ class PigLatinizer
       end
     end
     
-    if ['a','e','i','o','u'].include?(input_array.first.downcase)
+    if ['a','e','i','o','u'].include?(word_array.first.downcase)
       pl_word = (first_letters << last_letters << "way").join
     else
       pl_word = (first_letters << last_letters << "ay").join
