@@ -1,17 +1,16 @@
 class PigLatinizer
   attr_reader :words
   
-  def initialize(words)
-    @words = words
+  def initialize
   end
   
-  def split_words
-    @words.split(' ')
+  def split_words(words)
+    words.split(' ')
   end
   
-  def piglatinize
-    translated = split_words.map do |word|
-      index = word.index(/[aeiouAEIOU]/)
+  def piglatinize(words)
+    translated = split_words(words).map do |word|
+      index = word.index(/[aeiouyAEIOUY]/)
       if index == 0
         word + "way"
       else
