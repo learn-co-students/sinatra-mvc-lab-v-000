@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <h1>Pig Latinizer!</h1>
+  
+    <%new = PigLatinizer.new%>
+    <h2><%=new.piglatinize(params[:user_phrase])%></h2>
+    
+    <form action="/" method="GET">
+      <input type="submit" value="Try Another"/>
+    </form>
+    
+  </body>
+</html>
