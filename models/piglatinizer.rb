@@ -1,4 +1,3 @@
-
 require 'pry'
 
 class PigLatinizer
@@ -29,6 +28,5 @@ class PigLatinizer
     word_array.each {|word| new_word_array << piglatinize_word(word)}
     new_word_array.join(" ")
   end
-
 
 end
