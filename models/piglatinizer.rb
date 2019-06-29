@@ -27,14 +27,22 @@ class PigLatinizer
     # end.join(" ")
     
     phrase_words.collect do |word|
+      # ["One", "two", "testing"] becomes "Oneway otway estingtay".
+      
       if word.start_with?(/[aeiouAEIOU]/) # "either" becomes "eitherway"
         "#{word}way"
       else # "fire" becomes "irefay" and "smith" becomes "ithsmay"
-        # first_consonants = word.match(/[BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz]+/)
-        # That won't work the way I want it to. If the word is "testing" and I split it at "t", then I'll get ["", "es", "ing"] instead of ["", "esting"].
+        # Given the word "testing":
+        
+        first_consonants = word.match(/[BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz]+/)[0] # "t"
+        
+        # I can't use #split here. If I split "testing" at "t", then I'll get ["", "es", "ing"] instead of ["", "esting"].
+        
+        remaining_letters = word.delete_prefix(first_consonants) # "esting"
+        
+        "#{remaining_letters + first_consonants}ay" # "estingtay"
       end
     end.join(" ")
-    
   end
   
   private
