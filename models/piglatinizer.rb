@@ -30,7 +30,7 @@ class PigLatinizer
       # ["One", "two", "testing"] becomes "Oneway otway estingtay".
       
       if word.start_with?(/[aeiouAEIOU]/) # "either" becomes "eitherway"
-        "#{word}way"
+        word + "way"
       else # "fire" becomes "irefay" and "smith" becomes "ithsmay"
         # Given the word "testing":
         
@@ -40,10 +40,10 @@ class PigLatinizer
         
         remaining_letters = word.delete_prefix(first_consonants) # "esting"
         
-        "#{remaining_letters + first_consonants}ay" # "estingtay"
+        remaining_letters + first_consonants + "ay" # "estingtay"
       end
-    end.join(" ")
-  end
+    end.join(" ") # end of #collect block
+  end # end of #piglatinize method
   
   private
   
