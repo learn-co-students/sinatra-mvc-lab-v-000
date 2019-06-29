@@ -10,6 +10,12 @@ class PigLatinizer
     # Reassemble the words into a phrase, and return the phrase.
     
   def piglatinize(phrase)
+    letters_only(phrase).downcase
+  end
+  
+  private
+  
+  def letters_only(phrase)
     
   end
 end
