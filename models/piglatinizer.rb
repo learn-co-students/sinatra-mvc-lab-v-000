@@ -31,7 +31,7 @@ class PigLatinizer
         "#{word}way"
       else # "fire" becomes "irefay" and "smith" becomes "ithsmay"
         first_consonants = word.match(/[BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz]+/)
-        # That won't work the way I want it to. If the word is "testing" and I split it at "t", then I'll get ["", "es", "ing"] instead of ["esting"].
+        # That won't work the way I want it to. If the word is "testing" and I split it at "t", then I'll get ["", "es", "ing"] instead of ["", "esting"].
       end
     end.join(" ")
     
