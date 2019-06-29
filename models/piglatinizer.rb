@@ -16,6 +16,6 @@ class PigLatinizer
   private
   
   def letters_only(phrase)
-    
+    phrase.gsub(/[^a-zA-Z]/, "")
   end
 end
