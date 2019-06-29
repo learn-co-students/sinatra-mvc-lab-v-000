@@ -25,7 +25,11 @@ class PigLatinizer
     # end.join(" ")
     
     phrase_words.collect do |word|
-      
+      if word.start_with?(/[aeiouAEIOU]/)
+        "#{word}way"
+      else
+        
+      end
     end.join(" ")
   end
   
