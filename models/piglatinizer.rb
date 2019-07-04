@@ -9,10 +9,40 @@ class PigLatinizer
     @final_result.join(" ") 
   end
   
+  def consonant?(char)    
+    !char.match(/[aAeEiIoOuU]/)  
+  end
+  
+
+  def piglatinize_word(word)
+    if consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
+      word = word.split("")
+      first_letter = word.shift
+      second_letter = word.shift
+      third_letter = word.shift 
+      word = word.join
+      @result = "#{word}#{first_letter}#{second_letter}#{third_letter}ay"
+    elsif consonant?(word[0]) && consonant?(word[1])
+      word = word.split("")
+      first_letter = word.shift
+      second_letter = word.shift 
+      word = word.join
+      @result = "#{word}#{first_letter}#{second_letter}ay"
+    elsif consonant?(word[0])
+      word = word.split("")
+      first_letter = word.shift
+      word = word.join 
+      @result = "#{word}#{first_letter}ay"
+    else 
+      @result = "#{word}way"
+    end 
+    
+  end 
+=begin  
   def piglatinize_word(word)
       if ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"].include?(word[0])
         @result = "#{word}way"
-      elsif ["spr"].any? {|consonant_blend| word[0..2].include? consonant_blend}
+      elsif ["spr", "str"].any? {|consonant_blend| word[0..2].include? consonant_blend}
         word = word.split("")
         first_letter = word.shift
         second_letter = word.shift
@@ -33,5 +63,5 @@ class PigLatinizer
       end
     @result
   end 
-  
+=end  
 end 
