@@ -7,10 +7,10 @@ class PigLatinizer
 
   def piglatinize(text)
     words = text.split(" ")
-    
+
     words.collect! do |word|
       if word.start_with?(/[aeouiAEOUI]/)
-        word = word + 'way'
+        word << 'way'
       elsif word.start_with?('sch', 'scr', 'shr', 'spl', 'spr', 'squ', 'str', 'thr', 'Sch', 'Scr', 'Shr', 'Spl', 'Spr', 'Squ', 'Str', 'Thr')
         array = word.chars
 
