@@ -1,6 +1,6 @@
 require_relative 'config/environment'
 #require_relative 'models/piglatinizer.rb'
-require 'pry'
+
 
 class App < Sinatra::Base
 
@@ -9,14 +9,10 @@ class App < Sinatra::Base
   end
 
   post '/piglatinize' do
-    @piglatinizer = (params[:text_here])
-
-    #binding.pry
+    piglat = PigLatinizer.new
+    @pgl = piglat.piglatinize(params[:user_phrase])
     erb :response
 
   end
 
-  get '/response' do
-    erb :response
-  end
 end
