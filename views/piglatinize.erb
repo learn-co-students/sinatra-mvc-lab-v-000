@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>piglatinize</title>
+  </head>
+  <body>
+    <% if (params[:user_phrase].split(" ").count) == 1 %>
+    <h1><%= @piglatinizer_string.piglatinize(params[:user_phrase])%></h1>
+    <% else %>
+    <h1><%= @piglatinizer_string.to_pig_latin(params[:user_phrase])%></h1>
+    <% end %>
+  </body>
+</html>
