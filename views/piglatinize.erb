@@ -6,10 +6,9 @@
   </head>
   <body>
     <h1>Pig Latinizer!</h1> -->
-    <h2>Enter your phrase:</h2>
-    <form>
-      <input type="text" name="user_phrase">
-      <input type="submit" name="Submit">
-    </form>
+
+    <h2>Your Pig Latinized Text</h2>
+
+    <p><%= @piggy_phrase.to_pig_latin(params[:user_phrase]) %></p>
   <!-- </body>
 </html> -->
