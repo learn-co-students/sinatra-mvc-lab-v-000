@@ -1,0 +1,22 @@
+# elsif # 2 consonants
+# elsif # 1 consonant
+
+
+# elsif # second letter "l" or "r", or first two "sp" or "th"
+#   split_text[1] == "l" || split_text[1] == "r" || split_text[0] == "t" && split_text[1] == "h"
+#   split_text << split_text.shift << split_text.shift << "ay"
+#   split_text.join
+#
+# elsif # second and third letters are "p" and "r"
+#   split_text[1] == "p" && split_text[2] == "r" || split_text[1] == "t" && split_text[2] == "r"
+#   split_text << split_text.shift << split_text.shift << split_text.shift << "ay"
+#   split_text.join
+#
+# elsif # first and second letters are "wh" or "sk"
+#   split_text[0] == "w" && split_text[1] == "h" || split_text[0] == "s" && split_text[1] == "k"
+#   split_text << split_text.shift << split_text.shift << "ay"
+#   split_text.join
+#
+# else
+#   split_text << split_text.shift + "ay"
+#   split_text.join
