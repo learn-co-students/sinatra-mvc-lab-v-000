@@ -1,4 +1,5 @@
 class PigLatinizer
+
   attr_accessor :user_phrase
 
   def piglatinize_word(word)
@@ -25,6 +26,33 @@ class PigLatinizer
       string.split(" ").length==1 ? piglatinize_word(string) : to_piglatinize_sentence(string)
     end
 end
+
+#   attr_accessor :piglatinized_phrase
+#
+#   def piglatinize(word)
+#     non_piglatin = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
+#     vowels = ["a", "e". "i", "o", "u"]
+#
+#     if non_piglatin.include?(word)
+#       word
+#     elsif vowels.include? word[0]
+#       word << "ay"
+#       else
+#         consonants = ""
+#         while !vowels.include?(word[0])
+#           consonants << word[0]
+#           word = word.split("")[1..-1].join
+#         end
+#         word + consonants + "ay"
+#       end
+#     end
+#
+#     def to_piglatin(string)
+#       string.split.collect{|word| piglatinize(word)}.join(" ")
+#     end
+#
+# >>>>>>> e5a5cef13cd1ebadc89c19a350633a659daf7775
+# end
 
 
 

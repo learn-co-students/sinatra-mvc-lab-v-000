@@ -12,3 +12,8 @@ class App < Sinatra::Base
     erb :results
   end
 end
+  # post '/pig' do
+  #   @analyzed_text = PigLatinizer.new.to_pig_latin(params[:word])
+  #
+  #   erb :pig
+  # end
