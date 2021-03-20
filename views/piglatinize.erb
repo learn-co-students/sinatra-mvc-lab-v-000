@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pig Latin Output</title>
+  </head>
+  <body>
+    <h1>Pig Latinizer</h1>
+    <p>Your original phrase is: <br>
+    <%= @input_phrase %></p>
+    <p>Your phrase is in pig latin is: <br>
+    <%= @output.piglatinize(@input_phrase) %></p>
+  </body>
+</html>
