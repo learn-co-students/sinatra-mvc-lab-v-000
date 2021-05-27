@@ -1,15 +1,10 @@
 class PigLatinizer
   def piglatinize(word)
-    # consonant = word.match(/(\A[^AEIOUaeiou])/).captures
-    consonant = /\A[^AEIOUaeiou]+/.match(word)
-    # consonant[0]
-
-    # remainder = word.match(/([AEIOUaeiou]+\w+)/)
-    remainder = /[AEIOUaeiou]+\w+/.match(word)
-    # remainder[0]
+    words = []
     
+    consonant = /\A[^AEIOUaeiou]+/.match(word)
+    remainder = /[AEIOUaeiou]+\w+/.match(word) 
     vowel = /\A[AEIOUaeiou]/.match(word)
-
     whole_word = /\A\w*/.match(word)
 
     if consonant
@@ -20,6 +15,9 @@ class PigLatinizer
   end
 end
 
-
+# consonant = word.match(/(\A[^AEIOUaeiou])/).captures
+# consonant[0]
+# remainder = word.match(/([AEIOUaeiou]+\w+)/)
+# remainder[0]
 # consonant = /(\A[^AEIOUaeiou])/.match(word)
 # remainder = /([AEIOUaeiou]+\w+)/.match(word)
