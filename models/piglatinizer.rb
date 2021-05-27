@@ -15,7 +15,7 @@ class PigLatinizer
     end
     
     def splits(sentence)
-      sentence
+      sentence.piglatinize(word)
     end
 end
 
