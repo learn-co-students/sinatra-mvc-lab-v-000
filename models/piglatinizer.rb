@@ -38,7 +38,7 @@ class PigLatinizer
       vowel = /\A[AEIOUaeiou]/.match(word)
       whole_word = /\A\w*/.match(word)
       if consonant
-       new_word = remainder_word[0] << consonant[0] << "ay"  
+       remainder_word[0] << consonant[0] << "ay"  
       elsif vowel
        whole_word[0] << "way"
       end     
@@ -49,17 +49,13 @@ end
 # class PigLatinizer
 #   def piglatinize(words)
 #     words_array = words.split(" ")
-#     results_array = []
-
 #     words_array.each do |word|
 #     consonant = /\A[^AEIOUaeiou]+/.match(word)
 #     remainder = /[AEIOUaeiou]+\w+/.match(word) 
 #     vowel = /\A[AEIOUaeiou]/.match(word)
 #     whole_word = /\A\w*/.match(word)
-
 #     if consonant
 #       new_word = remainder[0] << consonant[0] << "ay"
-#       puts new_word
 #     elsif vowel
 #       new_word = whole_word[0] << "way"
 #     end
