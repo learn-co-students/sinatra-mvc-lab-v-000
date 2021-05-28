@@ -2,6 +2,7 @@ class PigLatinizer
   def piglatinize(words)
     words.split(" ").map do |word|
       consonant = /\A[^AEIOUaeiou]+/.match(word)
+      # consonant = word.match(/(\A[^AEIOUaeiou]+)/) -- (THIS VERSION WORKS ALSO)
       remainder_word = /[AEIOUaeiou]+\w+/.match(word)
       vowel = /\A[AEIOUaeiou]/.match(word)
       whole_word = /\A\w*/.match(word)
@@ -13,12 +14,6 @@ class PigLatinizer
     end.join(" ")
   end    
 end
-
-
-# consonant = word.match(/(\A[^AEIOUaeiou])/).captures
-# consonant = /(\A[^AEIOUaeiou])/.match(word)
-# remainder = /([AEIOUaeiou]+\w+)/.match(word)
-# remainder = word.match(/([AEIOUaeiou]+\w+)/)
 
 
 # class PigLatinizer
