@@ -1,3 +1,25 @@
+class PigLatinizer
+  def piglatinize(words)
+    words.split(" ").map do |word|
+      consonant = /\A[^AEIOUaeiou]+/.match(word)
+      remainder_word = /[AEIOUaeiou]+\w+/.match(word)
+      vowel = /\A[AEIOUaeiou]/.match(word)
+      whole_word = /\A\w*/.match(word)
+      if consonant
+       remainder_word[0] << consonant[0] << "ay"  
+      elsif vowel
+       whole_word[0] << "way"
+      end     
+    end.join(" ")
+  end    
+end
+
+
+# consonant = word.match(/(\A[^AEIOUaeiou])/).captures
+# consonant = /(\A[^AEIOUaeiou])/.match(word)
+# remainder = /([AEIOUaeiou]+\w+)/.match(word)
+# remainder = word.match(/([AEIOUaeiou]+\w+)/)
+
 
 # class PigLatinizer
 #     def piglatinize(words)
@@ -30,89 +52,8 @@
 # end
 
 
-class PigLatinizer
-  def piglatinize(words)
-    words.split(" ").map do |word|
-      consonant = /\A[^AEIOUaeiou]+/.match(word)
-      remainder_word = /[AEIOUaeiou]+\w+/.match(word)
-      vowel = /\A[AEIOUaeiou]/.match(word)
-      whole_word = /\A\w*/.match(word)
-      if consonant
-       remainder_word[0] << consonant[0] << "ay"  
-      elsif vowel
-       whole_word[0] << "way"
-      end     
-    end.join(" ")
-  end    
-end
-
-# class PigLatinizer
-#   def piglatinize(words)
-#     words_array = words.split(" ")
-#       words_array.each do |word|
-#       consonant = /\A[^AEIOUaeiou]+/.match(word)
-#       remainder = /[AEIOUaeiou]+\w+/.match(word) 
-#       vowel = /\A[AEIOUaeiou]/.match(word)
-#       whole_word = /\A\w*/.match(word)
-#       if consonant
-#         remainder[0] << consonant[0] << "ay"
-#       elsif vowel
-#         whole_word[0] << "way"
-#       end
-#     end.join(" ") 
-#   end
-# end
 
 
-# class PigLatinizer
-#   def piglatinize(words)
+
+     
     
-#     consonant = /\A[^AEIOUaeiou]+/.match(words)
-#     remainder = /[AEIOUaeiou]+\w+/.match(words) 
-#     vowel = /\A[AEIOUaeiou]/.match(words)
-#     whole_word = /\A\w*/.match(words)
-
-#     if consonant
-#       new_word = remainder[0] << consonant[0] << "ay"
-#     elsif vowel
-#       new_word = whole_word[0] << "way"
-#     end
-#   end
-# end
-
-
-
-
-
-# consonant = word.match(/(\A[^AEIOUaeiou])/).captures
-# consonant[0]
-# remainder = word.match(/([AEIOUaeiou]+\w+)/)
-# remainder[0]
-# consonant = /(\A[^AEIOUaeiou])/.match(word)
-# remainder = /([AEIOUaeiou]+\w+)/.match(word)
-
-
-
-
-
-
-
- #   results_array = []
-      
-    #   words.split(" ").map do |word|
-    #     consonant = /\A[^AEIOUaeiou]+/.match(word)
-    #     remainder = /[AEIOUaeiou]+\w+/.match(word)
-    #     vowel = /\A[AEIOUaeiou]/.match(word)
-    #     whole_word = /\A\w*/.match(word)
-    #     if consonant
-    #      new_word = remainder[0] << consonant[0] << "ay" 
-    #      new_word.join(" ")
-    #     #  results_array << new_word
-    #     elsif vowel
-    #       new_word = whole_word[0] << "way"
-    #       results_array << new_word
-    #     end     
-    #     # results_array << new_word
-    #   end
-      
-    # end    
