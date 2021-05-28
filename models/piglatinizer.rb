@@ -32,8 +32,7 @@
 
 class PigLatinizer
   def piglatinize(words)
-    words_array = words.split(" ")
-    words_array.map do |word|
+    words.split(" ").map do |word|
       consonant = /\A[^AEIOUaeiou]+/.match(word)
       remainder = /[AEIOUaeiou]+\w+/.match(word)
       vowel = /\A[AEIOUaeiou]/.match(word)
@@ -46,8 +45,6 @@ class PigLatinizer
     end.join(" ")
   end    
 end
-
-
 
 # class PigLatinizer
 #   def piglatinize(words)
