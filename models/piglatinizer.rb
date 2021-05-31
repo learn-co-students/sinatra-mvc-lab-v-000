@@ -1,4 +1,10 @@
 class PigLatinizer
+  attr_reader :phrase
+
+  def initialize(phrase)
+    @phrase = phrase
+  end
+
   def piglatinize(words)
     words.split(" ").map do |word|
       consonant = /\A[^AEIOUaeiou]+/.match(word)
